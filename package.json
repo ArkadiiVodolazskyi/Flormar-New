@@ -1,0 +1,29 @@
+{
+  "name": "flormar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "gulp-sass": "^5.0.0",
+    "sass": "^1.39.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArkadiiVodolazskyi/Flormar-New.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArkadiiVodolazskyi/Flormar-New/issues"
+  },
+  "homepage": "https://github.com/ArkadiiVodolazskyi/Flormar-New#readme"
+}

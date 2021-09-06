@@ -1,0 +1,83 @@
+footer#main_footer
+	background-color: $bg-secondary
+	color: $text-secondary
+	.wrapper
+		padding: 45px 0
+		display: flex
+		justify-content: space-between
+		align-items: center
+	.logo_pink
+		width: 94px
+		img
+			transition: all 0.25s ease
+		&:hover img
+			filter: drop-shadow(4px 4px 5px rgba($interactive-color-primary, 0.4))
+	nav
+		display: flex
+		gap: 70px
+		ul
+			display: flex
+			flex-direction: column
+			li a
+				line-height: 1.88
+				font-size: 16px
+				font-family: $ff_mplusround
+				&:hover
+					color: $interactive-color-primary
+	.subscribe_block
+		width: 320px
+		p
+			font-family: $ff_futurabt
+			font-size: 16px
+		.email_field
+			margin-top: 5px
+			position: relative
+			input
+				width: 100%
+				font-family: $ff_futurabt
+				font-size: 14px
+				padding: 10px 0
+				background: none
+				color: $text-secondary
+				outline: none
+				transition: all 0.25s ease
+				border-bottom: 1px solid rgba($text-secondary, 0.5)
+				&::placeholder
+					opacity: 1
+				&:focus
+					border-color: $interactive-color-primary
+			#subscribe_to_newsletter
+				position: absolute
+				z-index: 10
+				top: 50%
+				left: 0
+				transform: translate(-10px, -50%)
+				padding: 10px
+				display: inline-flex
+				align-items: center
+				justify-content: center
+				transition: all 0.25s ease
+				svg
+					fill: $text-secondary
+				&:hover svg
+					fill: $interactive-color-primary
+	.social_icons
+		display: flex
+		gap: 48px
+		li a
+			padding: 10px
+			display: inline-flex
+			align-items: center
+			justify-content: center
+			svg
+				stroke: $text-secondary
+				fill: $text-secondary
+			&:hover svg
+				stroke: $interactive-color-primary
+				fill: $interactive-color-primary
+
+
+
+
+
+

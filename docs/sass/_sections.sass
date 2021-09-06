@@ -1,0 +1,279 @@
+section.banner_main
+	position: relative
+	height: 32.6vw
+	max-height: 810px
+	.slider
+		overflow: hidden
+		transition: all 0.5s ease-in
+	.slide
+		display: inline-block
+		width: 100%
+		height: 32.6vw
+		max-height: 810px
+		position: relative
+		overflow: hidden
+		img
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+			width: 100%
+			height: auto
+			min-height: 100%
+	.slider_nav
+		position: absolute
+		z-index: 10
+		padding: 24px 0
+		bottom: 0
+		left: 0
+		width: 100%
+	.shop_now
+		display: block
+		width: max-content
+		margin: 0 auto
+		padding: 13px 89px
+		font-family: $ff_mplusround
+		font-weight: 500
+		color: $text-secondary
+		background-color: $bg-secondary
+		&:hover
+			background-color: $interactive-color-primary
+	.slick-dots
+		margin-top: 14px
+		display: flex
+		justify-content: center
+		align-items: center
+		gap: 24px
+		li
+			font-size: 0
+			line-height: 0
+			button
+				color: $tsp
+				background-color: $w
+				border: 1px solid $interactive-color-primary
+				border-radius: 50%
+				width: 10px
+				height: 10px
+			&.slick-active button
+				background-color: $interactive-color-primary
+			&:hover button
+				background-color: rgba($interactive-color-primary, 0.5)
+
+section.products
+	margin-top: 70px
+	.cards
+		margin-top: 48px
+		overflow: hidden
+		&.loading_products
+			min-height: 400px
+			min-width: 100%
+			opacity: 0.5
+			pointer-events: none
+		.slick-list
+			padding: 0 !important
+	.card
+		width: calc( 100% / 5 )
+		height: 335px
+		vertical-align: middle
+		margin: 0 23px
+		max-width: 255px
+		display: inline-flex
+		flex-direction: column
+		position: relative
+		transition: all 0.25s ease
+		&[aria-hidden=true]
+			opacity: 0
+		&:hover
+			.thumb img
+				transform: translate(-50%, -50%) scale(1.05)
+			.name
+				color: $interactive-color-primary
+		.tags
+			position: absolute
+			z-index: 20
+			left: 0
+			top: 0
+			display: flex
+			flex-direction: column
+			gap: 10px
+			.tag
+				font-family: $ff_mplusround
+				font-size: 12px
+				font-weight: 500
+				padding: 7px 12px
+				border-radius: 12px 0 12px 0
+				color: $text-secondary
+				background-color: $bg-secondary
+				&:hover
+					background-color: $interactive-color-primary
+		.thumb
+			height: 190px
+			overflow: hidden
+			position: relative
+			z-index: 10
+			img
+				width: auto
+				height: auto
+				max-height: 95%
+				max-width: 95%
+				position: absolute
+				z-index: inherit
+				left: 50%
+				top: 50%
+				transition: all 0.4s ease
+				transform: translate(-50%, -50%)
+		.name h4
+			margin-top: 10px
+			font-size: 14px
+			font-weight: 400
+			font-family: $ff_futura
+			text-align: center
+			transition: all 0.4s ease
+		.attributes
+			display: flex
+			flex-direction: column
+			margin-bottom: 18px
+		.price
+			margin-top: 10px
+			align-self: center
+			font-size: 0
+			display: flex
+			justify-content: center
+			width: 100%
+			span
+				font-size: 16px
+				font-weight: 500
+			.price_current
+				width: max-content
+				text-align: center
+				white-space: nowrap
+			.price_old
+				width: 100%
+				text-align: left
+				span
+					color: rgba($text-primary, 0.5)
+					text-decoration: line-through
+		.quantity
+			align-self: flex-start
+			font-size: 0
+			span
+				font-family: $ff_mplusround
+				font-size: 14px
+				font-weight: 500
+				color: rgba($text-primary, 0.5)
+		.add_to_cart
+			width: 100%
+			margin: auto auto 0
+			justify-self: flex-end
+			padding: 12px 0
+			font-weight: 500
+			font-size: 12px
+			text-align: center
+			border: 1px solid $text-primary
+			&:hover
+				border-color: $interactive-color-primary
+				color: $interactive-color-primary
+	.slider_nav
+		margin-top: 40px
+		display: flex
+		align-items: center
+		gap: 10px
+		.slick-arrow
+			padding: 10px
+			svg
+				fill: $text-primary
+			&:hover svg
+				fill: $interactive-color-primary
+			&.slick-disabled
+				opacity: 0.2
+				pointer-events: none
+
+section.banners_small
+	padding: 70px 0 35px
+	.wrapper
+		width: 90%
+	.cards
+		display: flex
+		gap: 30px
+	.card
+		width: 50%
+		height: 37.7vw
+		position: relative
+		transition: all 0.4s ease
+		&:hover
+			box-shadow: 0px 0px 20px 0px rgba($bg-secondary, 0.4)
+		img
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			min-width: 100%
+			min-height: 100%
+
+section.cosmetics_types
+	padding: 35px 0 70px
+	.cards
+		display: flex
+		gap: 30px
+	.card
+		width: calc( 100% / 3 )
+		height: 24.3vw
+		display: inline-flex
+		flex-direction: column
+		justify-content: center
+		position: relative
+		transition: all 0.4s ease
+		.card_bg
+			position: absolute
+			z-index: 5
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+			min-width: 100%
+			min-height: 100%
+		.card_name
+			position: relative
+			z-index: 10
+			padding: 15px
+			text-align: center
+			font-size: 26px
+			font-weight: 500
+			transition: all 0.4s ease
+			background-color: rgba($bg-primary, 0.7)
+			border-top: 2px solid $interactive-color-primary
+			border-bottom: 2px solid $interactive-color-primary
+		&:hover
+			box-shadow: 0px 0px 20px 0px rgba($bg-secondary, 0.4)
+			.card_name
+				background-color: rgba($bg-primary, 0.8)
+				color: $interactive-color-primary
+
+section.achievements
+	background-color: $bg-medial
+	.wrapper
+		padding: 60px 0 45px
+	.cards
+		display: flex
+		align-items: center
+		justify-content: space-between
+	.card
+		display: inline-flex
+		align-items: center
+		gap: 12px
+		direction: ltr
+		.amount
+			font-family: $ff_futura
+			font-size: 72px
+			font-weight: 500
+		.ofwhat
+			font-family: $ff_futurabt
+			font-size: 18px
+
+
+
+
+
+
+
+
+

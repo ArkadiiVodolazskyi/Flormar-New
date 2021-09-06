@@ -1,0 +1,339 @@
+/* __________________ Reset styles __________________ */
+* { margin: 0; padding: 0; border: 0; font-size: 100%; color: inherit; box-sizing: border-box; line-height: inherit; }
+
+/* __________________ Tags __________________ */
+@media (min-width: 1025px) { ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4); }
+  ::-webkit-scrollbar-thumb { background-image: linear-gradient(180deg, black 0%, #620039 99%); box-shadow: inset 2px 2px 10px 0 rgba(0, 0, 0, 0.5); }
+  html.discroll { padding-right: 10px; } }
+
+html { max-width: 100vw; scroll-behavior: unset; position: relative; font-smooth: antialiased; -webkit-font-smoothing: antialiased; font-size: 14px; font-family: "Mplus 1p", sans-serif; }
+
+html.discroll body { overflow: hidden; }
+
+body { width: 100%; height: 100%; position: relative; z-index: 1; padding-top: 105px; }
+
+section { position: relative; z-index: 5; max-width: 100vw; overflow: hidden; }
+
+section h3.section_title { width: max-content; margin: 0 auto; font-size: 36px; font-weight: 500; text-align: center; padding: 5px 0; border-top: 2px solid #fb0092; border-bottom: 2px solid #fb0092; }
+
+li, span, a { display: inline-block; }
+
+a { text-decoration: none; transition: all 0.3s ease; }
+
+svg { transition: fill 0.3s ease; }
+
+svg path { transition: fill 0.3s ease; }
+
+button { -moz-appearance: none; -webkit-appearance: none; appearance: none; background: none; text-align: center; cursor: pointer; outline: none; transition: all 0.3s ease; display: block; font-family: "FuturaBookC", sans-serif; }
+
+/* __________________ Clssses __________________ */
+.wrapper { width: 77%; margin: 0 auto; position: relative; z-index: 5; }
+
+.loading { position: relative; opacity: 0; visibility: hidden; }
+
+#overlay { position: fixed; z-index: 1000; left: 0; top: 0; right: 0; bottom: 0; width: 100%; height: 100vh; background-color: rgba(255, 255, 255, 0.9); cursor: pointer; transition: all 0.4s ease; opacity: 0; visibility: hidden; }
+
+#overlay.active { opacity: 1; visibility: visible; }
+
+@font-face { font-family: 'FuturaBookC'; src: url("../fonts/Futura/FuturaDemiC.eot"); src: local("Futura Demi Cyrillic"), local("FuturaDemiC"), url("../fonts/Futura/FuturaDemiC.eot?#iefix") format("embedded-opentype"), url("../fonts/Futura/FuturaDemiC.woff") format("woff"), url("../fonts/Futura/FuturaDemiC.ttf") format("truetype"); font-weight: normal; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'FuturaBookC'; src: url("../fonts/Futura/FuturaMediumC.eot"); src: local("Futura Medium Cyrillic"), local("FuturaMediumC"), url("../fonts/Futura/FuturaMediumC.eot?#iefix") format("embedded-opentype"), url("../fonts/Futura/FuturaMediumC.woff") format("woff"), url("../fonts/Futura/FuturaMediumC.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'FuturaBookC'; src: url("../fonts/Futura/FuturaLightC-Italic.eot"); src: local("Futura Light Italic Cyrillic"), local("FuturaLightC-Italic"), url("../fonts/Futura/FuturaLightC-Italic.eot?#iefix") format("embedded-opentype"), url("../fonts/Futura/FuturaLightC-Italic.woff") format("woff"), url("../fonts/Futura/FuturaLightC-Italic.ttf") format("truetype"); font-weight: 300; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'FuturaBookC'; src: url("../fonts/Futura/FuturaMediumC-Italic.eot"); src: local("Futura Medium Italic Cyrillic"), local("FuturaMediumC-Italic"), url("../fonts/Futura/FuturaMediumC-Italic.eot?#iefix") format("embedded-opentype"), url("../fonts/Futura/FuturaMediumC-Italic.woff") format("woff"), url("../fonts/Futura/FuturaMediumC-Italic.ttf") format("truetype"); font-weight: 500; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'FuturaBookC'; src: url("../fonts/Futura/FuturaLightC.eot"); src: local("Futura Light Cyrillic"), local("FuturaLightC"), url("../fonts/Futura/FuturaLightC.eot?#iefix") format("embedded-opentype"), url("../fonts/Futura/FuturaLightC.woff") format("woff"), url("../fonts/Futura/FuturaLightC.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'FuturaBookC'; src: url("../fonts/Futura/FuturaDemiC-Italic.eot"); src: local("Futura Demi Italic Cyrillic"), local("FuturaDemiC-Italic"), url("../fonts/Futura/FuturaDemiC-Italic.eot?#iefix") format("embedded-opentype"), url("../fonts/Futura/FuturaDemiC-Italic.woff") format("woff"), url("../fonts/Futura/FuturaDemiC-Italic.ttf") format("truetype"); font-weight: normal; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'FuturaBookC'; src: url("../fonts/Futura/FuturaBookC-Italic.eot"); src: local("Futura Book Italic Cyrillic"), local("FuturaBookC-Italic"), url("../fonts/Futura/FuturaBookC-Italic.eot?#iefix") format("embedded-opentype"), url("../fonts/Futura/FuturaBookC-Italic.woff") format("woff"), url("../fonts/Futura/FuturaBookC-Italic.ttf") format("truetype"); font-weight: normal; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'FuturaBookC'; src: url("../fonts/Futura/FuturaBookC.eot"); src: local("Futura Book Cyrillic"), local("FuturaBookC"), url("../fonts/Futura/FuturaBookC.eot?#iefix") format("embedded-opentype"), url("../fonts/Futura/FuturaBookC.woff") format("woff"), url("../fonts/Futura/FuturaBookC.ttf") format("truetype"); font-weight: normal; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'FuturaBkBt'; src: url("../fonts/FuturaBkBt/FutuBk.ttf"); font-weight: normal; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'FuturaBkBt'; src: url("../fonts/FuturaBkBt/FutuBkIt.ttf"); font-weight: normal; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'FuturaBkBt'; src: url("../fonts/FuturaBkBt/FutuBkMedium.ttf"); font-weight: 500; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Mplus 1p'; src: url("../fonts/Mplus1p/Mplus1p-Thin.eot"); src: local("Mplus 1p Thin"), local("Mplus1p-Thin"), url("../fonts/Mplus1p/Mplus1p-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/Mplus1p/Mplus1p-Thin.woff2") format("woff2"), url("../fonts/Mplus1p/Mplus1p-Thin.woff") format("woff"), url("../fonts/Mplus1p/Mplus1p-Thin.ttf") format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Mplus 1p'; src: url("../fonts/Mplus1p/Mplus1p-Black.eot"); src: local("Mplus 1p Black"), local("Mplus1p-Black"), url("../fonts/Mplus1p/Mplus1p-Black.eot?#iefix") format("embedded-opentype"), url("../fonts/Mplus1p/Mplus1p-Black.woff2") format("woff2"), url("../fonts/Mplus1p/Mplus1p-Black.woff") format("woff"), url("../fonts/Mplus1p/Mplus1p-Black.ttf") format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Mplus 1p'; src: url("../fonts/Mplus1p/Mplus1p-Regular.eot"); src: local("Mplus 1p"), local("Mplus1p-Regular"), url("../fonts/Mplus1p/Mplus1p-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Mplus1p/Mplus1p-Regular.woff2") format("woff2"), url("../fonts/Mplus1p/Mplus1p-Regular.woff") format("woff"), url("../fonts/Mplus1p/Mplus1p-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Mplus 1p'; src: url("../fonts/Mplus1p/Mplus1p-Medium.eot"); src: local("Mplus 1p Medium"), local("Mplus1p-Medium"), url("../fonts/Mplus1p/Mplus1p-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Mplus1p/Mplus1p-Medium.woff2") format("woff2"), url("../fonts/Mplus1p/Mplus1p-Medium.woff") format("woff"), url("../fonts/Mplus1p/Mplus1p-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Mplus 1p'; src: url("../fonts/Mplus1p/Mplus1p-Light.eot"); src: local("Mplus 1p Light"), local("Mplus1p-Light"), url("../fonts/Mplus1p/Mplus1p-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/Mplus1p/Mplus1p-Light.woff2") format("woff2"), url("../fonts/Mplus1p/Mplus1p-Light.woff") format("woff"), url("../fonts/Mplus1p/Mplus1p-Light.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Mplus 1p'; src: url("../fonts/Mplus1p/Mplus1p-Bold.eot"); src: local("Mplus 1p Bold"), local("Mplus1p-Bold"), url("../fonts/Mplus1p/Mplus1p-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Mplus1p/Mplus1p-Bold.woff2") format("woff2"), url("../fonts/Mplus1p/Mplus1p-Bold.woff") format("woff"), url("../fonts/Mplus1p/Mplus1p-Bold.ttf") format("truetype"); font-weight: bold; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Mplus 1p'; src: url("../fonts/Mplus1p/Mplus1p-ExtraBold.eot"); src: local("Mplus 1p ExtraBold"), local("Mplus1p-ExtraBold"), url("../fonts/Mplus1p/Mplus1p-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Mplus1p/Mplus1p-ExtraBold.woff2") format("woff2"), url("../fonts/Mplus1p/Mplus1p-ExtraBold.woff") format("woff"), url("../fonts/Mplus1p/Mplus1p-ExtraBold.ttf") format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Rounded Mplus 1c'; src: url("../fonts/RoundedMplus1c/RoundedMplus1c-Medium.eot"); src: local("Rounded Mplus 1c Medium"), local("RoundedMplus1c-Medium"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Medium.woff2") format("woff2"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Medium.woff") format("woff"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Rounded Mplus 1c'; src: url("../fonts/RoundedMplus1c/RoundedMplus1c-ExtraBold.eot"); src: local("Rounded Mplus 1c ExtraBold"), local("RoundedMplus1c-ExtraBold"), url("../fonts/RoundedMplus1c/RoundedMplus1c-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../fonts/RoundedMplus1c/RoundedMplus1c-ExtraBold.woff2") format("woff2"), url("../fonts/RoundedMplus1c/RoundedMplus1c-ExtraBold.woff") format("woff"), url("../fonts/RoundedMplus1c/RoundedMplus1c-ExtraBold.ttf") format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Rounded Mplus 1c'; src: url("../fonts/RoundedMplus1c/RoundedMplus1c-Thin.eot"); src: local("Rounded Mplus 1c Thin"), local("RoundedMplus1c-Thin"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Thin.woff2") format("woff2"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Thin.woff") format("woff"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Thin.ttf") format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Rounded Mplus 1c'; src: url("../fonts/RoundedMplus1c/RoundedMplus1c-Black.eot"); src: local("Rounded Mplus 1c Black"), local("RoundedMplus1c-Black"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Black.eot?#iefix") format("embedded-opentype"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Black.woff2") format("woff2"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Black.woff") format("woff"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Black.ttf") format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Rounded Mplus 1c'; src: url("../fonts/RoundedMplus1c/RoundedMplus1c-Light.eot"); src: local("Rounded Mplus 1c Light"), local("RoundedMplus1c-Light"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Light.woff2") format("woff2"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Light.woff") format("woff"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Light.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Rounded Mplus 1c'; src: url("../fonts/RoundedMplus1c/RoundedMplus1c-Regular.eot"); src: local("Rounded Mplus 1c"), local("RoundedMplus1c-Regular"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Regular.woff2") format("woff2"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Regular.woff") format("woff"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Rounded Mplus 1c'; src: url("../fonts/RoundedMplus1c/RoundedMplus1c-Bold.eot"); src: local("Rounded Mplus 1c Bold"), local("RoundedMplus1c-Bold"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Bold.woff2") format("woff2"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Bold.woff") format("woff"), url("../fonts/RoundedMplus1c/RoundedMplus1c-Bold.ttf") format("truetype"); font-weight: bold; font-style: normal; font-display: swap; }
+
+.sale_line { position: absolute; top: 0; left: 0; width: 100%; max-width: 100vw; height: 35px; overflow: hidden; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; background-color: #000000; transition: all 0.4s ease; color: #ffffff; }
+
+.sale_line:hover { color: #fb0092; }
+
+#main_header { position: fixed; z-index: 3000; left: 0; width: 100%; max-width: 100vw; background-color: #ffffff; transition: all 0.25s linear; top: 35px; border-bottom: 1px solid #00000000; }
+
+#main_header.roll { top: 0; }
+
+#main_header.mega_opened { border-color: #000000; }
+
+#main_header .wrapper { height: 70px; display: flex; align-items: center; justify-content: space-between; }
+
+#main_header .main_logo { width: 155px; }
+
+#main_header .main_logo img { transition: all 0.25s ease; }
+
+#main_header .main_logo:hover img { filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.4)); }
+
+#main_header nav { height: 100%; display: flex; align-items: center; justify-content: center; }
+
+#main_header nav ul { height: 100%; display: flex; align-items: center; justify-content: center; }
+
+#main_header nav ul li { height: 100%; }
+
+#main_header nav ul li a { height: 100%; display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 2px; text-decoration-color: #00000000; }
+
+#main_header nav ul li a:hover, #main_header nav ul li a.active { text-decoration-color: #fb0092; }
+
+#main_header .manage_icons { display: flex; align-items: center; justify-content: center; gap: 0 20px; }
+
+#main_header .manage_icons li a { padding: 10px; display: inline-flex; align-items: center; justify-content: center; }
+
+#main_header .manage_icons li a svg { stroke: #000000; fill: #000000; }
+
+#main_header .manage_icons li a:hover svg { stroke: #fb0092; fill: #fb0092; }
+
+#main_header #expand_mobile_menu { display: none; width: 36px; height: 32px; position: relative; }
+
+#main_header #expand_mobile_menu svg { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 100%; height: auto; transition: all 0.4s ease; }
+
+#main_header #expand_mobile_menu:hover svg { fill: #fb0092; }
+
+#main_header #expand_mobile_menu .hamb { fill: #ffffff; }
+
+#main_header #expand_mobile_menu .close { fill: #000000; opacity: 0; visibility: hidden; }
+
+#main_header #expand_mobile_menu.active .hamb { opacity: 0; visibility: hidden; }
+
+#main_header #expand_mobile_menu.active .close { opacity: 1; visibility: visible; }
+
+#main_header .wrapper .main_megamenu { position: absolute; z-index: 3050; top: 100%; left: 50%; width: max-content; transform: translate(-50%, 1px); transition: all 0.5s ease-in-out; opacity: 0; visibility: hidden; }
+
+#main_header .wrapper .main_megamenu.active { opacity: 1; visibility: visible; }
+
+#main_header .wrapper .main_megamenu .mega_item { position: absolute; z-index: 3050; background-color: #ffffff; width: max-content; left: 50%; top: 0; transform: translate(-50%, 0); padding: 17px 166px 52px 33px; display: flex; gap: 0 62px; transition: all 0.2s ease-in-out; opacity: 0; visibility: hidden; }
+
+#main_header .wrapper .main_megamenu .mega_item.active { opacity: 1; visibility: visible; }
+
+#main_header .wrapper .main_megamenu .mega_item .megaitem_img { position: absolute; z-index: 3010; right: 0; top: 0; height: 100%; width: auto; }
+
+#main_header .wrapper .main_megamenu .mega_item .item_block { line-height: 1.88; position: relative; z-index: 3050; }
+
+#main_header .wrapper .main_megamenu .mega_item .item_block a:hover { color: #fb0092; }
+
+#main_header .wrapper .main_megamenu .mega_item .item_block h4 { font-size: 18px; font-weight: 500; }
+
+#main_header .wrapper .main_megamenu .mega_item .item_block ul li { display: block; }
+
+#main_header .wrapper .main_megamenu .mega_item .item_block ul li a { font-size: 16px; }
+
+#mobile_header { position: absolute; z-index: 2000; top: 105px; right: 0; width: 100%; transition: all 0.4s ease; opacity: 0; visibility: hidden; }
+
+#mobile_header.active { opacity: 1; visibility: visible; }
+
+#mobile_header .wrapper { width: 65%; }
+
+#mobile_header li { display: block; }
+
+#mobile_header a:hover { color: #fb0092; }
+
+#mobile_header .main_links li a { font-weight: 500; }
+
+#mobile_header .sublinks { margin-top: 7px; }
+
+#mobile_header .sublinks li a { font-size: 16px; font-family: "Rounded Mplus 1c", sans-serif; }
+
+section.banner_main { position: relative; height: 32.6vw; max-height: 810px; }
+
+section.banner_main .slider { overflow: hidden; transition: all 0.5s ease-in; }
+
+section.banner_main .slide { display: inline-block; width: 100%; height: 32.6vw; max-height: 810px; position: relative; overflow: hidden; }
+
+section.banner_main .slide img { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 100%; height: auto; min-height: 100%; }
+
+section.banner_main .slider_nav { position: absolute; z-index: 10; padding: 24px 0; bottom: 0; left: 0; width: 100%; }
+
+section.banner_main .shop_now { display: block; width: max-content; margin: 0 auto; padding: 13px 89px; font-family: "Rounded Mplus 1c", sans-serif; font-weight: 500; color: #ffffff; background-color: #000000; }
+
+section.banner_main .shop_now:hover { background-color: #fb0092; }
+
+section.banner_main .slick-dots { margin-top: 14px; display: flex; justify-content: center; align-items: center; gap: 24px; }
+
+section.banner_main .slick-dots li { font-size: 0; line-height: 0; }
+
+section.banner_main .slick-dots li button { color: #00000000; background-color: #ffffff; border: 1px solid #fb0092; border-radius: 50%; width: 10px; height: 10px; }
+
+section.banner_main .slick-dots li.slick-active button { background-color: #fb0092; }
+
+section.banner_main .slick-dots li:hover button { background-color: rgba(251, 0, 146, 0.5); }
+
+section.products { margin-top: 70px; }
+
+section.products .cards { margin-top: 48px; overflow: hidden; }
+
+section.products .cards.loading_products { min-height: 400px; min-width: 100%; opacity: 0.5; pointer-events: none; }
+
+section.products .cards .slick-list { padding: 0 !important; }
+
+section.products .card { width: calc( 100% / 5); height: 335px; vertical-align: middle; margin: 0 23px; max-width: 255px; display: inline-flex; flex-direction: column; position: relative; transition: all 0.25s ease; }
+
+section.products .card[aria-hidden=true] { opacity: 0; }
+
+section.products .card:hover .thumb img { transform: translate(-50%, -50%) scale(1.05); }
+
+section.products .card:hover .name { color: #fb0092; }
+
+section.products .card .tags { position: absolute; z-index: 20; left: 0; top: 0; display: flex; flex-direction: column; gap: 10px; }
+
+section.products .card .tags .tag { font-family: "Rounded Mplus 1c", sans-serif; font-size: 12px; font-weight: 500; padding: 7px 12px; border-radius: 12px 0 12px 0; color: #ffffff; background-color: #000000; }
+
+section.products .card .tags .tag:hover { background-color: #fb0092; }
+
+section.products .card .thumb { height: 190px; overflow: hidden; position: relative; z-index: 10; }
+
+section.products .card .thumb img { width: auto; height: auto; max-height: 95%; max-width: 95%; position: absolute; z-index: inherit; left: 50%; top: 50%; transition: all 0.4s ease; transform: translate(-50%, -50%); }
+
+section.products .card .name h4 { margin-top: 10px; font-size: 14px; font-weight: 400; font-family: "FuturaBookC", sans-serif; text-align: center; transition: all 0.4s ease; }
+
+section.products .card .attributes { display: flex; flex-direction: column; margin-bottom: 18px; }
+
+section.products .card .price { margin-top: 10px; align-self: center; font-size: 0; display: flex; justify-content: center; width: 100%; }
+
+section.products .card .price span { font-size: 16px; font-weight: 500; }
+
+section.products .card .price .price_current { width: max-content; text-align: center; white-space: nowrap; }
+
+section.products .card .price .price_old { width: 100%; text-align: left; }
+
+section.products .card .price .price_old span { color: rgba(0, 0, 0, 0.5); text-decoration: line-through; }
+
+section.products .card .quantity { align-self: flex-start; font-size: 0; }
+
+section.products .card .quantity span { font-family: "Rounded Mplus 1c", sans-serif; font-size: 14px; font-weight: 500; color: rgba(0, 0, 0, 0.5); }
+
+section.products .card .add_to_cart { width: 100%; margin: auto auto 0; justify-self: flex-end; padding: 12px 0; font-weight: 500; font-size: 12px; text-align: center; border: 1px solid #000000; }
+
+section.products .card .add_to_cart:hover { border-color: #fb0092; color: #fb0092; }
+
+section.products .slider_nav { margin-top: 40px; display: flex; align-items: center; gap: 10px; }
+
+section.products .slider_nav .slick-arrow { padding: 10px; }
+
+section.products .slider_nav .slick-arrow svg { fill: #000000; }
+
+section.products .slider_nav .slick-arrow:hover svg { fill: #fb0092; }
+
+section.products .slider_nav .slick-arrow.slick-disabled { opacity: 0.2; pointer-events: none; }
+
+section.banners_small { padding: 70px 0 35px; }
+
+section.banners_small .wrapper { width: 90%; }
+
+section.banners_small .cards { display: flex; gap: 30px; }
+
+section.banners_small .card { width: 50%; height: 37.7vw; position: relative; transition: all 0.4s ease; }
+
+section.banners_small .card:hover { box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4); }
+
+section.banners_small .card img { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100%; min-height: 100%; }
+
+section.cosmetics_types { padding: 35px 0 70px; }
+
+section.cosmetics_types .cards { display: flex; gap: 30px; }
+
+section.cosmetics_types .card { width: calc( 100% / 3); height: 24.3vw; display: inline-flex; flex-direction: column; justify-content: center; position: relative; transition: all 0.4s ease; }
+
+section.cosmetics_types .card .card_bg { position: absolute; z-index: 5; left: 50%; top: 50%; transform: translate(-50%, -50%); min-width: 100%; min-height: 100%; }
+
+section.cosmetics_types .card .card_name { position: relative; z-index: 10; padding: 15px; text-align: center; font-size: 26px; font-weight: 500; transition: all 0.4s ease; background-color: rgba(255, 255, 255, 0.7); border-top: 2px solid #fb0092; border-bottom: 2px solid #fb0092; }
+
+section.cosmetics_types .card:hover { box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.4); }
+
+section.cosmetics_types .card:hover .card_name { background-color: rgba(255, 255, 255, 0.8); color: #fb0092; }
+
+section.achievements { background-color: #eeebeb; }
+
+section.achievements .wrapper { padding: 60px 0 45px; }
+
+section.achievements .cards { display: flex; align-items: center; justify-content: space-between; }
+
+section.achievements .card { display: inline-flex; align-items: center; gap: 12px; direction: ltr; }
+
+section.achievements .card .amount { font-family: "FuturaBookC", sans-serif; font-size: 72px; font-weight: 500; }
+
+section.achievements .card .ofwhat { font-family: "FuturaBkBt", sans-serif; font-size: 18px; }
+
+footer#main_footer { background-color: #000000; color: #ffffff; }
+
+footer#main_footer .wrapper { padding: 45px 0; display: flex; justify-content: space-between; align-items: center; }
+
+footer#main_footer .logo_pink { width: 94px; }
+
+footer#main_footer .logo_pink img { transition: all 0.25s ease; }
+
+footer#main_footer .logo_pink:hover img { filter: drop-shadow(4px 4px 5px rgba(251, 0, 146, 0.4)); }
+
+footer#main_footer nav { display: flex; gap: 70px; }
+
+footer#main_footer nav ul { display: flex; flex-direction: column; }
+
+footer#main_footer nav ul li a { line-height: 1.88; font-size: 16px; font-family: "Rounded Mplus 1c", sans-serif; }
+
+footer#main_footer nav ul li a:hover { color: #fb0092; }
+
+footer#main_footer .subscribe_block { width: 320px; }
+
+footer#main_footer .subscribe_block p { font-family: "FuturaBkBt", sans-serif; font-size: 16px; }
+
+footer#main_footer .subscribe_block .email_field { margin-top: 5px; position: relative; }
+
+footer#main_footer .subscribe_block .email_field input { width: 100%; font-family: "FuturaBkBt", sans-serif; font-size: 14px; padding: 10px 0; background: none; color: #ffffff; outline: none; transition: all 0.25s ease; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+
+footer#main_footer .subscribe_block .email_field input::placeholder { opacity: 1; }
+
+footer#main_footer .subscribe_block .email_field input:focus { border-color: #fb0092; }
+
+footer#main_footer .subscribe_block .email_field #subscribe_to_newsletter { position: absolute; z-index: 10; top: 50%; left: 0; transform: translate(-10px, -50%); padding: 10px; display: inline-flex; align-items: center; justify-content: center; transition: all 0.25s ease; }
+
+footer#main_footer .subscribe_block .email_field #subscribe_to_newsletter svg { fill: #ffffff; }
+
+footer#main_footer .subscribe_block .email_field #subscribe_to_newsletter:hover svg { fill: #fb0092; }
+
+footer#main_footer .social_icons { display: flex; gap: 48px; }
+
+footer#main_footer .social_icons li a { padding: 10px; display: inline-flex; align-items: center; justify-content: center; }
+
+footer#main_footer .social_icons li a svg { stroke: #ffffff; fill: #ffffff; }
+
+footer#main_footer .social_icons li a:hover svg { stroke: #fb0092; fill: #fb0092; }
+
+@media (max-width: 768px) { .wrapper { width: 85%; } }

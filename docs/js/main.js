@@ -1,92 +1,65 @@
 
-const loadProducts = async (url) => {
-	let products = null;
-	let error = null;
-
-	try {
-		const data = await fetch(url, {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify()
-		});
-		if (!data.ok) {
-			throw Error('There was an error!');
-		}
-		products = await data.json();
-	}
-	catch(err) {
-		error = err.message;
-	}
-
-	return products;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
 
-	// Init slick slider
-	const bannerSlider = document.querySelector('.banner_main .slider');
-	$(bannerSlider).slick({
-		rtl: true,
-		lazyLoad: 'progressive',
-		arrows: false,
-		dots: true,
-		appendDots: $('.banner_main .slider_nav'),
-		speed: 500,
-		draggable: false,
-		swipe: false,
-		focusOnSelect: false,
-		infinite: false,
-		autoplay: true,
-		autoplaySpeed: 3000,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		responsive: [
-			{
-				breakpoint: 1025,
-				settings: {
-					draggable: true,
-					swipe: true,
-				},
-			}
-		],
-	});
-
-	// Toggle text
-	(function() {
-		const textBlock = document.querySelector('.products .info .text');
-
-		if (textBlock.offsetHeight > 60) {
-
-			// Add button
-			const readMore = document.createElement('button');
-			readMore.classList.add('toggle_text');
-			readMore.innerHTML = `
-				<span class='readMoreText'>Read more</span>
-				<svg width="10" height="6"><use xlink:href="./img/icons.svg#arrow_down"></use></svg>`;
-			textBlock.after(readMore);
-
-			// Hide text
-			textBlock.classList.add('wrapped_text');
-			setTimeout(() => {
-				textBlock.style.transition = 'all 0.8s ease-in-out';
-			}, 500);
-			const readMoreText = readMore.querySelector('.readMoreText');
-
-			// Add interaction
-			readMore.addEventListener('click', () => {
-				if (textBlock.classList.contains('wrapped_text')) {
-					textBlock.classList.remove('wrapped_text');
-					readMore.classList.add('active');
-					readMoreText.innerText = `Read less`;
-				} else {
-					textBlock.classList.add('wrapped_text');
-					readMore.classList.remove('active');
-					readMoreText.innerText = `Read more`;
+	// Slicks options
+  slickOptions = {
+		'banner_slider': {
+			rtl: true,
+			lazyLoad: 'progressive',
+			arrows: false,
+			dots: true,
+			appendDots: $('.banner_main .slider_nav'),
+			speed: 500,
+			draggable: false,
+			swipe: false,
+			focusOnSelect: false,
+			infinite: false,
+			autoplay: false,
+			autoplaySpeed: 3000,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			responsive: [
+				{
+					breakpoint: 1025,
+					settings: {
+						draggable: true,
+						swipe: true,
+					},
 				}
-			}, true);
+			],
+		},
+		'products': {
+			rtl: true,
+			lazyLoad: 'progressive',
+			arrows: true,
+			dots: false,
+			prevArrow: $(".slider[data-type='products'] + .slider_nav .slick-prev"),
+      nextArrow: $(".slider[data-type='products'] + .slider_nav .slick-next"),
+			speed: 500,
+			draggable: false,
+			slidesToShow: 5,
+			slidesToScroll: 1,
+			infinite: false,
+			variableWidth: true,
+			responsive: [
+				{
+					breakpoint: 1441,
+					settings: {
+						slidesToShow: 4,
+					},
+				}
+			],
 		}
+	}
 
-	})();
+	// Init desktops
+	const toSlicks = document.querySelectorAll('.slider');
+	if (toSlicks.length) {
+		toSlicks.forEach(toSlick => {
+			const type = toSlick.getAttribute('data-type');
+			$(toSlick).slick(slickOptions[type]);
+		});
+	}
 
 }, true);
 
@@ -99,6 +72,24 @@ window.addEventListener('load', () => {
 	const main_header = document.getElementById('main_header');
 	const mobile_header = document.getElementById('mobile_header');
 	const toggleMobileHeader = document.getElementById('expand_mobile_menu');
+
+	// On window scroll
+	(function() {
+		let YOffset = window.scrollY;
+		if (YOffset > 30) {
+			main_header.classList.add('roll');
+		} else {
+			main_header.classList.remove('roll');
+		}
+		window.addEventListener('scroll', () => {
+			YOffset = window.scrollY;
+			if (YOffset > 15) {
+				main_header.classList.add('roll');
+			} else {
+				main_header.classList.remove('roll');
+			}
+		});
+	})();
 
 	// Smooth anchors
 	(function() {
@@ -121,70 +112,47 @@ window.addEventListener('load', () => {
 		});
 	})();
 
-	// Output products
+	// Megameny interaction
 	(function() {
-		const productWrapper = document.querySelector('.product_wrapper .cards');
+		const main_links = document.querySelectorAll('#main_header .main_links li a');
+		const main_megamenu = document.getElementById('main_megamenu');
+		const megaItems = document.querySelectorAll('#main_header #main_megamenu .mega_item');
 
-		const outputProducts = async () => {
-			const products = await loadProducts('https://www.wona.co.il/test_8192735.php');
+		if (main_links.length && main_megamenu && megaItems.length) {
 
-			if (products.length) {
-				products.forEach(product => {
-
-					// Create product card
-					const card = document.createElement('a');
-					card.classList.add('card');
-					card.href = product.link;
-
-					card.innerHTML += product.image ? `
-						<div class="thumb">
-							<img src="${product.image}" alt="product_thumb">
-						</div>` : '';
-
-					card.innerHTML += product.title ? `
-						<h4 class="name">
-							${product.title}
-						</h4>` : '';
-
-					if (product.price || product.quantity) {
-						const attributes = document.createElement('div');
-						attributes.classList.add('attributes');
-
-						attributes.innerHTML += product.price ? `
-							<div class="price">
-								<span class="value">${product.price}</span>
-								<span class="units">₪</span>
-							</div>` : '';
-
-						attributes.innerHTML += product.quantity ? `
-							<div class="quantity">
-								<span class="value">${product.quantity}</span>
-								<span class="units">םיעבצ</span>
-							</div>` : '';
-
-						card.appendChild(attributes);
-					}
-
-					card.innerHTML += `
-						<button class="quick_review">
-							סקירה מהירה
-						</button>`;
-
-					// Append card
-					productWrapper.appendChild(card);
-
+			for (let i = 0; i < main_links.length; i++) {
+				main_links[i].addEventListener('mouseenter', () => {
+					megaItems[i].classList.add('active');
+					main_header.classList.add('mega_opened');
+					main_megamenu.classList.add('active');
 				});
-			} else {
-				productWrapper.innerHTML = `<p class="no_products">No products found :(</p>`
+				main_links[i].addEventListener('mouseleave', () => {
+					main_megamenu.classList.remove('active');
+					main_header.classList.remove('mega_opened');
+					megaItems[i].classList.remove('active');
+				});
+
+				for (let i = 0; i < megaItems.length; i++) {
+					megaItems[i].addEventListener('mouseenter', () => {
+						main_links[i].classList.add('active');
+						main_header.classList.add('mega_opened');
+						main_megamenu.classList.add('active');
+						megaItems[i].classList.add('active');
+					});
+					megaItems[i].addEventListener('mouseleave', () => {
+						megaItems[i].classList.remove('active');
+						main_megamenu.classList.remove('active');
+						main_header.classList.remove('mega_opened');
+						main_links[i].classList.remove('active');
+					});
+				}
+
 			}
 
-			productWrapper.classList.remove('loading_products');
-		};
-
-		outputProducts();
+		}
 	})();
 
-	// Toggle moble header
+	// Toggle mobile header
 	(function() {
 		toggleMobileHeader.addEventListener('click', () => {
 			overlay.classList.toggle('active');

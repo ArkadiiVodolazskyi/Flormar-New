@@ -1,79 +1,190 @@
 
-// #overlay
-// 	position: fixed
-// 	z-index: 1000
-// 	left: 0
-// 	top: 0
-// 	right: 0
-// 	bottom: 0
-// 	width: 100%
-// 	height: 100vh
-// 	background-color: rgba($w, 0.9)
-// 	cursor: pointer
-// 	transition: all 0.4s ease
-// 	opacity: 0
-// 	visibility: hidden
-// 	&.active
-// 		opacity: 1
-// 		visibility: visible
+.sale_line
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	max-width: 100vw
+	height: 35px
+	overflow: hidden
+	font-size: 14px
+	font-weight: 500
+	display: flex
+	align-items: center
+	justify-content: center
+	background-color: $bg-secondary
+	transition: all 0.4s ease
+	color: $text-secondary
+	&:hover
+		color: $interactive-color-primary
 
-// #main_header
-// 	position: absolute
-// 	z-index: 3000
-// 	top: 0
-// 	left: 0
-// 	width: 100%
-// 	padding: 40px
-// 	#expand_mobile_menu
-// 		width: 36px
-// 		height: 32px
-// 		position: relative
-// 		svg
-// 			position: absolute
-// 			left: 50%
-// 			top: 50%
-// 			transform: translate(-50%, -50%)
-// 			width: 100%
-// 			height: auto
-// 			transition: all 0.4s ease
-// 		&:hover svg
-// 			fill: $interactive-color
-// 		.hamb
-// 			fill: $w
-// 		.close
-// 			fill: $b
-// 			opacity: 0
-// 			visibility: hidden
-// 		&.active
-// 			.hamb
-// 				opacity: 0
-// 				visibility: hidden
-// 			.close
-// 				opacity: 1
-// 				visibility: visible
+#main_header
+	position: fixed
+	z-index: 3000
+	left: 0
+	width: 100%
+	max-width: 100vw
+	background-color: $bg-primary
+	transition: all 0.25s linear
+	top: 35px
+	border-bottom: 1px solid $tsp
+	&.roll
+		top: 0
+	&.mega_opened
+		border-color: $bg-secondary
+	.wrapper
+		height: 70px
+		display: flex
+		align-items: center
+		justify-content: space-between
+	.main_logo
+		width: 155px
+		img
+			transition: all 0.25s ease
+		&:hover img
+			filter: drop-shadow(4px 4px 5px rgba($bg-secondary, 0.4))
+	nav
+		height: 100%
+		display: flex
+		align-items: center
+		justify-content: center
+		ul
+			height: 100%
+			display: flex
+			align-items: center
+			justify-content: center
+			li
+				height: 100%
+				a
+					height: 100%
+					display: inline-flex
+					align-items: center
+					justify-content: center
+					padding: 0 10px
+					text-decoration: underline
+					text-underline-offset: 7px
+					text-decoration-thickness: 2px
+					text-decoration-color: $tsp
+					&:hover, &.active
+						text-decoration-color: $interactive-color-primary
+	.manage_icons
+		display: flex
+		align-items: center
+		justify-content: center
+		gap: 0 20px
+		li a
+			padding: 10px
+			display: inline-flex
+			align-items: center
+			justify-content: center
+			svg
+				stroke: $text-primary
+				fill: $text-primary
+			&:hover svg
+				stroke: $interactive-color-primary
+				fill: $interactive-color-primary
+	#expand_mobile_menu
+		display: none
+		width: 36px
+		height: 32px
+		position: relative
+		svg
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+			width: 100%
+			height: auto
+			transition: all 0.4s ease
+		&:hover svg
+			fill: $interactive-color-primary
+		.hamb
+			fill: $w
+		.close
+			fill: $b
+			opacity: 0
+			visibility: hidden
+		&.active
+			.hamb
+				opacity: 0
+				visibility: hidden
+			.close
+				opacity: 1
+				visibility: visible
 
-// #mobile_header
-// 	position: absolute
-// 	z-index: 2000
-// 	top: 105px
-// 	right: 0
-// 	width: 100%
-// 	transition: all 0.4s ease
-// 	opacity: 0
-// 	visibility: hidden
-// 	&.active
-// 		opacity: 1
-// 		visibility: visible
-// 	.wrapper
-// 		width: 65%
-// 	li
-// 		display: block
-// 	a:hover
-// 		color: $interactive-color
-// 	.main_links li a
-// 		font-weight: 500
-// 	.sublinks
-// 		margin-top: 7px
-// 		li a
-// 			font-size: 16px
-// 			font-family: $font-family-secondary
+#main_header .wrapper .main_megamenu
+	position: absolute
+	z-index: 3050
+	top: 100%
+	left: 50%
+	width: max-content
+	transform: translate(-50%, 1px)
+	transition: all 0.5s ease-in-out
+	opacity: 0
+	visibility: hidden
+	&.active
+		opacity: 1
+		visibility: visible
+	.mega_item
+		position: absolute
+		z-index: 3050
+		background-color: $bg-primary
+		width: max-content
+		left: 50%
+		top: 0
+		transform: translate(-50%, 0)
+		padding: 17px 166px 52px 33px
+		display: flex
+		gap: 0 62px
+		transition: all 0.2s ease-in-out
+		opacity: 0
+		visibility: hidden
+		&.active
+			opacity: 1
+			visibility: visible
+		.megaitem_img
+			position: absolute
+			z-index: 3010
+			right: 0
+			top: 0
+			height: 100%
+			width: auto
+		.item_block
+			line-height: 1.88
+			position: relative
+			z-index: 3050
+			a:hover
+				color: $interactive-color-primary
+			h4
+				font-size: 18px
+				font-weight: 500
+			ul li
+				display: block
+				a
+					font-size: 16px
+
+#mobile_header
+	position: absolute
+	z-index: 2000
+	top: 105px
+	right: 0
+	width: 100%
+	transition: all 0.4s ease
+	opacity: 0
+	visibility: hidden
+	&.active
+		opacity: 1
+		visibility: visible
+	.wrapper
+		width: 65%
+	li
+		display: block
+	a:hover
+		color: $interactive-color-primary
+	.main_links li a
+		font-weight: 500
+	.sublinks
+		margin-top: 7px
+		li a
+			font-size: 16px
+			font-family: $ff_mplusround
