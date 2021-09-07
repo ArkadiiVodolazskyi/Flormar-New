@@ -7,7 +7,8 @@
 	<title>Flormar - Homepage</title>
 
 	<!-- Custom styles -->
-	<link rel="stylesheet" href="./css/flormar.css">
+	<!-- <link rel="stylesheet" href="./css/flormar.css"> -->
+	<link rel="stylesheet" href="./css/flormar.min.css">
 </head>
 <body>
 
@@ -27,9 +28,9 @@
 			</a>
 			<nav>
 				<ul class="main_links">
-					<li><a href="#">שדח</a></li>
-					<li><a href="#">BEST SELLERS</a></li>
-					<li><a href="#">איפור</a></li>
+					<li class="show_mobile"><a href="#">שדח</a></li>
+					<li class="show_mobile"><a href="#">BEST SELLERS</a></li>
+					<li class="show_mobile"><a href="#">איפור</a></li>
 					<li><a href="#">טיפוח</a></li>
 					<li><a href="#">אקססוריז</a></li>
 					<li><a href="#">OUTLET</a></li>
@@ -39,17 +40,17 @@
 			</nav>
 
 			<ul class="manage_icons">
-				<li><a href="#">
+				<li class="favs"><a href="#">
 					<svg width="24" height="24">
 						<use xlink:href="./img/icons.svg#heart"></use>
 					</svg>
 				</a></li>
-				<li><a href="#">
-					<svg width="19" height="19">
+				<li class="search">
+					<button id="open_search_modal"><svg width="19" height="19">
 						<use xlink:href="./img/icons.svg#search"></use>
-					</svg>
-				</a></li>
-				<li><a href="#">
+					</svg></button>
+				</li>
+				<li class="account"><a href="#">
 					<svg width="20" height="20">
 						<use xlink:href="./img/icons.svg#person"></use>
 					</svg>
@@ -404,16 +405,222 @@
 		</div>
 	</header>
 
+	<header id="mobile_header">
+		<div class="log_status">
+			<span class="name">!אבה ךורב</span>
+			<button class="loginout">המשרה / תורבחתה</button>
+		</div>
+		<div class="logo_wrapper">
+			<a href="./index.html" class="logo_mobile">
+				<img width="94" height="21" src="./img/logo_flormar_pink.png" alt="logo flormar pink">
+			</a>
+		</div>
+		<nav>
+			<ul class="main_links_mobile">
+				<li>
+					<a href="#">שדח</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">BEST SELLERS</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">רופיא</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">חופיט</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">זירוססקא</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">OUTLET</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">רשק רוצ</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">FLORMAR תויונח</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+			</ul>
+			<div class="sub_links_mobile">
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">שדח</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+						<li><a href="#">חופיט</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">BEST SELLERS</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+						<li><a href="#">חופיט</a></li>
+						<li><a href="#">זירוססקא</a></li>
+						<li><a href="#">OUTLET</a></li>
+						<li><a href="#">זירוססקא</a></li>
+						<li><a href="#">OUTLET</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">רופיא</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">חופיט</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+						<li><a href="#">חופיט</a></li>
+						<li><a href="#">זירוססקא</a></li>
+						<li><a href="#">OUTLET</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">זירוססקא</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+						<li><a href="#">חופיט</a></li>
+						<li><a href="#">זירוססקא</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">OUTLET</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+						<li><a href="#">חופיט</a></li>
+						<li><a href="#">זירוססקא</a></li>
+						<li><a href="#">OUTLET</a></li>
+						<li><a href="#">חופיט</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">רשק רוצ</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">FLORMAR תויונח</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+						<li><a href="#">זירוססקא</a></li>
+						<li><a href="#">OUTLET</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="contacts_mobile">
+			<h6>ליצור קשר בבית</h6>
+			<ul>
+				<li><a href="#">
+					<svg width="17" height="21">
+						<use xlink:href="./img/icons.svg#mapmarker"></use>
+					</svg>
+					<span>Find Stores</span>
+				</a></li>
+				<li><a href="tel:1234567890">
+					<svg width="16" height="19">
+						<use xlink:href="./img/icons.svg#phone"></use>
+					</svg>
+					<span>1234567890</span>
+				</a></li>
+			</ul>
+		</div>
+	</header>
+
 	<section class="banner_main">
 		<div class="slider loading" data-type="banner_slider">
 			<a href="#" class="slide">
 				<img src="./img/main_banner.jpg" alt="slider_image">
+				<img src="./img/main_banner_mobile.jpg" alt="slider_image" class="mobile_slide">
 			</a>
 			<a href="#" class="slide">
 				<img src="./img/main_banner.jpg" alt="slider_image">
+				<img src="./img/main_banner_mobile.jpg" alt="slider_image" class="mobile_slide">
 			</a>
 			<a href="#" class="slide">
 				<img src="./img/main_banner.jpg" alt="slider_image">
+				<img src="./img/main_banner_mobile.jpg" alt="slider_image" class="mobile_slide">
 			</a>
 		</div>
 		<div class="slider_nav loading">
@@ -433,7 +640,7 @@
 						<img src="./img/product_4.png" alt="product_thumb">
 					</a>
 					<a href="#" class="name">
-						<h4>FLORMAR - SILK MATTE LIQUID LIPSTICK</h4>
+						<h4>FLORMAR - SILK MATTE LIQUID LIPSTICKFLORMAR - SILK MATTE LIQUID LIPSTICKFLORMAR - SILK MATTE LIQUID LIPSTICK</h4>
 					</a>
 					<div class="attributes">
 						<div class="price">
@@ -662,9 +869,11 @@
 			<div class="cards">
 				<a href="#" class="card">
 					<img src="./img/banner_small_1.png" alt="Powdery Kiss">
+					<img class="banner_small_mobile" src="./img/banner_small_1_mobile.jpg" alt="banner_small_mobile">
 				</a>
 				<a href="#" class="card">
 					<img src="./img/banner_small_2.png" alt="Flormar Favourites">
+					<img class="banner_small_mobile" src="./img/banner_small_2_mobile.jpg" alt="banner_small_mobile">
 				</a>
 			</div>
 		</div>
@@ -693,16 +902,16 @@
 		<div class="wrapper">
 			<div class="cards">
 				<div class="card">
-					<span class="amount">8M</span>
-					<span class="ofwhat">Sales per year</span>
+					<span class="amount">16+</span>
+					<span class="ofwhat">Stores in Israel</span>
 				</div>
 				<div class="card">
 					<span class="amount">250</span>
-					<span class="ofwhat">Types of product</span>
+					<span class="ofwhat">Types of products</span>
 				</div>
 				<div class="card">
-					<span class="amount">16+</span>
-					<span class="ofwhat">Stores in Israel</span>
+					<span class="amount">8M</span>
+					<span class="ofwhat">Sales per year</span>
 				</div>
 			</div>
 		</div>
@@ -729,7 +938,7 @@
 					<li><a href="#">תושיגנ תרהצה</a></li>
 				</ul>
 			</nav>
-			<div class="subscribe_block">
+			<div class="sbcr_block">
 				<p>Subscribe to our newsletters</p>
 				<div class="email_field">
 					<input type="email" placeholder="Your Email">
@@ -738,7 +947,7 @@
 					</button>
 				</div>
 			</div>
-			<ul class="social_icons">
+			<ul class="scl_icons">
 				<li><a href="#">
 					<svg width="36" height="36"><use xlink:href="./img/icons.svg#int"></use></svg>
 				</a></li>
@@ -749,6 +958,9 @@
 					<svg width="31" height="31"><use xlink:href="./img/icons.svg#youtube"></use></svg>
 				</a></li>
 			</ul>
+			<div class="copyright">
+				Copyright ® All rights reserved 2021
+			</div>
 		</div>
 	</footer>
 

@@ -8,17 +8,22 @@
 	color: inherit
 	box-sizing: border-box
 	line-height: inherit
+	font-smooth: always
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
 
 /* __________________ Tags __________________ */
 
 @media (min-width: 1025px)
-	::-webkit-scrollbar
-		width: 10px
-	::-webkit-scrollbar-track
-		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4)
-	::-webkit-scrollbar-thumb
-		background-image: linear-gradient(180deg, darken($interactive-color-primary, 50%) 0%, darken($interactive-color-primary, 30%) 99%)
-		box-shadow: inset 2px 2px 10px 0 rgba($b, 0.5)
+	body
+		scrollbar-width: 10px
+		&::-webkit-scrollbar
+			width: 10px
+		&::-webkit-scrollbar-track
+			box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4)
+		&::-webkit-scrollbar-thumb
+			background-image: linear-gradient(180deg, darken($interactive-color-primary, 50%) 0%, darken($interactive-color-primary, 30%) 99%)
+			box-shadow: inset 2px 2px 10px 0 rgba($b, 0.5)
 	html.discroll
 		padding-right: 10px
 
@@ -93,14 +98,14 @@ button
 
 #overlay
 	position: fixed
-	z-index: 1000
+	z-index: 4000
 	left: 0
 	top: 0
 	right: 0
 	bottom: 0
-	width: 100%
+	width: 100vw
 	height: 100vh
-	background-color: rgba($w, 0.9)
+	background-color: rgba($bg-secondary, 0.5)
 	cursor: pointer
 	transition: all 0.4s ease
 	opacity: 0

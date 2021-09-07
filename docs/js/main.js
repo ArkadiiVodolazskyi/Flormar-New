@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			arrows: false,
 			dots: true,
 			appendDots: $('.banner_main .slider_nav'),
-			speed: 500,
 			draggable: false,
 			swipe: false,
 			focusOnSelect: false,
 			infinite: false,
-			autoplay: false,
-			autoplaySpeed: 3000,
+			autoplay: true,
+			autoplaySpeed: 5000,
+			speed: 700,
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			responsive: [
@@ -25,7 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
 						draggable: true,
 						swipe: true,
 					},
-				}
+				},
+				{
+					breakpoint: 769,
+					settings: {
+						dots: false,
+					},
+				},
 			],
 		},
 		'products': {
@@ -43,11 +49,36 @@ document.addEventListener('DOMContentLoaded', () => {
 			variableWidth: true,
 			responsive: [
 				{
-					breakpoint: 1441,
+					breakpoint: 1601,
 					settings: {
 						slidesToShow: 4,
 					},
-				}
+				},
+				{
+					breakpoint: 769,
+					settings: {
+						slidesToShow: 3,
+					},
+				},
+				{
+					breakpoint: 481,
+					settings: {
+						slidesToShow: 2,
+						draggable: true,
+						touchThreshold: 300,
+						swipe: true,
+					},
+				},
+				{
+					breakpoint: 411,
+					settings: {
+						slidesToShow: 1,
+						centerMode: true,
+						draggable: true,
+						touchThreshold: 300,
+						swipe: true,
+					},
+				},
 			],
 		}
 	}
@@ -152,32 +183,54 @@ window.addEventListener('load', () => {
 		}
 	})();
 
-	// Toggle mobile header
+	// Open/close mobile menu
 	(function() {
-		toggleMobileHeader.addEventListener('click', () => {
-			overlay.classList.toggle('active');
-			mobile_header.classList.toggle('active');
-			toggleMobileHeader.classList.toggle('active');
-			html.classList.toggle('discroll');
-
-			// Click on overlay
-			overlay.addEventListener('click', () => {
-				overlay.classList.remove('active');
-				mobile_header.classList.remove('active');
-				toggleMobileHeader.classList.remove('active');
-				html.classList.remove('discroll');
+		const open_mobile = document.querySelector('#expand_mobile_menu');
+		if (open_mobile) {
+			open_mobile.addEventListener('click', () => {
+				overlay.classList.add('active');
+				mobile_header.classList.add('active');
+				html.classList.add('discroll');
 			}, true);
+			overlay.addEventListener('click', () => {
+				html.classList.remove('discroll');
+				mobile_header.classList.remove('active');
+				overlay.classList.remove('active');
+			}, true);
+		}
+	})();
 
-			// Click on links
-			const mobileLinks = document.querySelectorAll('#mobile_header nav a');
-			mobileLinks.forEach(link => {
-				link.addEventListener('click', () => {
-					overlay.classList.remove('active');
-					mobile_header.classList.remove('active');
-					toggleMobileHeader.classList.remove('active');
-					html.classList.remove('discroll');
-				}, true);
-			});
-		}, true);
+	// Mobile menu interactions
+	(function() {
+		const open_links_mobile = document.querySelectorAll('#mobile_header .main_links_mobile .expand_item');
+		const sub_links_nav = document.querySelector('#mobile_header > nav');
+		const sub_links_blocks = document.querySelectorAll('#mobile_header .sub_links_mobile .sub_links_block');
+		const sub_links_backs = document.querySelectorAll('#mobile_header .sub_links_mobile .sub_links_block .back');
+
+		if (open_links_mobile.length && sub_links_nav && sub_links_blocks.length && sub_links_backs.length) {
+			if (open_links_mobile.length === sub_links_blocks.length) {
+
+				for (let i = 0; i < open_links_mobile.length; i++) {
+					open_links_mobile[i].addEventListener('click', () => {
+						sub_links_blocks[i].classList.add('active');
+						sub_links_nav.classList.add('show_sublinks');
+					}, true);
+				}
+
+				for (let i = 0; i < sub_links_backs.length; i++) {
+					sub_links_backs[i].addEventListener('click', () => {
+						sub_links_nav.classList.remove('show_sublinks');
+						setTimeout(() => {
+							document.querySelector('#mobile_header .sub_links_mobile .sub_links_block.active').classList.remove('active');
+						}, 500);
+					}, true);
+				}
+
+			} else {
+				console.log(`open_links_mobile.length not equals sub_links_blocks.length: ${open_links_mobile.length} : ${sub_links_blocks.length}`);
+			}
+		} else {
+			console.log(`Something is wrong with mobile links`);
+		}
 	})();
 }, true);
