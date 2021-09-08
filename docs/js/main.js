@@ -24,14 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 					settings: {
 						draggable: true,
 						swipe: true,
+						touchThreshold: 500
 					},
-				},
-				{
-					breakpoint: 769,
-					settings: {
-						dots: false,
-					},
-				},
+				}
 			],
 		},
 		'products': {
@@ -80,6 +75,56 @@ document.addEventListener('DOMContentLoaded', () => {
 					},
 				},
 			],
+		},
+		'single_product_big': {
+			rtl: true,
+			lazyLoad: 'progressive',
+			arrows: false,
+			dots: false,
+			speed: 500,
+			draggable: false,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			infinite: false,
+			variableWidth: true,
+			centerMode: true
+		},
+		'single_product_small': {
+			rtl: true,
+			lazyLoad: 'progressive',
+			arrows: true,
+			dots: false,
+			prevArrow: $(".choose_product .product_gallery .small_images .slick-prev"),
+      nextArrow: $(".choose_product .product_gallery .small_images .slick-next"),
+			asNavFor: $(".choose_product .product_gallery .big_images .slider"),
+			speed: 500,
+			draggable: false,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			infinite: false,
+			variableWidth: true,
+			centerMode: true
+		},
+		'single_product_colors': {
+			rtl: true,
+			arrows: true,
+			dots: false,
+			prevArrow: $(".choose_product .product_variations .slider_colors .slick-prev"),
+      nextArrow: $(".choose_product .product_variations .slider_colors .slick-next"),
+			speed: 500,
+			draggable: false,
+			slidesToShow: 8,
+			slidesToScroll: 1,
+			infinite: false,
+			variableWidth: true,
+			responsive: [
+				{
+					breakpoint: 1441,
+					settings: {
+						slidesToShow: 6,
+					},
+				},
+			]
 		}
 	}
 
@@ -233,4 +278,105 @@ window.addEventListener('load', () => {
 			console.log(`Something is wrong with mobile links`);
 		}
 	})();
+
+	// ------------ Single Product ------------
+
+	// Click on slides
+	(function() {
+		const small_images = document.querySelectorAll('.choose_product .product_gallery .small_images .slide');
+		$(small_images).click(function(e) {
+			$(small_images).removeClass('slick-current');
+			e.currentTarget.classList.add('slick-current');
+			$(".slider[data-type='single_product_small'").slick('slickGoTo', parseInt(e.currentTarget.getAttribute('data-slick-index')));
+			$(".slider[data-type='single_product_big'").slick('slickGoTo', parseInt(e.currentTarget.getAttribute('data-slick-index')));
+		});
+	})();
+
+	// Toggle list of all colors
+	(function() {
+		const show_all_colors = document.getElementById('show_all_colors');
+		const all_colors = document.getElementById('all_colors');
+
+		if (!show_all_colors || !all_colors) {
+			return false;
+		}
+
+		if (show_all_colors && all_colors) {
+			show_all_colors.addEventListener('click', () => {
+				show_all_colors.classList.toggle('active');
+				all_colors.classList.toggle('active');
+			}, true);
+		}
+
+		body.addEventListener('click', (e) => {
+			if (e.target !== show_all_colors) {
+				show_all_colors.classList.remove('active');
+				all_colors.classList.remove('active');
+			}
+		}, true);
+	})();
+
+	// Change amount
+	(function() {
+		const single_product_quantity = document.getElementById('single_product_quantity');
+		const quantity_decrease = document.getElementById('quantity_decrease');
+		const quantity_increase = document.getElementById('quantity_increase');
+
+		if (!single_product_quantity) {
+			return false;
+		}
+	})();
+
+	// Hover on colors reveal thumb of this product's color
+	(function() {
+		const list_all_colors = document.querySelectorAll('#all_colors a');
+		const slider_all_colors = document.querySelectorAll(".slider[data-type='single_product_colors'] .slide");
+
+		const big_slider = document.querySelector('.choose_product .product_gallery .big_images .slider');
+		const other_colors_wrapper = document.querySelector('.choose_product .product_gallery .other_colors');
+		const other_colors = document.querySelectorAll('.choose_product .product_gallery .other_colors img');
+
+		if (!list_all_colors.length || !slider_all_colors.length || !big_slider || !other_colors_wrapper || !other_colors.length) {
+			return false;
+		}
+
+		if ( other_colors.length === list_all_colors.length
+			&& other_colors.length === slider_all_colors.length
+			&& other_colors_wrapper !== undefined ) {
+
+			for (let i = 0; i < list_all_colors.length; i++) {
+
+				list_all_colors[i].addEventListener('mouseover', () => {
+					big_slider.classList.add('inactive');
+					other_colors[i].classList.add('active');
+					other_colors_wrapper.classList.add('active');
+				}, true);
+				list_all_colors[i].addEventListener('mouseout', () => {
+					other_colors_wrapper.classList.remove('active');
+					other_colors.forEach(item => {
+						item.classList.remove('active');
+					});
+					big_slider.classList.remove('inactive');
+				}, true);
+
+				slider_all_colors[i].addEventListener('mouseover', () => {
+					big_slider.classList.add('inactive');
+					other_colors[i].classList.add('active');
+					other_colors_wrapper.classList.add('active');
+				}, true);
+				slider_all_colors[i].addEventListener('mouseout', () => {
+					other_colors.forEach(item => {
+						item.classList.remove('active');
+					});
+					other_colors_wrapper.classList.remove('active');
+					big_slider.classList.remove('inactive');
+				}, true);
+
+			}
+
+		} else {
+			console.error('There is something with product colors interactions.');
+		}
+	})();
+
 }, true);

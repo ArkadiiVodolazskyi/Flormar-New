@@ -7,11 +7,11 @@ footer#main_footer
 		justify-content: space-between
 		align-items: center
 	.logo_pink
-		width: 94px
-		img
-			transition: all 0.25s ease
-		&:hover img
-			filter: drop-shadow(4px 4px 5px rgba($interactive-color-primary, 0.4))
+		svg
+			transition: all 0.4s ease
+			fill: $interactive-color-primary
+		&:hover svg
+			fill: darken($interactive-color-primary, 20%)
 	nav
 		display: flex
 		gap: 70px
