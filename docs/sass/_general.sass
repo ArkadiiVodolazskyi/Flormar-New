@@ -55,7 +55,7 @@ section
 	h3.section_title
 		width: max-content
 		margin: 0 auto
-		font-size: 36px
+		font-size: 30px
 		font-weight: 500
 		text-align: center
 		padding: 5px 0
@@ -69,9 +69,9 @@ a
 	text-decoration: none
 	transition: all 0.3s ease
 svg
-	transition: fill 0.3s ease
+	transition: all 0.3s ease
 	path
-		transition: fill 0.3s ease
+		transition: all 0.3s ease
 
 button
 	-moz-appearance: none
@@ -117,11 +117,11 @@ button
 		visibility: visible
 
 .breacrumbs
-	margin: 24px 0
+	padding: 24px 0
 	.wrapper
 		font-size: 0
 		a
-			font-size: 12px
+			font-size: 14px
 			padding-left: 0.3em
 			&:not(:first-child)
 				&::before
@@ -130,6 +130,18 @@ button
 					padding-left: 0.3em
 			&:not(:last-child):hover
 				color: $interactive-color-primary
+
+h3.dotted
+	font-size: 26px
+	font-weight: 500
+	display: flex
+	align-items: center
+	justify-content: center
+	direction: ltr
+	gap: 10px
+	&::before, &::after
+		content: '•'
+		font-size: 1.7em
 
 /* __________________ Slick __________________ */
 .slider .slide
@@ -145,4 +157,28 @@ button
 	&.slick-disabled
 		opacity: 0.2
 		pointer-events: none
-
+.slick-dots
+	display: flex
+	justify-content: center
+	align-items: center
+	gap: 4px
+	li
+		font-size: 0
+		line-height: 0
+		button
+			color: $tsp
+			padding: 10px
+			box-sizing: content-box
+			&::after
+				content: ''
+				display: inline-block
+				border: 1px solid $interactive-color-primary
+				border-radius: 50%
+				width: 10px
+				height: 10px
+				transition: all 0.25s ease
+				background-color: $w
+		&.slick-active button::after
+			background-color: $interactive-color-primary
+		&:hover button::after
+			background-color: rgba($interactive-color-primary, 0.5)

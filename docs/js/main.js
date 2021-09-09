@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			infinite: false,
 			autoplay: true,
 			autoplaySpeed: 5000,
-			speed: 700,
+			speed: 500,
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			responsive: [
@@ -87,7 +87,19 @@ document.addEventListener('DOMContentLoaded', () => {
 			slidesToScroll: 1,
 			infinite: false,
 			variableWidth: true,
-			centerMode: true
+			centerMode: true,
+			responsive: [
+				{
+					breakpoint: 1025,
+					settings: {
+						swipe: true,
+						draggable: true,
+						touchThreshold: 300,
+						dots: true,
+						appendDots: $('.choose_product .product_gallery .slider_nav'),
+					},
+				},
+			]
 		},
 		'single_product_small': {
 			rtl: true,
@@ -113,14 +125,35 @@ document.addEventListener('DOMContentLoaded', () => {
       nextArrow: $(".choose_product .product_variations .slider_colors .slick-next"),
 			speed: 500,
 			draggable: false,
-			slidesToShow: 8,
+			slidesToShow: 7,
 			slidesToScroll: 1,
 			infinite: false,
 			variableWidth: true,
 			responsive: [
 				{
-					breakpoint: 1441,
+					breakpoint: 1025,
 					settings: {
+						swipe: true,
+						draggable: true,
+						touchThreshold: 300
+					},
+				},
+				{
+					breakpoint: 769,
+					settings: {
+						swipe: true,
+						draggable: true,
+						touchThreshold: 300,
+						arrows: false
+					},
+				},
+				{
+					breakpoint: 376,
+					settings: {
+						swipe: true,
+						draggable: true,
+						touchThreshold: 300,
+						arrows: false,
 						slidesToShow: 6,
 					},
 				},
@@ -318,6 +351,7 @@ window.addEventListener('load', () => {
 
 	// Change amount
 	(function() {
+		const manage_quantity = document.querySelector('.choose_product .manage_quantity');
 		const single_product_quantity = document.getElementById('single_product_quantity');
 		const quantity_decrease = document.getElementById('quantity_decrease');
 		const quantity_increase = document.getElementById('quantity_increase');
@@ -325,6 +359,42 @@ window.addEventListener('load', () => {
 		if (!single_product_quantity) {
 			return false;
 		}
+
+		// Init
+		let quantity = 1;
+		single_product_quantity.value = quantity;
+		quantity_decrease.disabled = true;
+
+		function checkQuantity(quantity) {
+			if (quantity <= 1) {
+				quantity = 1;
+				quantity_decrease.disabled = true;
+			} else if (quantity >= 99) {
+				quantity = 99;
+				quantity_increase.disabled = true;
+			} else {
+				quantity_decrease.disabled = false;
+				quantity_increase.disabled = false;
+			}
+			single_product_quantity.value = quantity;
+		}
+
+		quantity_decrease.addEventListener('click', () => {
+			quantity--;
+			checkQuantity(quantity);
+		}, true);
+		quantity_increase.addEventListener('click', () => {
+			quantity++;
+			checkQuantity(quantity);
+		}, true);
+		single_product_quantity.addEventListener('focus', () => {
+			manage_quantity.classList.add('active');
+		}, true);
+		single_product_quantity.addEventListener('blur', () => {
+			checkQuantity(quantity);
+			manage_quantity.classList.remove('active');
+		}, true);
+
 	})();
 
 	// Hover on colors reveal thumb of this product's color
@@ -377,6 +447,17 @@ window.addEventListener('load', () => {
 		} else {
 			console.error('There is something with product colors interactions.');
 		}
+	})();
+
+	// Add to fav
+	(function() {
+		const add_to_fav = document.getElementById('add_to_fav');
+		if (!add_to_fav) {
+			return;
+		}
+		add_to_fav.addEventListener('click', () => {
+			add_to_fav.classList.toggle('active');
+		}, true);
 	})();
 
 }, true);

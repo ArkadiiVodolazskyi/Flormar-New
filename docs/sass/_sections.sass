@@ -32,6 +32,8 @@ section.banner_main
 		bottom: 0
 		left: 0
 		width: 100%
+		.slick-dots
+			margin-top: 14px
 	.shop_now
 		display: block
 		width: max-content
@@ -43,32 +45,6 @@ section.banner_main
 		background-color: $bg-secondary
 		&:hover
 			background-color: $interactive-color-primary
-	.slick-dots
-		margin-top: 14px
-		display: flex
-		justify-content: center
-		align-items: center
-		gap: 4px
-		li
-			font-size: 0
-			line-height: 0
-			button
-				color: $tsp
-				padding: 10px
-				box-sizing: content-box
-				&::after
-					content: ''
-					display: inline-block
-					border: 1px solid $interactive-color-primary
-					border-radius: 50%
-					width: 10px
-					height: 10px
-					transition: all 0.25s ease
-					background-color: $w
-			&.slick-active button::after
-				background-color: $interactive-color-primary
-			&:hover button::after
-				background-color: rgba($interactive-color-primary, 0.5)
 
 section.products
 	margin-top: 70px
@@ -140,7 +116,7 @@ section.products
 				transition: all 0.4s ease
 				transform: translate(-50%, -50%)
 		.name h4
-			font-size: 14px
+			font-size: 16px
 			font-weight: 500
 			font-family: $ff_futura
 			text-align: center
@@ -304,6 +280,13 @@ section.choose_product
 		display: flex
 		flex-direction: column
 		align-items: center
+		.name
+			display: none
+			margin: 20px 0
+			font-family: $ff_futura
+			font-size: 22px
+			font-weight: 500
+			text-align: center
 		.big_images
 			max-width: 100%
 			max-height: 500px
@@ -315,6 +298,11 @@ section.choose_product
 				&.inactive
 					opacity: 0
 					visibility: hidden
+				.slide img
+					display: block
+					margin: 0 auto
+					max-width: 100%
+					max-height: 100%
 			.slick-list
 				padding: 0 !important
 			.slide:not(.slick-current)
@@ -339,6 +327,8 @@ section.choose_product
 					top: 50%
 					left: 50%
 					transform: translate(-50%, -50%)
+					max-width: 100%
+					max-height: 100%
 					transition: all 0.4s ease-out
 					opacity: 0
 					visibility: hidden
@@ -376,6 +366,9 @@ section.choose_product
 					height: auto
 					max-width: 95%
 					max-height: 95%
+		.slider_nav
+			display: none
+			margin-top: 20px
 	.product_variations
 		width: 50%
 		max-width: 550px
@@ -386,10 +379,15 @@ section.choose_product
 			position: absolute
 			top: 0
 			left: 0
+			transform: scale(1)
 			svg
 				fill: $text-primary
 			&:hover svg
 				fill: $interactive-color-primary
+			&.active
+				animation: beat 0.5s 0s ease forwards
+				svg
+					fill: $interactive-color-primary
 		.name
 			font-family: $ff_futura
 			font-size: 20px
@@ -409,6 +407,7 @@ section.choose_product
 			position: relative
 		#info_chosen
 			font-family: $ff_futurabt
+			font-size: 1.1em
 		#show_all_colors
 			font-family: $ff_futurabt
 			font-size: 12px
@@ -479,16 +478,18 @@ section.choose_product
 			display: flex
 			align-items: center
 			justify-content: center
+			min-height: 91px
 			.slider
 				max-width: 81%
 				margin: 0 10px
 				padding: 10px 10px
 				overflow: hidden
 			.slide
-				width: 63px
-				height: 63px
+				width: 62px
+				height: 62px
 				padding: 5px
 				cursor: pointer
+				vertical-align: bottom
 				&::after
 					content: ''
 					display: block
@@ -496,38 +497,43 @@ section.choose_product
 					height: 100%
 					transition: all 0.25s ease
 					background: var(--product-color)
+					transform-origin: 50% 100%
 				&:hover::after, &.slick-current::after
-					transform: scale(1.1)
+					transform: scale(1, 1.2)
 				&[aria-hidden=true]
 					opacity: 0
 					visibility: hidden
 		form
-			margin-top: 20px
+			margin-top: 8px
 			display: flex
 			flex-direction: column
 			align-items: center
 			gap: 25px
+			.price
+				display: none
+				margin-top: 0
 			.manage_quantity
 				display: flex
 				justify-content: center
 				align-items: center
 				font-size: 20px
 				height: 2em
-				border: 1px solid $bg-medial
-				border-radius: 0.5em
+				transition: all 0.25s ease
+				border: 1px solid #e9e9e9
 				&.active
 					border-color: $interactive-color-primary
 				button
-					width: 1.2em
-					font-size: 1.5em
-					padding-top: 4px
-					background: $bg-medial
+					width: 1.5em
+					height: 100%
+					font-size: 1.2em
+					padding-top: 3px
 					&:nth-of-type(1)
-						border-radius: 0 0.3em 0.3em 0
+						border-left: 1px solid #e9e9e9
 					&:nth-of-type(2)
-						border-radius: 0.3em 0 0 0.3em
+						border-right: 1px solid #e9e9e9
 					&:hover
 						background: $interactive-color-primary
+						border-color: $interactive-color-primary
 						color: $text-secondary
 					&:disabled
 						pointer-events: none
@@ -537,6 +543,8 @@ section.choose_product
 					text-align: center
 					outline: none
 					width: 3em
+					font-family: $ff_futurabt
+					font-size: 0.9em
 					height: 100%
 					display: inline-flex
 					align-items: center
@@ -583,6 +591,7 @@ section.product_description
 		> p
 			font-size: 18px
 			text-align: right
+			direction: ltr
 	.proposal_card
 		margin-top: 15px
 		border: 1px solid #c4c4c4
@@ -603,6 +612,7 @@ section.product_description
 			flex-direction: column
 			justify-content: space-between
 			gap: 20px
+			font-size: 1.1em
 			h4
 				font-family: $ff_futurabt
 				font-size: 16px
@@ -638,17 +648,6 @@ section.product_instructions
 	.wrapper
 		width: 65%
 		max-width: 930px
-	h3
-		font-size: 26px
-		font-weight: 500
-		display: flex
-		align-items: center
-		justify-content: center
-		direction: ltr
-		gap: 10px
-		&::before, &::after
-			content: '•'
-			font-size: 1.7em
 	.steps
 		margin-top: 36px
 		counter-reset: step
@@ -715,8 +714,12 @@ section.product_instructions
 						left: 7%
 						bottom: 7%
 
+section.related_products
+	@extend section.products
+	margin: 80px 0 60px
 
-
+section.single_product_achievements
+	display: none
 
 
 
