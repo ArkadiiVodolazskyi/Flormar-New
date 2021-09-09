@@ -129,7 +129,7 @@ section.products
 		.attributes
 			display: flex
 			flex-direction: column
-			margin-bottom: 18px
+			margin-bottom: 12px
 		.price
 			margin-top: 10px
 			align-self: center
@@ -721,9 +721,81 @@ section.related_products
 section.single_product_achievements
 	display: none
 
+// Catalog
 
+section.catalog_banner
+	position: relative
+	> img
+		width: 100%
+		height: auto
+	.breacrumbs
+		position: absolute
+		top: 0
+		left: 0
+		padding: 30px 0
+		width: 100%
 
-
-
-
-
+section.catalog_products
+	@extend section.products
+	margin-bottom: 50px
+	.filters
+		display: flex
+		align-items: center
+		gap: 12%
+		.products_amount
+			color: rgba($text-primary, 0.5)
+		.filter_buttons
+			display: flex
+			align-items: center
+			gap: 5px
+			button
+				padding: 8px 15px
+				border-radius: 20px
+				border: 1px solid $tsp
+				&:hover
+					border-color: $bg-medial
+				&.active
+					background: $interactive-color-primary
+					color: $text-secondary
+					border-color: $interactive-color-primary
+	.cards
+		display: flex
+		flex-wrap: wrap
+		gap: 35px
+		.card
+			flex-shrink: 0
+			margin: 0
+			width: calc( 100% / 5 - 35px )
+		.catalog_filler
+			width: calc( 100% / 5 * 2 - 35px )
+			position: relative
+			overflow: hidden
+			transition: all 0.4s ease
+			&:hover
+				box-shadow: 0px 0px 20px 0px rgba($bg-secondary, 0.4)
+			img
+				position: absolute
+				left: 50%
+				top: 50%
+				transform: translate(-50%, -50%)
+				min-width: 101%
+				min-height: 101%
+	#load_more
+		width: max-content
+		margin: 65px auto 0
+		display: flex
+		align-items: center
+		gap: 10px
+		font-family: $ff_futura
+		font-weight: 500
+		color: rgba($text-primary, 0.5)
+		direction: ltr
+		text-decoration: underline
+		text-decoration-thickness: 2px
+		svg
+			transition: all 0.6s linear
+			fill: rgba($text-primary, 0.5)
+		&:hover
+			color: $interactive-color-primary
+			svg
+				fill: $interactive-color-primary

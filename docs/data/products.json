@@ -1,0 +1,186 @@
+[
+	{
+		"tags": ["bestseller"],
+		"image": "../img/product_1.png",
+		"title": "FLORMAR - CONTOUR BRUSH",
+		"price_current": 35,
+		"price_old": 65,
+		"quantity": 15
+	},
+	{
+		"tags": ["new"],
+		"image": "../img/product_2.png",
+		"title": "FLORMAR - SILK MATTE LIQUID LIPSTICK",
+		"price_current": 35,
+		"quantity": 4
+	},
+	{
+		"tags": [],
+		"image": "../img/product_3.png",
+		"title": "FLORMAR – CC CREAM",
+		"price_current": 35,
+		"price_old": 45,
+		"quantity": 5
+	},
+	{
+		"tags": ["sale"],
+		"image": "../img/product_4.png",
+		"title": "FLORMAR - METALLIC LIP CHARMER MATTE",
+		"price_current": 20,
+		"price_old": 30,
+		"quantity": 8
+	},
+	{
+		"tags": ["new"],
+		"image": "../img/product_2.png",
+		"title": "FLORMAR - SILK MATTE LIQUID LIPSTICK",
+		"price_current": 35,
+		"quantity": 4
+	},
+	{
+		"tags": [],
+		"image": "../img/product_3.png",
+		"title": "FLORMAR – CC CREAM",
+		"price_current": 35,
+		"price_old": 45,
+		"quantity": 5
+	},
+	{
+		"tags": ["bestseller"],
+		"image": "../img/product_1.png",
+		"title": "FLORMAR - CONTOUR BRUSH",
+		"price_current": 35,
+		"price_old": 65,
+		"quantity": 15
+	},
+	{
+		"tags": ["new"],
+		"image": "../img/product_2.png",
+		"title": "FLORMAR - SILK MATTE LIQUID LIPSTICK",
+		"price_current": 35,
+		"quantity": 4
+	},
+	{
+		"tags": [],
+		"image": "../img/product_3.png",
+		"title": "FLORMAR – CC CREAM",
+		"price_current": 35,
+		"price_old": 45,
+		"quantity": 5
+	},
+	{
+		"tags": ["sale"],
+		"image": "../img/product_4.png",
+		"title": "FLORMAR - METALLIC LIP CHARMER MATTE",
+		"price_current": 20,
+		"price_old": 30,
+		"quantity": 8
+	},
+	{
+		"tags": ["new"],
+		"image": "../img/product_2.png",
+		"title": "FLORMAR - SILK MATTE LIQUID LIPSTICK",
+		"price_current": 35,
+		"quantity": 4
+	},
+	{
+		"tags": [],
+		"image": "../img/product_3.png",
+		"title": "FLORMAR – CC CREAM",
+		"price_current": 35,
+		"price_old": 45,
+		"quantity": 5
+	},
+	{
+		"tags": ["bestseller"],
+		"image": "../img/product_1.png",
+		"title": "FLORMAR - CONTOUR BRUSH",
+		"price_current": 35,
+		"price_old": 65,
+		"quantity": 15
+	},
+	{
+		"tags": ["new"],
+		"image": "../img/product_2.png",
+		"title": "FLORMAR - SILK MATTE LIQUID LIPSTICK",
+		"price_current": 35,
+		"quantity": 4
+	},
+	{
+		"tags": [],
+		"image": "../img/product_3.png",
+		"title": "FLORMAR – CC CREAM",
+		"price_current": 35,
+		"price_old": 45,
+		"quantity": 5
+	},
+	{
+		"tags": ["sale"],
+		"image": "../img/product_4.png",
+		"title": "FLORMAR - METALLIC LIP CHARMER MATTE",
+		"price_current": 20,
+		"price_old": 30,
+		"quantity": 8
+	},
+	{
+		"tags": ["new"],
+		"image": "../img/product_2.png",
+		"title": "FLORMAR - SILK MATTE LIQUID LIPSTICK",
+		"price_current": 35,
+		"quantity": 4
+	},
+	{
+		"tags": [],
+		"image": "../img/product_3.png",
+		"title": "FLORMAR – CC CREAM",
+		"price_current": 35,
+		"price_old": 45,
+		"quantity": 5
+	},
+	{
+		"tags": ["bestseller"],
+		"image": "../img/product_1.png",
+		"title": "FLORMAR - CONTOUR BRUSH",
+		"price_current": 35,
+		"price_old": 65,
+		"quantity": 15
+	},
+	{
+		"tags": ["new"],
+		"image": "../img/product_2.png",
+		"title": "FLORMAR - SILK MATTE LIQUID LIPSTICK",
+		"price_current": 35,
+		"quantity": 4
+	},
+	{
+		"tags": [],
+		"image": "../img/product_3.png",
+		"title": "FLORMAR – CC CREAM",
+		"price_current": 35,
+		"price_old": 45,
+		"quantity": 5
+	},
+	{
+		"tags": ["sale"],
+		"image": "../img/product_4.png",
+		"title": "FLORMAR - METALLIC LIP CHARMER MATTE",
+		"price_current": 20,
+		"price_old": 30,
+		"quantity": 8
+	},
+	{
+		"tags": ["new"],
+		"image": "../img/product_2.png",
+		"title": "FLORMAR - SILK MATTE LIQUID LIPSTICK",
+		"price_current": 35,
+		"quantity": 4
+	},
+	{
+		"tags": [],
+		"image": "../img/product_3.png",
+		"title": "FLORMAR – CC CREAM",
+		"price_current": 35,
+		"price_old": 45,
+		"quantity": 5
+	}
+]

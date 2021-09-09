@@ -1,4 +1,26 @@
 
+const loadMore = async (url) => {
+	let products = null;
+	let error = null;
+
+	try {
+		const data = await fetch(url, {
+			method: 'GET',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify()
+		});
+		if (!data.ok) {
+			throw Error('There was an error!');
+		}
+		products = await data.json();
+	}
+	catch(err) {
+		error = err.message;
+	}
+
+	return products;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
 	// Slicks options
@@ -457,6 +479,42 @@ window.addEventListener('load', () => {
 		}
 		add_to_fav.addEventListener('click', () => {
 			add_to_fav.classList.toggle('active');
+		}, true);
+	})();
+
+	// ------------ Catalog ------------
+
+	// Load More
+	(function() {
+		const load_more = document.getElementById('load_more');
+		const cards_wrapper = document.querySelector('.catalog_products .cards');
+
+		if (!load_more || !cards_wrapper) {
+			return;
+		}
+
+		const load_more_icon = load_more.querySelector('svg');
+
+		// Init
+		let start_index = 10;
+		let load_iterations = 0;
+
+		const outputProducts = async (start_index) => {
+
+			const products = await loadMore('./data/products.json');
+
+			for (let i = start_index; i < start_index + 4; i++) {
+				console.log(i, products[i]);
+			}
+
+		}
+
+		load_more.addEventListener('click', () => {
+			load_iterations++;
+			load_more_icon.style.transform = `rotate(${load_iterations * 180}deg)`;
+
+			outputProducts(start_index);
+			start_index += 4;
 		}, true);
 	})();
 

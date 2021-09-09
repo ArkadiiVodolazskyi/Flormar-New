@@ -68,6 +68,7 @@ li, span, a
 a
 	text-decoration: none
 	transition: all 0.3s ease
+
 svg
 	transition: all 0.3s ease
 	path
@@ -131,22 +132,11 @@ button
 			&:not(:last-child):hover
 				color: $interactive-color-primary
 
-h3.dotted
-	font-size: 26px
-	font-weight: 500
-	display: flex
-	align-items: center
-	justify-content: center
-	direction: ltr
-	gap: 10px
-	&::before, &::after
-		content: '•'
-		font-size: 1.7em
-
 /* __________________ Slick __________________ */
 .slider .slide
 	display: inline-flex
 	vertical-align: middle
+	outline: none
 	transition: all 0.25s ease
 .slick-arrow
 	padding: 10px
