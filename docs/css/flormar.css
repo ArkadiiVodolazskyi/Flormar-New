@@ -308,7 +308,7 @@ section.products .card > *, section.related_products .card > *, section.catalog_
 
 section.products .card .tags, section.related_products .card .tags, section.catalog_products .card .tags { position: absolute; z-index: 20; left: 0; top: 0; display: flex; flex-direction: column; gap: 10px; }
 
-section.products .card .tags .tag, section.related_products .card .tags .tag, section.catalog_products .card .tags .tag { font-family: "Rounded Mplus 1c", sans-serif; font-size: 12px; font-weight: 500; font-style: italic; padding: 7px 12px; border-radius: 12px 0 12px 0; color: #ffffff; background-color: #000000; }
+section.products .card .tags .tag, section.related_products .card .tags .tag, section.catalog_products .card .tags .tag { font-family: "Rounded Mplus 1c", sans-serif; font-size: 12px; font-weight: 500; font-style: italic; padding: 7px 12px; border-radius: 12px 0 12px 0; color: #ffffff; background-color: #000000; text-transform: uppercase; }
 
 section.products .card .tags .tag:hover, section.related_products .card .tags .tag:hover, section.catalog_products .card .tags .tag:hover { background-color: #fb0092; }
 
@@ -336,7 +336,7 @@ section.products .card .quantity, section.related_products .card .quantity, sect
 
 section.products .card .quantity span, section.related_products .card .quantity span, section.catalog_products .card .quantity span { font-family: "Rounded Mplus 1c", sans-serif; font-size: 14px; font-weight: 500; color: rgba(0, 0, 0, 0.5); }
 
-section.products .card .add_to_cart, section.related_products .card .add_to_cart, section.catalog_products .card .add_to_cart { width: 100%; margin: auto auto 0; justify-self: flex-end; padding: 12px; font-weight: 500; font-size: 12px; text-align: center; border: 1px solid #000000; background: none; }
+section.products .card .add_to_cart, section.related_products .card .add_to_cart, section.catalog_products .card .add_to_cart { width: 100%; margin: auto auto 0; justify-self: flex-end; padding: 12px; font-weight: 500; font-size: 13px; text-align: center; border: 1px solid #000000; background: none; }
 
 section.products .card .add_to_cart:hover, section.related_products .card .add_to_cart:hover, section.catalog_products .card .add_to_cart:hover { border-color: #fb0092; color: #fb0092; box-shadow: 0px 0px 10px 0px rgba(251, 0, 146, 0.1); }
 
@@ -382,7 +382,7 @@ section.achievements .card .amount { font-family: "FuturaBookC", sans-serif; fon
 
 section.achievements .card .ofwhat { font-family: "FuturaBkBt", sans-serif; font-size: 18px; }
 
-section.choose_product { max-height: 580px; }
+section.choose_product { max-height: 580px; transition: all 0.4s ease; }
 
 section.choose_product .wrapper { display: flex; align-items: center; gap: 140px; }
 
@@ -482,7 +482,7 @@ section.choose_product .product_variations .slider_colors .slide { width: 62px; 
 
 section.choose_product .product_variations .slider_colors .slide::after { content: ''; display: block; width: 100%; height: 100%; transition: all 0.25s ease; background: var(--product-color); transform-origin: 50% 100%; }
 
-section.choose_product .product_variations .slider_colors .slide:hover::after, section.choose_product .product_variations .slider_colors .slide.slick-current::after { transform: scale(1, 1.2); }
+section.choose_product .product_variations .slider_colors .slide:hover::after, section.choose_product .product_variations .slider_colors .slide.current_product::after { transform: scale(1, 1.2); }
 
 section.choose_product .product_variations .slider_colors .slide[aria-hidden=true] { opacity: 0; visibility: hidden; }
 
@@ -598,9 +598,11 @@ section.catalog_banner { position: relative; }
 
 section.catalog_banner > img { width: 100%; height: auto; }
 
+section.catalog_banner > img.mobile { display: none; }
+
 section.catalog_banner .breacrumbs { position: absolute; top: 0; left: 0; padding: 30px 0; width: 100%; }
 
-section.catalog_products { margin-bottom: 50px; }
+section.catalog_products { margin: 50px 0 50px; }
 
 section.catalog_products .filters { display: flex; align-items: center; gap: 12%; }
 
@@ -608,13 +610,13 @@ section.catalog_products .filters .products_amount { color: rgba(0, 0, 0, 0.5); 
 
 section.catalog_products .filters .filter_buttons { display: flex; align-items: center; gap: 5px; }
 
-section.catalog_products .filters .filter_buttons button { padding: 8px 15px; border-radius: 20px; border: 1px solid #00000000; }
+section.catalog_products .filters .filter_buttons > * { padding: 8px 15px; border-radius: 20px; border: 1px solid #00000000; }
 
-section.catalog_products .filters .filter_buttons button:hover { border-color: #eeebeb; }
+section.catalog_products .filters .filter_buttons > *:hover { border-color: #eeebeb; }
 
-section.catalog_products .filters .filter_buttons button.active { background: #fb0092; color: #ffffff; border-color: #fb0092; }
+section.catalog_products .filters .filter_buttons > *.active { background: #fb0092; color: #ffffff; border-color: #fb0092; }
 
-section.catalog_products .cards { display: flex; flex-wrap: wrap; gap: 35px; }
+section.catalog_products .cards { display: flex; flex-wrap: wrap; gap: 35px; margin-top: 60px; }
 
 section.catalog_products .cards .card { flex-shrink: 0; margin: 0; width: calc( 100% / 5 - 35px); }
 
@@ -676,11 +678,13 @@ footer#main_footer .scl_icons li a:hover svg { stroke: #fb0092; fill: #fb0092; }
 
 footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", sans-serif; font-size: 14px; line-height: 2.14; }
 
-@media (max-width: 1600px) { section.products .card, section.related_products .card, section.catalog_products .card { margin: 0 22px; } }
+@media (max-width: 1600px) { section.products .card, section.related_products .card, section.catalog_products .card { margin: 0 22px; }
+  section.catalog_products .cards .card { width: calc( 100% / 5 - 30px); padding: 0 15px; } }
 
 @media (max-width: 1440px) { section.products .card, section.related_products .card, section.catalog_products .card { margin: 0 19px; max-width: 255px; }
   section.choose_product .wrapper { gap: 0; justify-content: space-between; }
   section.choose_product .product_variations { max-width: 485px; }
+  section.choose_product .product_variations .slider_colors .slider { max-width: 77%; }
   section.catalog_products .cards .card { width: calc( 100% / 4 - 35px); }
   section.catalog_products .cards .catalog_filler { width: calc( 100% / 4 * 2 - 35px); } }
 
@@ -704,14 +708,15 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
   #main_header .main_logo { order: 2; position: absolute; width: 128px; top: 20px; left: 50%; transform: translate(-50%, 0); }
   #main_header .main_logo svg { max-width: 100%; max-height: 100%; }
   #main_header .manage_icons { order: 3; width: 50%; justify-content: flex-end; }
-  #main_header nav { order: 4; width: 100%; height: 35px; padding-bottom: 15px; align-self: flex-end; }
+  #main_header nav { order: 4; width: 100%; height: 35px; padding-bottom: 5px; align-self: flex-end; }
   #main_header nav ul { gap: 0 20px; }
+  #main_header nav ul li a { text-underline-offset: 14px; }
   footer#main_footer .sbcr_block { width: 250px; }
   footer#main_footer .scl_icons li a { padding: 3px; }
   footer#main_footer .scl_icons li a svg { max-width: 27px; max-height: 27px; }
   section.banner_main .shop_now { font-size: 12px; padding: 10px 85px; }
   section.products, section.related_products, section.catalog_products { margin-top: 50px; overflow: hidden; }
-  section.products .card, section.related_products .card, section.catalog_products .card { max-width: 185px; padding: 0; margin: 0 20px; }
+  section.products .card, section.related_products .card, section.catalog_products .card { max-width: 185px; padding: 30px 0 0; height: 365px; margin: 0 20px; }
   section.products .cards, section.related_products .cards, section.catalog_products .cards { overflow: visible; }
   section.products .cards .slick-list, section.related_products .cards .slick-list, section.catalog_products .cards .slick-list { padding: 0 5px !important; }
   section.products .slider_nav, section.related_products .slider_nav, section.catalog_products .slider_nav { margin: 20px -5px 0 0; gap: 0; }
@@ -728,6 +733,7 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
   section.choose_product .product_variations #add_to_fav { top: -24px; }
   section.choose_product .product_variations .name, section.choose_product .product_variations > .price { display: none; }
   section.choose_product .product_variations .slider_colors { order: 1; max-width: 100%; margin: 10px auto 0; }
+  section.choose_product .product_variations .slider_colors .slider { max-width: 79%; }
   section.choose_product .product_variations .variations_info { order: 2; border-top: none; border-bottom: 1px solid #e9e9e9; margin: 0; padding: 0 0 20px; }
   section.choose_product .product_variations #all_colors { font-size: 15px; max-width: 320px; max-height: 230px; }
   section.choose_product .product_variations form { order: 3; margin-top: 16px; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; }
@@ -739,7 +745,12 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
   section.product_description .fits_with { width: 100%; }
   section.product_instructions .wrapper { width: 85%; }
   section.product_instructions .steps li .image { width: 240px; height: 240px; }
-  section.single_product_achievements { display: block; } }
+  section.single_product_achievements { display: block; }
+  section.catalog_banner .breacrumbs { display: none; }
+  section.catalog_products .filters .filter_buttons { display: none; }
+  section.catalog_products .cards { padding: 0; }
+  section.catalog_products .cards .card { padding: 30px 0 0; height: 365px; }
+  section.catalog_products #load_more { margin-top: 30px; } }
 
 @media (max-width: 768px) { footer#main_footer .wrapper { flex-direction: column; padding: 48px 0 35px; gap: 20px; }
   footer#main_footer .logo_pink { order: 1; }
@@ -758,7 +769,19 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
   section.choose_product .product_gallery .big_images { height: 78vw; max-width: 400px; }
   section.choose_product .product_gallery .big_images .slider { height: 100%; }
   section.choose_product .product_gallery .big_images .slider .slick-list, section.choose_product .product_gallery .big_images .slider .slick-track, section.choose_product .product_gallery .big_images .slider .slide { height: 100%; }
-  section.choose_product .slider_colors > button { display: none; } }
+  section.choose_product .slider_colors > button { display: none; }
+  section.catalog_products { margin-top: 16px; }
+  section.catalog_products .wrapper { width: 100%; }
+  section.catalog_products .filters { padding-right: 5%; }
+  section.catalog_products .cards { margin-top: 16px; gap: 0; }
+  section.catalog_products .cards .card { width: calc( 100% / 3); max-width: unset; padding: 15px; border: 1px solid #e9e9e9; background: #ffffff; }
+  section.catalog_products .cards .card:hover { border-color: #fb0092; }
+  section.catalog_products .cards .card .tags { top: 15px; left: 15px; }
+  section.catalog_products .cards .card .thumb { margin-top: 15px; height: 180px; }
+  section.catalog_products .cards .card .name h4 { font-size: 15px; }
+  section.catalog_products .cards .card .attributes { margin-bottom: 8px; }
+  section.catalog_products .cards .card .price { margin-top: 5px; }
+  section.catalog_products .cards .catalog_filler { display: none; } }
 
 @media (max-width: 480px) { .wrapper { width: 90%; }
   .breacrumbs { padding: 8px 0; }
@@ -772,7 +795,7 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
   section.banner_main .slide img.mobile_slide { display: block; width: 100vw; }
   section.products .cards, section.related_products .cards, section.catalog_products .cards { overflow: hidden; margin-top: 20px; }
   section.products .cards .slick-list, section.related_products .cards .slick-list, section.catalog_products .cards .slick-list { padding: 0 10px !important; }
-  section.products .card, section.related_products .card, section.catalog_products .card { margin: 0 4px; padding-top: 30px; height: 350px; max-width: 42vw; }
+  section.products .card, section.related_products .card, section.catalog_products .card { margin: 0 4px; max-width: 42vw; }
   section.products .card .quantity span, section.related_products .card .quantity span, section.catalog_products .card .quantity span { font-size: 12px; }
   section.products .card .price, section.related_products .card .price, section.catalog_products .card .price { margin-top: 6px; }
   section.products .card .attributes, section.related_products .card .attributes, section.catalog_products .card .attributes { margin-bottom: 8px; }
@@ -797,11 +820,16 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
   section.product_instructions .steps li { flex-direction: column; gap: 20px; }
   section.product_instructions .steps li:not(:first-child) { margin-top: 40px; }
   section.product_instructions .steps li .image { order: 1 !important; }
-  section.product_instructions .steps li .text { order: 2 !important; font-size: 16px; max-width: 360px; } }
+  section.product_instructions .steps li .text { order: 2 !important; font-size: 16px; max-width: 360px; }
+  section.catalog_banner > img { display: none; }
+  section.catalog_banner > img.mobile { display: block; }
+  section.catalog_products .cards .card { width: 50%; } }
 
 @media (max-width: 410px) { body { padding-top: 116px; }
   #main_header .wrapper { height: 80px; }
   #main_header .main_logo { width: 110px; top: 11px; }
   #main_header .manage_icons li a { padding: 5px; }
   #main_header nav { height: auto; padding-bottom: 8px; }
-  section.products .card, section.related_products .card, section.catalog_products .card { max-width: 260px; margin: 0 25px; } }
+  section.products .card, section.related_products .card, section.catalog_products .card { max-width: 260px; margin: 0 25px; }
+  section.catalog_products .cards .card { padding: 10px; height: 350px; }
+  section.catalog_products .cards .card .tags { top: 10px; left: 10px; } }

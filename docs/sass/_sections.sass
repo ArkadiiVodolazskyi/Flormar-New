@@ -97,6 +97,7 @@ section.products
 				border-radius: 12px 0 12px 0
 				color: $text-secondary
 				background-color: $bg-secondary
+				text-transform: uppercase
 				&:hover
 					background-color: $interactive-color-primary
 		.thumb
@@ -167,7 +168,7 @@ section.products
 			justify-self: flex-end
 			padding: 12px
 			font-weight: 500
-			font-size: 12px
+			font-size: 13px
 			text-align: center
 			border: 1px solid $text-primary
 			background: none
@@ -271,6 +272,7 @@ section.achievements
 
 section.choose_product
 	max-height: 580px
+	transition: all 0.4s ease
 	.wrapper
 		display: flex
 		align-items: center
@@ -498,7 +500,7 @@ section.choose_product
 					transition: all 0.25s ease
 					background: var(--product-color)
 					transform-origin: 50% 100%
-				&:hover::after, &.slick-current::after
+				&:hover::after, &.current_product::after
 					transform: scale(1, 1.2)
 				&[aria-hidden=true]
 					opacity: 0
@@ -728,6 +730,8 @@ section.catalog_banner
 	> img
 		width: 100%
 		height: auto
+		&.mobile
+			display: none
 	.breacrumbs
 		position: absolute
 		top: 0
@@ -737,7 +741,7 @@ section.catalog_banner
 
 section.catalog_products
 	@extend section.products
-	margin-bottom: 50px
+	margin: 50px 0 50px
 	.filters
 		display: flex
 		align-items: center
@@ -748,7 +752,7 @@ section.catalog_products
 			display: flex
 			align-items: center
 			gap: 5px
-			button
+			> *
 				padding: 8px 15px
 				border-radius: 20px
 				border: 1px solid $tsp
@@ -762,6 +766,7 @@ section.catalog_products
 		display: flex
 		flex-wrap: wrap
 		gap: 35px
+		margin-top: 60px
 		.card
 			flex-shrink: 0
 			margin: 0

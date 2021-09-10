@@ -6,9 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.00">
 	<title>Flormar - Catalog</title>
 
+	<!-- Libs -->
+	<link rel="stylesheet" href="./libs/aos.css">
+
 	<!-- Custom styles -->
-	<link rel="stylesheet" href="./css/flormar.css">
-	<!-- <link rel="stylesheet" href="./css/flormar.min.css"> -->
+	<!-- <link rel="stylesheet" href="./css/flormar.css"> -->
+	<link rel="stylesheet" href="./css/flormar.min.css">
 </head>
 <body>
 
@@ -615,6 +618,7 @@
 	<!-- Content start -->
 	<section class="catalog_banner">
 		<img src="./img/catalog_banner.jpg" alt="catalog_banner">
+		<img class="mobile" src="./img/catalog_banner_mobile.jpg" alt="catalog_banner">
 		<div class="breacrumbs">
 			<div class="wrapper">
 				<a href="./index.html">Home Page</a>
@@ -628,291 +632,16 @@
 			<div class="filters">
 				<div class="products_amount">
 					<span>םיטירפ</span>
-					<span class="amount">1262</span>
+					<span id="number_of_products"></span>
 				</div>
 				<div class="filter_buttons">
-					<button id="price_lowest" class="active">המחירים הנמוכים ביותר</button>
-					<button id="bestsellers">BEST SELLERS</button>
-					<button id="new">פריטים חדשים</button>
+					<a class="all" href="./archive-product.html">ALL</a>
+					<a href="./archive-product.html?tag=makeup">איפור</a>
+					<a href="./archive-product.html?tag=bestsellers">BEST SELLERS</a>
+					<a href="./archive-product.html?tag=new">פריטים חדשים</a>
 				</div>
 			</div>
-			<div class="cards">
-				<div class="card">
-					<div class="tags">
-						<a href="#" class="tag bestseller">BEST SELLER</a>
-					</div>
-					<a href="#" class="thumb">
-						<img src="./img/product_4.png" alt="product_thumb">
-					</a>
-					<a href="#" class="name">
-						<h4>FLORMAR - SILK MATTE LIQUID LIPSTICKFLORMAR - SILK MATTE LIQUID LIPSTICKFLORMAR - SILK MATTE LIQUID LIPSTICK</h4>
-					</a>
-					<div class="attributes">
-						<div class="price">
-							<p class="price_current">
-								<span class="value">49.00</span>
-								<span class="units">₪</span>
-							</p>
-						</div>
-						<div class="quantity">
-							<span class="value">15</span>
-							<span class="units">םיעבצ</span>
-						</div>
-					</div>
-					<button class="add_to_cart">
-						ADD TO CART
-					</button>
-				</div>
-				<div class="card">
-					<div class="tags"></div>
-					<a href="#" class="thumb">
-						<img src="./img/product_3.png" alt="product_thumb">
-					</a>
-					<a href="#" class="name">
-						<h4>FLORMAR - ANTI AGE DAY CREAM</h4>
-					</a>
-					<div class="attributes">
-						<div class="price">
-							<p class="price_current">
-								<span class="value">79.90</span>
-								<span class="units">₪</span>
-							</p>
-						</div>
-						<div class="quantity">
-							<span class="value">1</span>
-							<span class="units">םיעבצ</span>
-						</div>
-					</div>
-					<button class="add_to_cart">
-						ADD TO CART
-					</button>
-				</div>
-				<div class="card">
-					<div class="tags"></div>
-					<a href="#" class="thumb">
-						<img src="./img/product_1.png" alt="product_thumb">
-					</a>
-					<a href="#" class="name">
-						<h4>FLORMAR – CC CREAM</h4>
-					</a>
-					<div class="attributes">
-						<div class="price">
-							<p class="price_current">
-								<span class="value">65</span>
-								<span class="units">₪</span>
-							</p>
-							<p class="price_old">
-								<span class="value">35</span>
-								<span class="units">₪</span>
-							</p>
-						</div>
-						<div class="quantity">
-							<span class="value">15</span>
-							<span class="units">םיעבצ</span>
-						</div>
-					</div>
-					<button class="add_to_cart">
-						ADD TO CART
-					</button>
-				</div>
-				<div class="card">
-					<div class="tags">
-						<a href="#" class="tag bestseller">BEST SELLER</a>
-					</div>
-					<a href="#" class="thumb">
-						<img src="./img/product_4.png" alt="product_thumb">
-					</a>
-					<a href="#" class="name">
-						<h4>FLORMAR - SILK MATTE LIQUID LIPSTICK</h4>
-					</a>
-					<div class="attributes">
-						<div class="price">
-							<p class="price_current">
-								<span class="value">49.00</span>
-								<span class="units">₪</span>
-							</p>
-						</div>
-						<div class="quantity">
-							<span class="value">15</span>
-							<span class="units">םיעבצ</span>
-						</div>
-					</div>
-					<button class="add_to_cart">
-						ADD TO CART
-					</button>
-				</div>
-
-				<a href="#" class="catalog_filler">
-					<img src="./img/catalog_filler.jpg" alt="catalog_filler">
-				</a>
-
-				<div class="card">
-					<div class="tags"></div>
-					<a href="#" class="thumb">
-						<img src="./img/product_2.png" alt="product_thumb">
-					</a>
-					<a href="#" class="name">
-						<h4>FLORMAR - METALLIC LIP CHARMER MATTE</h4>
-					</a>
-					<div class="attributes">
-						<div class="price">
-							<p class="price_current">
-								<span class="value">25.00</span>
-								<span class="units">₪</span>
-							</p>
-							<p class="price_old">
-								<span class="value">49.90</span>
-								<span class="units">₪</span>
-							</p>
-						</div>
-						<div class="quantity">
-							<span class="value">4</span>
-							<span class="units">םיעבצ</span>
-						</div>
-					</div>
-					<button class="add_to_cart">
-						ADD TO CART
-					</button>
-				</div>
-				<div class="card">
-					<div class="tags">
-						<a href="#" class="tag bestseller">BEST SELLER</a>
-					</div>
-					<a href="#" class="thumb">
-						<img src="./img/product_1.png" alt="product_thumb">
-					</a>
-					<a href="#" class="name">
-						<h4>FLORMAR – CC CREAM</h4>
-					</a>
-					<div class="attributes">
-						<div class="price">
-							<p class="price_current">
-								<span class="value">65</span>
-								<span class="units">₪</span>
-							</p>
-							<p class="price_old">
-								<span class="value">35</span>
-								<span class="units">₪</span>
-							</p>
-						</div>
-						<div class="quantity">
-							<span class="value">15</span>
-							<span class="units">םיעבצ</span>
-						</div>
-					</div>
-					<button class="add_to_cart">
-						ADD TO CART
-					</button>
-				</div>
-				<div class="card">
-					<div class="tags">
-						<a href="#" class="tag bestseller">BEST SELLER</a>
-					</div>
-					<a href="#" class="thumb">
-						<img src="./img/product_4.png" alt="product_thumb">
-					</a>
-					<a href="#" class="name">
-						<h4>FLORMAR - SILK MATTE LIQUID LIPSTICK</h4>
-					</a>
-					<div class="attributes">
-						<div class="price">
-							<p class="price_current">
-								<span class="value">49.00</span>
-								<span class="units">₪</span>
-							</p>
-						</div>
-						<div class="quantity">
-							<span class="value">15</span>
-							<span class="units">םיעבצ</span>
-						</div>
-					</div>
-					<button class="add_to_cart">
-						ADD TO CART
-					</button>
-				</div>
-				<div class="card">
-					<div class="tags"></div>
-					<a href="#" class="thumb">
-						<img src="./img/product_3.png" alt="product_thumb">
-					</a>
-					<a href="#" class="name">
-						<h4>FLORMAR - ANTI AGE DAY CREAM</h4>
-					</a>
-					<div class="attributes">
-						<div class="price">
-							<p class="price_current">
-								<span class="value">79.90</span>
-								<span class="units">₪</span>
-							</p>
-						</div>
-						<div class="quantity">
-							<span class="value">1</span>
-							<span class="units">םיעבצ</span>
-						</div>
-					</div>
-					<button class="add_to_cart">
-						ADD TO CART
-					</button>
-				</div>
-				<div class="card">
-					<div class="tags"></div>
-					<a href="#" class="thumb">
-						<img src="./img/product_2.png" alt="product_thumb">
-					</a>
-					<a href="#" class="name">
-						<h4>FLORMAR - METALLIC LIP CHARMER MATTE</h4>
-					</a>
-					<div class="attributes">
-						<div class="price">
-							<p class="price_current">
-								<span class="value">25.00</span>
-								<span class="units">₪</span>
-							</p>
-							<p class="price_old">
-								<span class="value">49.90</span>
-								<span class="units">₪</span>
-							</p>
-						</div>
-						<div class="quantity">
-							<span class="value">4</span>
-							<span class="units">םיעבצ</span>
-						</div>
-					</div>
-					<button class="add_to_cart">
-						ADD TO CART
-					</button>
-				</div>
-				<div class="card">
-					<div class="tags">
-						<a href="#" class="tag bestseller">BEST SELLER</a>
-					</div>
-					<a href="#" class="thumb">
-						<img src="./img/product_1.png" alt="product_thumb">
-					</a>
-					<a href="#" class="name">
-						<h4>FLORMAR – CC CREAM</h4>
-					</a>
-					<div class="attributes">
-						<div class="price">
-							<p class="price_current">
-								<span class="value">65</span>
-								<span class="units">₪</span>
-							</p>
-							<p class="price_old">
-								<span class="value">35</span>
-								<span class="units">₪</span>
-							</p>
-						</div>
-						<div class="quantity">
-							<span class="value">15</span>
-							<span class="units">םיעבצ</span>
-						</div>
-					</div>
-					<button class="add_to_cart">
-						ADD TO CART
-					</button>
-				</div>
-			</div>
+			<div class="cards"></div>
 			<button id="load_more">
 				<svg width="16" height="12">
 					<use xlink:href="./img/icons.svg#loadMore"></use>
@@ -996,6 +725,7 @@
 	<!-- Libs -->
 	<script src="./js/jquery-3.5.1.min.js"></script>
 	<script src="./js/slick.min.js"></script>
+	<script src="./libs/aos.js"></script>
 
 	<!-- Custom scripts -->
 	<script src="./js/main.js"></script>

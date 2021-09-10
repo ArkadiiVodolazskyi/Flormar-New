@@ -192,6 +192,29 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
+	  // Init AOS
+		AOS.init({
+			// Global settings:
+			disable: 'mobile', // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+			startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+			initClassName: 'aos-init', // class applied after initialization
+			animatedClassName: 'aos-animate', // class applied on animation
+			useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+			disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+			debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+			throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+			// Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+			offset: 50, // was 120 - offset (in px) from the original trigger point
+			delay: 0, // values from 0 to 3000, with step 50ms
+			duration: 400, // values from 0 to 3000, with step 50ms
+			easing: 'ease', // default easing for AOS animations
+			once: true, // whether animation should happen only once - while scrolling down
+			mirror: false, // whether elements should animate out while scrolling past them
+			anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+		});
+		AOS.refresh();
+
 }, true);
 
 window.addEventListener('load', () => {
@@ -243,45 +266,58 @@ window.addEventListener('load', () => {
 		});
 	})();
 
-	// Megameny interaction
+	// Highlight current nav item
 	(function() {
-		const main_links = document.querySelectorAll('#main_header .main_links li a');
-		const main_megamenu = document.getElementById('main_megamenu');
-		const megaItems = document.querySelectorAll('#main_header #main_megamenu .mega_item');
+		const nav_links = document.querySelectorAll('#main_header nav .main_links li a');
+		if (!nav_links.length) { return; }
+		nav_links.forEach(link => {
+			if (window.location.href.includes(link.href)) {
+				link.classList.add('active');
+			}
+		});
+	})();
 
-		if (main_links.length && main_megamenu && megaItems.length) {
+	// Megameny interaction
+	if (window.innerWidth > 1024) {
+		(function() {
+			const main_links = document.querySelectorAll('#main_header .main_links li a');
+			const main_megamenu = document.getElementById('main_megamenu');
+			const megaItems = document.querySelectorAll('#main_header #main_megamenu .mega_item');
 
-			for (let i = 0; i < main_links.length; i++) {
-				main_links[i].addEventListener('mouseenter', () => {
-					megaItems[i].classList.add('active');
-					main_header.classList.add('mega_opened');
-					main_megamenu.classList.add('active');
-				});
-				main_links[i].addEventListener('mouseleave', () => {
-					main_megamenu.classList.remove('active');
-					main_header.classList.remove('mega_opened');
-					megaItems[i].classList.remove('active');
-				});
+			if (main_links.length && main_megamenu && megaItems.length) {
 
-				for (let i = 0; i < megaItems.length; i++) {
-					megaItems[i].addEventListener('mouseenter', () => {
-						main_links[i].classList.add('active');
+				for (let i = 0; i < main_links.length; i++) {
+					main_links[i].addEventListener('mouseenter', () => {
+						megaItems[i].classList.add('active');
 						main_header.classList.add('mega_opened');
 						main_megamenu.classList.add('active');
-						megaItems[i].classList.add('active');
 					});
-					megaItems[i].addEventListener('mouseleave', () => {
-						megaItems[i].classList.remove('active');
+					main_links[i].addEventListener('mouseleave', () => {
 						main_megamenu.classList.remove('active');
 						main_header.classList.remove('mega_opened');
-						main_links[i].classList.remove('active');
+						megaItems[i].classList.remove('active');
 					});
+
+					for (let i = 0; i < megaItems.length; i++) {
+						megaItems[i].addEventListener('mouseenter', () => {
+							main_links[i].classList.add('active');
+							main_header.classList.add('mega_opened');
+							main_megamenu.classList.add('active');
+							megaItems[i].classList.add('active');
+						});
+						megaItems[i].addEventListener('mouseleave', () => {
+							megaItems[i].classList.remove('active');
+							main_megamenu.classList.remove('active');
+							main_header.classList.remove('mega_opened');
+							main_links[i].classList.remove('active');
+						});
+					}
+
 				}
 
 			}
-
-		}
-	})();
+		})();
+	}
 
 	// Open/close mobile menu
 	(function() {
@@ -488,34 +524,173 @@ window.addEventListener('load', () => {
 	(function() {
 		const load_more = document.getElementById('load_more');
 		const cards_wrapper = document.querySelector('.catalog_products .cards');
-
+		const number_of_products = document.getElementById('number_of_products');
 		if (!load_more || !cards_wrapper) {
 			return;
 		}
-
 		const load_more_icon = load_more.querySelector('svg');
 
-		// Init
-		let start_index = 10;
+		const newCardsHtml = (products, start, end, btn_load_amount, cards_filler_index = null) => {
+			let cards_set = '';
+			let col_index = 0;
+
+			for (let i = start; i < end; i++) {
+				let cardHtml = '';
+
+				if (cards_filler_index && i === cards_filler_index) {
+					cardHtml += `
+						<a href="#" class="catalog_filler" data-aos="fade-in">
+							<img src="./img/catalog_filler.jpg" alt="catalog_filler">
+						</a>
+					`;
+					col_index += 2;
+				}
+				cardHtml += `<div class="card" data-aos="slide-up" data-aos-delay="${col_index * 50}">`;
+					if (products[i].tags.length) {
+						cardHtml += '<div class="tags">';
+							products[i].tags.forEach(tag => {
+								cardHtml += `
+									<a href="./archive-product.html?tag=${tag}" class="tag ${tag}">${tag}</a>
+								`;
+							});
+						cardHtml += '</div>';
+					}
+
+					cardHtml += products[i].image ? `
+						<a class="thumb" href="${products[i].url}">
+							<img src="${products[i].image}" alt="product_thumb">
+						</a>` : '';
+
+					cardHtml += products[i].title ? `
+						<a class="name" href="${products[i].url}">
+							<h4>${products[i].title}</h4>
+						</a>` : '';
+
+					if (products[i].price_current || products[i].quantity) {
+						cardHtml += '<div class="attributes">';
+
+							if (products[i].price_current) {
+								cardHtml += '<div class="price">';
+									cardHtml += `<p class="price_current">
+										<span class="value">${products[i].price_current}</span>
+										<span class="units">₪</span>
+									</p>`;
+									cardHtml += products[i].price_old ? `<p class="price_old">
+										<span class="value">${products[i].price_old}</span>
+										<span class="units">₪</span>
+									</p>` : '';
+								cardHtml += '</div>';
+							}
+
+							if (products[i].quantity) {
+								cardHtml += '<div class="quantity">';
+									cardHtml += `
+										<span class="value">${products[i].quantity}</span>
+										<span class="units">םיעבצ</span>
+									`;
+								cardHtml += '</div>';
+							}
+
+						cardHtml += '</div>';
+					}
+
+					cardHtml += `<button class="add_to_cart">ADD TO CART</button>`;
+				cardHtml += '</div>';
+
+				cards_set += cardHtml;
+				col_index++;
+
+				if (col_index === btn_load_amount) {
+					col_index = 0;
+				}
+			}
+
+			return cards_set;
+		}
+
+		// Init variables
+		let start_index = 0;
+		let btn_load_amount = 5;
 		let load_iterations = 0;
+		let output_amount = 13;
+		let cards_filler_index = 5;
+		const urlParams = new URLSearchParams(window.location.search);
+		const filter_tag = urlParams.get('tag');
 
+		// Highlight filter button
+		if (filter_tag) {
+			document.querySelector(`.catalog_products .filters .filter_buttons > a[href*='${filter_tag}']`).classList.add('active');
+		} else {
+			document.querySelector('.catalog_products .filters .filter_buttons > .all').classList.add('active');
+		}
+
+		// Redefine variables due to window width
+		if (window.innerWidth <= 480) {
+			output_amount = 8;
+			btn_load_amount = 4;
+		} else if (window.innerWidth <= 768) {
+			output_amount = 9;
+			btn_load_amount = 3;
+		} else if (window.innerWidth <= 1440) {
+			output_amount = 10;
+			cards_filler_index = 4;
+			btn_load_amount = 4;
+		}
+
+		// ----------------------- Init load -----------------------
+		const initLoadProducts = async (start_index) => {
+			let products = null;
+			const getProducts = await loadMore('./data/products.json');
+
+			// Count items
+			if (!filter_tag) {
+				products = getProducts;
+			} else {
+				products = getProducts.filter(product => {
+					return product.tags.includes(filter_tag);
+				});
+			}
+			number_of_products.innerText = products.length;
+			if (output_amount > products.length) {
+				output_amount = products.length;
+				load_more.style.display = 'none';
+			}
+
+			cards_wrapper.innerHTML += newCardsHtml(products, start_index, start_index + output_amount, btn_load_amount, cards_filler_index);
+		}
+		initLoadProducts(start_index);
+		start_index += output_amount;
+
+		// ----------------------- Load on button click -----------------------
 		const outputProducts = async (start_index) => {
-
 			const products = await loadMore('./data/products.json');
 
-			for (let i = start_index; i < start_index + 4; i++) {
-				console.log(i, products[i]);
+			if (start_index + btn_load_amount >= products.length - 1) {
+
+				setTimeout(() => {
+					cards_wrapper.innerHTML += newCardsHtml(products, start_index, products.length);
+					load_more.style.display = 'none';
+				}, 500);
+
+			} else {
+
+				setTimeout(() => {
+					cards_wrapper.innerHTML += newCardsHtml(products, start_index, start_index + btn_load_amount, btn_load_amount);
+				}, 500);
+
 			}
 
 		}
 
+		// Button listener
 		load_more.addEventListener('click', () => {
 			load_iterations++;
 			load_more_icon.style.transform = `rotate(${load_iterations * 180}deg)`;
 
 			outputProducts(start_index);
-			start_index += 4;
+			start_index += btn_load_amount;
 		}, true);
+
 	})();
 
 }, true);
