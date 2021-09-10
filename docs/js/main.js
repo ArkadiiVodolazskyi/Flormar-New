@@ -272,7 +272,7 @@ window.addEventListener('load', () => {
 		if (!nav_links.length) { return; }
 		nav_links.forEach(link => {
 			if (window.location.href.includes(link.href)) {
-				link.classList.add('active');
+				link.classList.add('current_page');
 			}
 		});
 	})();

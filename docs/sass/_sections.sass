@@ -738,10 +738,22 @@ section.catalog_banner
 		left: 0
 		padding: 30px 0
 		width: 100%
+	.page_title_block
+		position: absolute
+		top: 50%
+		left: 0
+		transform: translate(0, -50%)
+		padding: 30px 0
+		width: 100%
+		.page_title
+			@extend .section_title
+			font-weight: bold
+			margin-right: 0
 
 section.catalog_products
 	@extend section.products
 	margin: 50px 0 50px
+	transition: all 0.4s ease
 	.filters
 		display: flex
 		align-items: center
@@ -753,11 +765,11 @@ section.catalog_products
 			align-items: center
 			gap: 5px
 			> *
-				padding: 8px 15px
-				border-radius: 20px
+				padding: 4px 15px
+				border-radius: 25px
 				border: 1px solid $tsp
 				&:hover
-					border-color: $bg-medial
+					border-color: $interactive-color-primary
 				&.active
 					background: $interactive-color-primary
 					color: $text-secondary

@@ -20,7 +20,7 @@ body { width: 100%; height: 100%; position: relative; z-index: 1; padding-top: 1
 
 section { position: relative; z-index: 5; max-width: 100vw; overflow: hidden; }
 
-section h3.section_title { width: max-content; margin: 0 auto; font-size: 30px; font-weight: 500; text-align: center; padding: 5px 0; border-top: 2px solid #fb0092; border-bottom: 2px solid #fb0092; }
+.section_title, section.catalog_banner .page_title_block .page_title { width: max-content; margin: 0 auto; font-size: 30px; font-weight: 500; text-align: center; padding: 5px 0; border-top: 2px solid #fb0092; border-bottom: 2px solid #fb0092; }
 
 li, span, a { display: inline-block; }
 
@@ -148,7 +148,7 @@ button { -moz-appearance: none; -webkit-appearance: none; appearance: none; back
 
 #main_header nav ul li a { height: 100%; display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 2px; text-decoration-color: #00000000; }
 
-#main_header nav ul li a:hover, #main_header nav ul li a.active { text-decoration-color: #fb0092; }
+#main_header nav ul li a:hover, #main_header nav ul li a.active, #main_header nav ul li a.current_page { text-decoration-color: #fb0092; }
 
 #main_header .manage_icons { display: flex; align-items: center; justify-content: center; gap: 0 20px; }
 
@@ -602,7 +602,11 @@ section.catalog_banner > img.mobile { display: none; }
 
 section.catalog_banner .breacrumbs { position: absolute; top: 0; left: 0; padding: 30px 0; width: 100%; }
 
-section.catalog_products { margin: 50px 0 50px; }
+section.catalog_banner .page_title_block { position: absolute; top: 50%; left: 0; transform: translate(0, -50%); padding: 30px 0; width: 100%; }
+
+section.catalog_banner .page_title_block .page_title { font-weight: bold; margin-right: 0; }
+
+section.catalog_products { margin: 50px 0 50px; transition: all 0.4s ease; }
 
 section.catalog_products .filters { display: flex; align-items: center; gap: 12%; }
 
@@ -610,9 +614,9 @@ section.catalog_products .filters .products_amount { color: rgba(0, 0, 0, 0.5); 
 
 section.catalog_products .filters .filter_buttons { display: flex; align-items: center; gap: 5px; }
 
-section.catalog_products .filters .filter_buttons > * { padding: 8px 15px; border-radius: 20px; border: 1px solid #00000000; }
+section.catalog_products .filters .filter_buttons > * { padding: 4px 15px; border-radius: 25px; border: 1px solid #00000000; }
 
-section.catalog_products .filters .filter_buttons > *:hover { border-color: #eeebeb; }
+section.catalog_products .filters .filter_buttons > *:hover { border-color: #fb0092; }
 
 section.catalog_products .filters .filter_buttons > *.active { background: #fb0092; color: #ffffff; border-color: #fb0092; }
 
@@ -699,7 +703,7 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
 
 @media (max-width: 1024px) { body { padding-top: 141px; }
   .wrapper { width: 85%; }
-  section h3.section_title { font-size: 24px; padding: 0; }
+  section h3.section_title, section.catalog_banner .page_title_block h3.page_title { font-size: 24px; padding: 0; }
   .breacrumbs { border-bottom: 1px solid #eeebeb; }
   #main_header { border-bottom: 1px solid #eeebeb; }
   #main_header nav .main_links li:not(.show_mobile), #main_header .manage_icons li.favs, #main_header .manage_icons li.account, #main_header .wrapper .main_megamenu { display: none; }
@@ -781,7 +785,8 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
   section.catalog_products .cards .card .name h4 { font-size: 15px; }
   section.catalog_products .cards .card .attributes { margin-bottom: 8px; }
   section.catalog_products .cards .card .price { margin-top: 5px; }
-  section.catalog_products .cards .catalog_filler { display: none; } }
+  section.catalog_products .cards .catalog_filler { display: none; }
+  section.catalog_banner .page_title_block .page_title { font-size: 24px; } }
 
 @media (max-width: 480px) { .wrapper { width: 90%; }
   .breacrumbs { padding: 8px 0; }
