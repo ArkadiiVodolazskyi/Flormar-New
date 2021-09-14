@@ -693,4 +693,31 @@ window.addEventListener('load', () => {
 
 	})();
 
+	// ------------ Checkout ------------
+
+	// Delete item
+	(function() {
+		const remove_items = document.querySelectorAll('section.checkout .cart_items .cart_item .remove_item');
+		if (!remove_items.length) {
+			return;
+		}
+		for (let i = 0; i < remove_items.length; i++) {
+			remove_items[i].addEventListener('click', (e) => {
+				e.preventDefault();
+			}, true);
+		}
+	})();
+
+	// Toggle coupon field
+	(function() {
+		const toggle_coupon_field = document.getElementById('toggle_coupon_field');
+		if (!toggle_coupon_field) {
+			return;
+		}
+		toggle_coupon_field.addEventListener('click', (e) => {
+			e.preventDefault();
+			toggle_coupon_field.classList.toggle('active');
+		}, true);
+	})();
+
 }, true);

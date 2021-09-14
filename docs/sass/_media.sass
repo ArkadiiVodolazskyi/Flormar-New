@@ -34,6 +34,8 @@
 
 	section.achievements .card .amount
 		font-size: 60px
+	section.checkout .wrapper
+		width: 77%
 
 @media (max-width: 1280px)
 	section.banner_main
@@ -206,6 +208,8 @@
 				height: 365px
 		#load_more
 			margin-top: 30px
+	section.checkout .wrapper
+		width: 90%
 
 @media (max-width: 768px)
 	footer#main_footer
@@ -289,6 +293,31 @@
 				display: none
 	section.catalog_banner .page_title_block .page_title
 		font-size: 24px
+	section.checkout
+		margin-bottom: 50px
+		.products_in_cart
+			width: 100%
+		.content
+			flex-direction: column
+			margin-top: 0
+		.cart_inners
+			order: 1
+			width: 100%
+			#cart_info .submit_block
+				display: none
+		#customer_info
+			order: 2
+			width: 100%
+			.submit_block
+				display: block
+			.fields
+				padding: 15px
+				label
+					margin-top: 10px
+					input#address_2, input#house_namber
+						width: calc( 100% / 2 - 7.2px )
+					input#house_namber
+						margin-right: 10px
 
 @media (max-width: 480px)
 	.wrapper
@@ -297,6 +326,9 @@
 		padding: 8px 0
 		.wrapper a
 			font-size: 12px
+	.section_title, .page_title
+		font-size: 27px
+		padding: 0
 
 	#main_header .manage_icons
 		gap: 0
@@ -400,6 +432,68 @@
 			display: block
 	section.catalog_products .cards .card
 		width: 50%
+	section.checkout
+		.products_in_cart
+			font-size: 18px
+		.content
+			gap: 18px
+		#customer_info label p
+			font-size: 16px
+			line-height: 1.3
+		.cart_inners
+			.sale_info
+				line-height: 1.1
+			#cart_info
+				.order_details
+					> *
+						padding: 15px
+					.summary
+						.free_delivery_info
+							margin-top: 12px
+						.delivery_price
+							font-size: 16px
+				.cart_item
+					flex-wrap: wrap
+					gap: 24px 20px
+					height: auto
+					padding: 0
+					position: relative
+					&::after
+						content: ''
+						position: absolute
+						z-index: 100
+						left: 50%
+						top: 84px
+						width: 100%
+						height: 1px
+						transform: translate(-50%, -50%)
+						background-color: $bg-medial-2
+					.thumb
+						width: calc( 30% - 12px )
+						height: 72px
+					.product_name
+						width: calc( 70% - 12px )
+						padding: 0
+						text-align: left
+						h3
+							font-size: 15px
+						.model
+							justify-content: flex-end
+							margin-top: 6px
+					.quantity
+						width: max-content
+						padding: 0
+						display: flex
+						align-items: center
+						gap: 12px
+						.manage_quantity
+							margin: 0
+							input
+								width: 2em
+					.price
+						width: max-content
+						text-align: center
+						font-size: 16px
 
 @media (max-width: 410px)
 	body

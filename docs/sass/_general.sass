@@ -46,6 +46,10 @@ body
 	position: relative
 	z-index: 1
 	padding-top: 105px
+	min-height: 100vh
+	display: flex
+	flex-direction: column
+	justify-content: space-between
 
 section
 	position: relative
@@ -61,6 +65,9 @@ section
 	padding: 5px 0
 	border-top: 2px solid $interactive-color-primary
 	border-bottom: 2px solid $interactive-color-primary
+.page_title
+	@extend .section_title
+	font-weight: bold
 
 li, span, a
 	display: inline-block
@@ -85,6 +92,9 @@ button
 	transition: all 0.3s ease
 	display: block
 	font-family: $ff_futura
+
+h1, h2, h3, h4, h5, h6
+	font-weight: 500
 
 /* __________________ Clssses __________________ */
 
@@ -172,3 +182,73 @@ button
 			background-color: $interactive-color-primary
 		&:hover button::after
 			background-color: rgba($interactive-color-primary, 0.5)
+
+/* __________________ Form elements __________________ */
+.manage_quantity
+	display: flex
+	justify-content: center
+	align-items: center
+	font-size: 20px
+	height: 2em
+	transition: all 0.25s ease
+	border: 1px solid #e9e9e9
+	&.active
+		border-color: $interactive-color-primary
+	button
+		width: 1.5em
+		height: 100%
+		font-size: 1.2em
+		padding-top: 3px
+		&:nth-of-type(1)
+			border-left: 1px solid #e9e9e9
+		&:nth-of-type(2)
+			border-right: 1px solid #e9e9e9
+		&:hover
+			background: $interactive-color-primary
+			border-color: $interactive-color-primary
+			color: $text-secondary
+		&:disabled
+			pointer-events: none
+			opacity: 0.5
+	input
+		appearance: textfield
+		text-align: center
+		outline: none
+		width: 3em
+		font-family: $ff_futurabt
+		font-size: 0.9em
+		height: 100%
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		background: none
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button
+			-webkit-appearance: none
+			margin: 0
+
+input[type=text],
+input[type=tel],
+textarea
+	width: 100%
+	padding: 10px 18px
+	font-family: $ff_futura
+	font-size: 18px
+	font-weight: 500
+	outline: none
+	transition: all 0.25s ease
+	border: 1px solid $bg-medial-2
+	&::placeholder
+		font-family: inherit
+		font-size: inherit
+		font-weight: normal
+		color: inherit
+		opacity: 1
+	&:focus
+		border-color: $interactive-color-primary
+textarea
+	height: 15em
+	max-height: 15em
+	resize: none
+
+
