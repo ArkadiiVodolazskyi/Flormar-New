@@ -816,11 +816,12 @@ section.checkout
 			font-weight: 500
 		.fields
 			margin-top: 18px
-			padding: 50px 15px 30px
+			padding: 15px
 			border: 1px solid $bg-medial-2
 		label
 			display: block
-			margin-top: 20px
+			&:not(:first-child)
+				margin-top: 20px
 			input, textarea
 				margin-top: 10px
 				font-size: 16px
@@ -841,12 +842,20 @@ section.checkout
 			margin-top: 20px
 	.cart_inners
 		width: 60%
+		display: flex
+		flex-direction: column
 		.sale_info
 			font-size: 16px
 			line-height: 2
 		#cart_info
 			margin-top: 15px
+			flex-grow: 1
+			display: flex
+			flex-direction: column
 			.cart_info
+				flex-grow: 1
+				display: flex
+				flex-direction: column
 				border: 1px solid $bg-medial-2
 			.estimated, .order_details_title
 				background: $interactive-color-primary
@@ -855,7 +864,42 @@ section.checkout
 				text-align: center
 				padding: 8px
 			.cart_items
+				flex-grow: 1
 				padding: 15px
+				transition: all .4s ease
+				position: relative
+				min-height: 155px
+				@media (min-width: 769px)
+					max-height: 513px
+					overflow-y: auto
+					&.opened_coupon
+						max-height: 460px
+				&.no_items::after
+					opacity: 1
+					visibility: visible
+				&::after
+					content: 'No items in the cart.'
+					position: absolute
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+					direction: ltr
+					font-size: 1.2em
+					width: 95%
+					text-align: center
+					transition: all 0.4s ease
+					opacity: 0
+					visibility: hidden
+				@media (min-width: 1025px)
+					scrollbar-width: 10px
+					&::-webkit-scrollbar
+						width: 5px
+					&::-webkit-scrollbar-track
+						box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4)
+					&::-webkit-scrollbar-thumb
+						background-image: linear-gradient(180deg, darken($interactive-color-primary, 30%) 0%, darken($interactive-color-primary, 10%) 99%)
+						box-shadow: inset 2px 2px 10px 0 rgba($b, 0.5)
+						border-radius: 10px
 			.cart_item
 				display: flex
 				justify-content: space-between
@@ -864,6 +908,13 @@ section.checkout
 				height: 125px
 				padding-left: 1em
 				position: relative
+				transition: all .4s ease
+				&:not(:first-child)
+					border-top: 1px solid $bg-medial-2
+				&.removed
+					transform: scale(0)
+					opacity: 0
+					visibility: hidden
 				> *
 					flex-shrink: 0
 				.thumb

@@ -407,23 +407,14 @@ window.addEventListener('load', () => {
 		}, true);
 	})();
 
-	// Change amount
+	// Change amounts
 	(function() {
-		const manage_quantity = document.querySelector('.choose_product .manage_quantity');
-		const single_product_quantity = document.getElementById('single_product_quantity');
-		const quantity_decrease = document.getElementById('quantity_decrease');
-		const quantity_increase = document.getElementById('quantity_increase');
-
-		if (!single_product_quantity) {
+		const manage_quantitys = document.querySelectorAll('.manage_quantity');
+		if (!manage_quantitys.length) {
 			return false;
 		}
 
-		// Init
-		let quantity = 1;
-		single_product_quantity.value = quantity;
-		quantity_decrease.disabled = true;
-
-		function checkQuantity(quantity) {
+		function checkQuantity(quantity, product_quantity, quantity_decrease, quantity_increase) {
 			if (quantity <= 1) {
 				quantity = 1;
 				quantity_decrease.disabled = true;
@@ -434,25 +425,36 @@ window.addEventListener('load', () => {
 				quantity_decrease.disabled = false;
 				quantity_increase.disabled = false;
 			}
-			single_product_quantity.value = quantity;
+			product_quantity.value = quantity;
 		}
 
-		quantity_decrease.addEventListener('click', () => {
-			quantity--;
-			checkQuantity(quantity);
-		}, true);
-		quantity_increase.addEventListener('click', () => {
-			quantity++;
-			checkQuantity(quantity);
-		}, true);
-		single_product_quantity.addEventListener('focus', () => {
-			manage_quantity.classList.add('active');
-		}, true);
-		single_product_quantity.addEventListener('blur', () => {
-			checkQuantity(quantity);
-			manage_quantity.classList.remove('active');
-		}, true);
+		for (let i = 0; i < manage_quantitys.length; i++) {
+			const product_quantity = manage_quantitys[i].querySelector('.single_product_quantity');
+			const quantity_decrease = manage_quantitys[i].querySelector('.quantity_decrease');
+			const quantity_increase = manage_quantitys[i].querySelector('.quantity_increase');
 
+			// Init
+			let quantity = 1;
+			product_quantity.value = quantity;
+			quantity_decrease.disabled = true;
+
+			quantity_decrease.addEventListener('click', () => {
+				quantity--;
+				checkQuantity(quantity, product_quantity, quantity_decrease, quantity_increase);
+			}, true);
+			quantity_increase.addEventListener('click', () => {
+				quantity++;
+				checkQuantity(quantity, product_quantity, quantity_decrease, quantity_increase);
+			}, true);
+			product_quantity.addEventListener('focus', () => {
+				manage_quantitys[i].classList.add('active');
+			}, true);
+			product_quantity.addEventListener('blur', () => {
+				checkQuantity(quantity, product_quantity, quantity_decrease, quantity_increase);
+				manage_quantitys[i].classList.remove('active');
+			}, true);
+
+		}
 	})();
 
 	// Hover on colors reveal thumb of this product's color
@@ -697,25 +699,38 @@ window.addEventListener('load', () => {
 
 	// Delete item
 	(function() {
-		const remove_items = document.querySelectorAll('section.checkout .cart_items .cart_item .remove_item');
-		if (!remove_items.length) {
+		const cart_items_wrapper = document.querySelector('section.checkout .cart_items');
+		const cart_items = document.querySelectorAll('section.checkout .cart_items .cart_item');
+		if (!cart_items_wrapper || !cart_items.length) {
 			return;
 		}
-		for (let i = 0; i < remove_items.length; i++) {
-			remove_items[i].addEventListener('click', (e) => {
+		let items_count = cart_items.length;
+
+		for (let i = 0; i < cart_items.length; i++) {
+			cart_items[i].querySelector('.remove_item').addEventListener('click', (e) => {
 				e.preventDefault();
+				cart_items[i].classList.add('removed');
+				setTimeout(() => {
+					cart_items[i].remove();
+				}, 400);
+				items_count--;
+				if (items_count === 0) {
+					cart_items_wrapper.classList.add('no_items');
+				}
 			}, true);
 		}
 	})();
 
 	// Toggle coupon field
 	(function() {
+		const cart_items = document.querySelector('section.checkout .cart_items');
 		const toggle_coupon_field = document.getElementById('toggle_coupon_field');
-		if (!toggle_coupon_field) {
+		if (!cart_items || !toggle_coupon_field) {
 			return;
 		}
 		toggle_coupon_field.addEventListener('click', (e) => {
 			e.preventDefault();
+			cart_items.classList.toggle('opened_coupon');
 			toggle_coupon_field.classList.toggle('active');
 		}, true);
 	})();
