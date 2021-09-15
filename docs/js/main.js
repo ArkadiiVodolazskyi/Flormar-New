@@ -219,13 +219,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
 
-	// Globals
+	// ------------ Globals ------------
 	const html = document.querySelector('html');
 	const body = document.body;
 	const overlay = document.getElementById('overlay');
 	const main_header = document.getElementById('main_header');
 	const mobile_header = document.getElementById('mobile_header');
 	const toggleMobileHeader = document.getElementById('expand_mobile_menu');
+
+	// ------------ General ------------
 
 	// On window scroll
 	(function() {
@@ -277,7 +279,7 @@ window.addEventListener('load', () => {
 		});
 	})();
 
-	// Megameny interaction
+	// Megamenu interaction
 	if (window.innerWidth > 1024) {
 		(function() {
 			const main_links = document.querySelectorAll('#main_header .main_links li a');
@@ -367,6 +369,27 @@ window.addEventListener('load', () => {
 			}
 		} else {
 			console.log(`Something is wrong with mobile links`);
+		}
+	})();
+
+	// Toggle inputs labels
+	(function() {
+		const input_fields = document.querySelectorAll('.input_field_animated');
+		if (!input_fields.length) {
+			return;
+		}
+		for (let i = 0; i < input_fields.length; i++) {
+			const input = input_fields[i].querySelector('input');
+
+			input.addEventListener('focus', () => {
+				input_fields[i].classList.add('active');
+			}, true);
+
+			input.addEventListener('blur', () => {
+				if (!input.value) {
+					input_fields[i].classList.remove('active');
+				}
+			}, true);
 		}
 	})();
 
@@ -518,6 +541,70 @@ window.addEventListener('load', () => {
 		add_to_fav.addEventListener('click', () => {
 			add_to_fav.classList.toggle('active');
 		}, true);
+	})();
+
+	// Validation
+	(function() {
+		const forms = document.querySelectorAll('form.validation');
+		if (!forms.length) {
+			return;
+		}
+
+		forms.forEach(form => {
+			const inputs = form.querySelectorAll('input');
+			const submit = form.querySelector('button[type=submit]');
+
+			// Init
+			submit.disabled = true;
+
+			// Validate inputs
+			inputs.forEach(input => {
+				input.addEventListener('input', () => {
+					if (
+						input.checked ||
+						(input.required && input.value !== '') ||
+						(input.required && input.checked) ||
+						!input.required
+					) {
+						input.classList.remove('invalid');
+						input.classList.add('valid');
+					} else {
+						input.classList.remove('valid');
+					}
+
+					const validInputs = form.querySelectorAll('input.valid');
+					if (validInputs.length === inputs.length) {
+						submit.disabled = false;
+					} else {
+						submit.disabled = true;
+					}
+				}, true);
+			});
+
+			submit.addEventListener('mouseenter', () => {
+				inputs.forEach(input => {
+					if (
+						input.checked ||
+						(input.required && input.value !== '') ||
+						(input.required && input.checked) ||
+						!input.required
+					) {
+						input.classList.remove('invalid');
+						input.classList.add('valid');
+					} else {
+						input.classList.remove('valid');
+						input.classList.add('invalid');
+					}
+				});
+
+				const validInputs = form.querySelectorAll('input.valid');
+				if (validInputs.length === inputs.length) {
+					submit.disabled = false;
+				} else {
+					submit.disabled = true;
+				}
+			}, true);
+		});
 	})();
 
 	// ------------ Catalog ------------
@@ -697,6 +784,27 @@ window.addEventListener('load', () => {
 
 	// ------------ Checkout ------------
 
+	// Recount prices
+	(function() {
+		const cart_items = document.querySelectorAll('section.checkout .cart_items .cart_item');
+		const summary_price = document.querySelector('#summary_price');
+		const summary_plus_delivery = document.querySelector('#summary_plus_delivery');
+		if (!cart_items.length || !summary_price || !summary_plus_delivery) { return; }
+
+		for (let i = 0; i < cart_items.length; i++) {
+			const item_quantity = cart_items[i].querySelector('.single_product_quantity');
+			const item_price_el = cart_items[i].querySelector('.price');
+			const item_price = parseFloat(item_price_el.innerText.substring(1).replace(',', '.'));
+
+			// console.log(item_quantity, item_price_el);
+
+			item_quantity.addEventListener('input', () => {
+				console.log('change');
+				item_price_el.innerText = `₪${item_price * item_quantity.value}`;
+			}, true);
+		}
+	})();
+
 	// Delete item
 	(function() {
 		const cart_items_wrapper = document.querySelector('section.checkout .cart_items');
@@ -732,6 +840,19 @@ window.addEventListener('load', () => {
 			e.preventDefault();
 			cart_items.classList.toggle('opened_coupon');
 			toggle_coupon_field.classList.toggle('active');
+		}, true);
+	})();
+
+	// ------------ Account ------------
+
+	// Toggle nav on mobile
+	(function() {
+		const account_header = document.querySelector('.account_nav_header');
+		if (!account_header) {
+			return;
+		}
+		account_header.addEventListener('click', () => {
+			account_header.classList.toggle('active');
 		}, true);
 	})();
 

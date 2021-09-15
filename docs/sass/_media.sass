@@ -210,6 +210,19 @@
 			margin-top: 30px
 	section.checkout .wrapper
 		width: 90%
+	section.account_nav
+		margin-top: 40px
+		.account_links li a
+			font-size: 18px
+			padding: 8px
+	section.account_content
+		padding: 35px 0 80px
+		form
+			.input_field
+				font-size: 16px
+			button[type="submit"]
+				font-size: 16px
+				padding: 14px
 
 @media (max-width: 768px)
 	footer#main_footer
@@ -318,6 +331,19 @@
 						width: calc( 100% / 2 - 7.2px )
 					input#house_namber
 						margin-right: 10px
+	section.account_nav
+		nav
+			order: -1
+		.account_nav_header
+			display: flex
+		.account_links
+			transition: all .3s linear
+			margin-top: 0
+			max-height: 0
+			opacity: 0
+			visibility: hidden
+		h2
+			margin-top: 35px
 
 @media (max-width: 480px)
 	.wrapper
@@ -486,6 +512,11 @@
 						width: max-content
 						text-align: center
 						font-size: 16px
+	section.account_nav .account_links
+		flex-wrap: wrap
+		justify-content: center
+		> *
+			max-width: unset
 
 @media (max-width: 410px)
 	body

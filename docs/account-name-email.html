@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.00">
-	<title>Flormar - Checkout</title>
+	<title>Flormar - Account - Name/Email</title>
 
 	<!-- Custom styles -->
 	<link rel="stylesheet" href="./css/flormar.css">
@@ -613,245 +613,65 @@
 	</header>
 
 	<!-- Content start -->
-
-	<section class="checkout">
+	<section class="account_nav">
 		<div class="wrapper">
-			<h2 class="page_title">צ'ק-אאוט</h2>
-			<p class="products_in_cart">1 פריטים</p>
-			<div class="content">
-
-				<form id="customer_info">
-					<h5>כתובת למשלוח:</h5>
-					<div class="fields">
-						<label>
-							<p>שם ומשפחה</p>
-							<input id="name" type="text">
-						</label>
-						<label id="city_label">
-							<p>עיר</p>
-							<input id="city" type="text">
-							<svg class="flag" width="25" height="16">
-								<use xlink:href="./img/icons.svg#israel_flag"></use>
-							</svg>
-						</label>
-						<label>
-							<p>כתובת</p>
-							<input id="address_1" type="text" placeholder="רחוב">
-							<input id="address_2" type="text" placeholder="בית">
-							<input id="house_namber" type="text" placeholder="דירה">
-						</label>
-						<label>
-							<p>טלפון</p>
-							<input id="phone" type="tel">
-						</label>
-						<label>
-							<p>מספר טלפון נוסף לגיבוי</p>
-							<input id="phone_additional" type="tel">
-						</label>
-						<label>
-							<p>כתובת אימייל</p>
-							<input id="email" type="email">
-						</label>
-						<label>
-							<p>הערות למשלוח</p>
-							<textarea id="comment" placeholder="הוסף הערה פה..."></textarea>
-						</label>
-					</div>
-					<div class="submit_block">
-						<p class="terms">בלחיצה על הכפתור "לתשלום", אני מסכים עם <a href="#">תקנון</a> וקבלת מבצעים</p>
-						<button id="submit_order" type="submit">לתשלום</button>
-					</div>
-				</form>
-
-				<div class="cart_inners">
-					<p class="sale_info">*משלוח חינם בקנייה ב- 170 ש''ח ומעלה</p>
-					<form id="cart_info">
-						<div class="cart_info">
-							<p class="estimated">הגעה משוערת לביתך- 12.1.03</p>
-							<div class="cart_items">
-								<div class="cart_item">
-									<div class="thumb">
-										<img src="./img/other_color (1).jpg" alt="product_thumb">
-									</div>
-									<div class="product_name">
-										<h3>
-											<a href="./single-product.html">FLORMAR – SILK MATTE CHERRY ON TOP</a>
-										</h3>
-										<div class="model">
-											<div class="model_color" style="--model-color: #8d686e;"></div>
-											<div class="model_name"> LAPINS 032</div>
-										</div>
-									</div>
-									<div class="quantity">
-										<p>כמות:</p>
-										<div class="manage_quantity">
-											<button class="quantity_increase" type="button">&#43;</button>
-											<input class="single_product_quantity" type="number" min="1" max="99">
-											<button class="quantity_decrease" type="button">&#8722;</button>
-										</div>
-									</div>
-									<p class="price">₪49,90</p>
-									<button class="remove_item" role="button">
-										<svg width="15" height="15">
-											<use xlink:href="./img/icons.svg#cross"></use>
-										</svg>
-									</button>
-									<div class="item_bg"></div>
-								</div>
-								<div class="cart_item">
-									<div class="thumb">
-										<img src="./img/other_color (1).jpg" alt="product_thumb">
-									</div>
-									<div class="product_name">
-										<h3>
-											<a href="./single-product.html">FLORMAR – SILK MATTE CHERRY ON TOP</a>
-										</h3>
-										<div class="model">
-											<div class="model_color" style="--model-color: #8d686e;"></div>
-											<div class="model_name"> LAPINS 032</div>
-										</div>
-									</div>
-									<div class="quantity">
-										<p>כמות:</p>
-										<div class="manage_quantity">
-											<button class="quantity_increase" type="button">&#43;</button>
-											<input class="single_product_quantity" type="number" min="1" max="99">
-											<button class="quantity_decrease" type="button">&#8722;</button>
-										</div>
-									</div>
-									<p class="price">₪49,90</p>
-									<button class="remove_item" role="button">
-										<svg width="15" height="15">
-											<use xlink:href="./img/icons.svg#cross"></use>
-										</svg>
-									</button>
-									<div class="item_bg"></div>
-								</div>
-								<div class="cart_item">
-									<div class="thumb">
-										<img src="./img/other_color (1).jpg" alt="product_thumb">
-									</div>
-									<div class="product_name">
-										<h3>
-											<a href="./single-product.html">FLORMAR – SILK MATTE CHERRY ON TOP</a>
-										</h3>
-										<div class="model">
-											<div class="model_color" style="--model-color: #8d686e;"></div>
-											<div class="model_name"> LAPINS 032</div>
-										</div>
-									</div>
-									<div class="quantity">
-										<p>כמות:</p>
-										<div class="manage_quantity">
-											<button class="quantity_increase" type="button">&#43;</button>
-											<input class="single_product_quantity" type="number" min="1" max="99">
-											<button class="quantity_decrease" type="button">&#8722;</button>
-										</div>
-									</div>
-									<p class="price">₪49,90</p>
-									<button class="remove_item" role="button">
-										<svg width="15" height="15">
-											<use xlink:href="./img/icons.svg#cross"></use>
-										</svg>
-									</button>
-									<div class="item_bg"></div>
-								</div>
-								<div class="cart_item">
-									<div class="thumb">
-										<img src="./img/other_color (1).jpg" alt="product_thumb">
-									</div>
-									<div class="product_name">
-										<h3>
-											<a href="./single-product.html">FLORMAR – SILK MATTE CHERRY ON TOP</a>
-										</h3>
-										<div class="model">
-											<div class="model_color" style="--model-color: #8d686e;"></div>
-											<div class="model_name"> LAPINS 032</div>
-										</div>
-									</div>
-									<div class="quantity">
-										<p>כמות:</p>
-										<div class="manage_quantity">
-											<button class="quantity_increase" type="button">&#43;</button>
-											<input class="single_product_quantity" type="number" min="1" max="99">
-											<button class="quantity_decrease" type="button">&#8722;</button>
-										</div>
-									</div>
-									<p class="price">₪49,90</p>
-									<button class="remove_item" role="button">
-										<svg width="15" height="15">
-											<use xlink:href="./img/icons.svg#cross"></use>
-										</svg>
-									</button>
-									<div class="item_bg"></div>
-								</div>
-								<div class="cart_item">
-									<div class="thumb">
-										<img src="./img/other_color (1).jpg" alt="product_thumb">
-									</div>
-									<div class="product_name">
-										<h3>
-											<a href="./single-product.html">FLORMAR – SILK MATTE CHERRY ON TOP</a>
-										</h3>
-										<div class="model">
-											<div class="model_color" style="--model-color: #8d686e;"></div>
-											<div class="model_name"> LAPINS 032</div>
-										</div>
-									</div>
-									<div class="quantity">
-										<p>כמות:</p>
-										<div class="manage_quantity">
-											<button class="quantity_increase" type="button">&#43;</button>
-											<input class="single_product_quantity" type="number" min="1" max="99">
-											<button class="quantity_decrease" type="button">&#8722;</button>
-										</div>
-									</div>
-									<p class="price">₪49,90</p>
-									<button class="remove_item" role="button">
-										<svg width="15" height="15">
-											<use xlink:href="./img/icons.svg#cross"></use>
-										</svg>
-									</button>
-									<div class="item_bg"></div>
-								</div>
-							</div>
-							<p class="order_details_title">סיכום הזמנה</p>
-							<div class="order_details">
-								<div class="coupon">
-									<button id="toggle_coupon_field" role="button">
-										קוד קופון
-										<svg width="5" height="10"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
-									</button>
-									<div class="coupon_field">
-										<input id="coupon_code" type="text" placeholder="קוד קופון">
-										<button id="apply_coupon">החלת קופון</button>
-									</div>
-								</div>
-								<div class="summary">
-									<div class="summary_price">
-										<p>סה"כ:</p>
-										<p id="summary_price" class="price">₪49,90</p>
-									</div>
-									<p class="free_delivery_info">*משלוח חינם בקנייה ב- 170 ש''ח ומעלה</p>
-									<p class="delivery_price">עלות משלוח: 20 ש"ח</p>
-								</div>
-								<div class="summary_plus_delivery">
-									<p>סה"כ כולל משלוח:</p>
-									<p id="summary_plus_delivery" class="price">₪79,90</p>
-								</div>
-							</div>
-						</div>
-						<div class="submit_block">
-							<p class="terms">בלחיצה על הכפתור "לתשלום", אני מסכים עם <a href="#">תקנון</a> וקבלת מבצעים</p>
-							<button id="submit_order" type="submit">לתשלום</button>
-						</div>
-					</form>
-				</div>
-
-			</div>
+			<h2>פרטי חשבון</h2>
+			<h3>Change Name / Email</h3>
+			<nav>
+				<h4 class="account_nav_header">
+					<span>פרטי חשבון</span>
+					<svg width="30" height="15">
+						<use xlink:href="./img/icons.svg#chevron_left"></use>
+					</svg>
+				</h4>
+				<ul class="account_links">
+					<li><a class="current" href="#">פרטי חשבון</a></li>
+					<li><a href="#">הזמנות</a></li>
+					<li><a href="#">כתובות</a></li>
+					<li><a href="#">Whishlist</a></li>
+					<li><a href="#">תשלום</a></li>
+				</ul>
+			</nav>
 		</div>
 	</section>
 
+	<section class="account_content name_email">
+		<div class="wrapper">
+			<form id="account_name_email" class="validation">
+
+				<div class="input_field">
+					<input id="name" type="text" placeholder="שמך הפרטי" required>
+					<label>שם פרטי</label>
+				</div>
+				<div class="input_field">
+					<input id="email" type="email" placeholder="כתובת אימייל">
+					<label>כתובת אימייל</label>
+				</div>
+				<div class="input_field">
+					<input id="tel" type="tel" placeholder="מס' הטלפון שלך">
+					<label>טלפון</label>
+				</div>
+
+				<h3>שינוי סיסמא</h3>
+
+				<div class="input_field">
+					<input id="password_current" type="password" placeholder="סיסמה נוכחית(כדי להשאיר ללא שינוי יש להשאיר ריק)">
+					<label>סיסמה נוכחית</label>
+				</div>
+				<div class="input_field">
+					<input id="password_new" type="password" placeholder="אורך סיסמה של לפחות 6 אותיות באנגלית, מספרים או תווים">
+					<label>סיסמה חדשה</label>
+				</div>
+				<div class="input_field">
+					<input id="password_new_repeat" type="password" placeholder="יש לאשר את הסיסמה החדשה">
+					<label>סיסמה חדשה</label>
+				</div>
+
+				<button type="submit" disabled>םייוניש תרימש</button>
+
+			</form>
+		</div>
+	</section>
 	<!-- Content end -->
 
 	<footer id="main_footer">
