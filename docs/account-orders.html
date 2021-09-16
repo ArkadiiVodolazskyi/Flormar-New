@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.00">
+	<title>Flormar - Account - Order history</title>
+
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="./css/flormar.css">
+	<!-- <link rel="stylesheet" href="./css/flormar.min.css"> -->
+</head>
+<body>
+
+	<a href="#" class="sale_line">
+		לעמו ח''ש 169 -ב היינקב םניח חולשמ
+	</a>
+
+	<header id="main_header">
+		<div class="wrapper">
+			<button id="expand_mobile_menu">
+				<svg class="hamb" width="26" height="18">
+					<use xlink:href="./img/icons.svg#hamb"></use>
+				</svg>
+			</button>
+			<a href="./index.html" class="main_logo">
+				<svg width="155" height="35">
+					<use xlink:href="./img/icons.svg#logo_flormar"></use>
+				</svg>
+			</a>
+			<nav>
+				<ul class="main_links">
+					<li class="show_mobile"><a href="./archive-product.html?tag=new">שדח</a></li>
+					<li class="show_mobile"><a href="./archive-product.html?tag=bestsellers">BEST SELLERS</a></li>
+					<li class="show_mobile"><a href="./archive-product.html?tag=makeup">איפור</a></li>
+					<li><a href="#">טיפוח</a></li>
+					<li><a href="#">אקססוריז</a></li>
+					<li><a href="#">OUTLET</a></li>
+					<li><a href="#">צור קשר</a></li>
+					<li><a href="#">חנויות FLORMAR</a></li>
+				</ul>
+			</nav>
+
+			<ul class="manage_icons">
+				<li class="favs"><a href="#">
+					<svg width="24" height="24">
+						<use xlink:href="./img/icons.svg#heart"></use>
+					</svg>
+				</a></li>
+				<li class="search">
+					<button id="open_search_modal"><svg width="19" height="19">
+						<use xlink:href="./img/icons.svg#search"></use>
+					</svg></button>
+				</li>
+				<li class="account"><a href="#">
+					<svg width="20" height="20">
+						<use xlink:href="./img/icons.svg#person"></use>
+					</svg>
+				</a></li>
+				<li><a href="#">
+					<svg width="20" height="20">
+						<use xlink:href="./img/icons.svg#bag"></use>
+					</svg>
+				</a></li>
+			</ul>
+
+			<div id="main_megamenu" class="main_megamenu">
+				<div class="mega_item">
+					<img class="megaitem_img" src="./img/menu_lipstick.jpg" alt="lipstick">
+					<div class="item_block">
+						<h4><a href="#">םינפ</a></h4>
+						<ul>
+							<li><a href="#">רמיירפ</a></li>
+							<li><a href="#">פאקיימ</a></li>
+							<li><a href="#">רליסנוק</a></li>
+							<li><a href="#">הרדופ</a></li>
+							<li><a href="#">רוטנוקו רטילייה</a></li>
+							<li><a href="#">רזנורב</a></li>
+							<li><a href="#">קמוס</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייתפש</a></h4>
+						<ul>
+							<li><a href="#">םייתפש רמירפ</a></li>
+							<li><a href="#">ןותפש</a></li>
+							<li><a href="#">םלאב</a></li>
+							<li><a href="#">סולג</a></li>
+							<li><a href="#">םייתפש ןורפיע</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייניע</a></h4>
+						<ul>
+							<li><a href="#">רנילייא</a></li>
+							<li><a href="#">תובג</a></li>
+							<li><a href="#">הרקסמ</a></li>
+							<li><a href="#">םייניע ןורפיע</a></li>
+							<li><a href="#">תויללצ</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םיינרופיצ</a></h4>
+						<ul>
+							<li><a href="#">קל</a></li>
+							<li><a href="#">שביימ / ריסמ</a></li>
+							<li><a href="#">ןרופיצ חופיט</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="mega_item">
+					<img class="megaitem_img" src="./img/menu_lipstick.jpg" alt="lipstick">
+					<div class="item_block">
+						<h4><a href="#">םינפ</a></h4>
+						<ul>
+							<li><a href="#">רמיירפ</a></li>
+							<li><a href="#">פאקיימ</a></li>
+							<li><a href="#">רליסנוק</a></li>
+							<li><a href="#">הרדופ</a></li>
+							<li><a href="#">רוטנוקו רטילייה</a></li>
+							<li><a href="#">רזנורב</a></li>
+							<li><a href="#">קמוס</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייניע</a></h4>
+						<ul>
+							<li><a href="#">רנילייא</a></li>
+							<li><a href="#">תובג</a></li>
+							<li><a href="#">הרקסמ</a></li>
+							<li><a href="#">םייניע ןורפיע</a></li>
+							<li><a href="#">תויללצ</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םיינרופיצ</a></h4>
+						<ul>
+							<li><a href="#">קל</a></li>
+							<li><a href="#">שביימ / ריסמ</a></li>
+							<li><a href="#">ןרופיצ חופיט</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="mega_item">
+					<img class="megaitem_img" src="./img/menu_lipstick.jpg" alt="lipstick">
+					<div class="item_block">
+						<h4><a href="#">םינפ</a></h4>
+						<ul>
+							<li><a href="#">רמיירפ</a></li>
+							<li><a href="#">פאקיימ</a></li>
+							<li><a href="#">רליסנוק</a></li>
+							<li><a href="#">הרדופ</a></li>
+							<li><a href="#">רוטנוקו רטילייה</a></li>
+							<li><a href="#">רזנורב</a></li>
+							<li><a href="#">קמוס</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םינפ</a></h4>
+						<ul>
+							<li><a href="#">רמיירפ</a></li>
+							<li><a href="#">פאקיימ</a></li>
+							<li><a href="#">רליסנוק</a></li>
+							<li><a href="#">הרדופ</a></li>
+							<li><a href="#">רוטנוקו רטילייה</a></li>
+							<li><a href="#">רזנורב</a></li>
+							<li><a href="#">קמוס</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייתפש</a></h4>
+						<ul>
+							<li><a href="#">םייתפש רמירפ</a></li>
+							<li><a href="#">ןותפש</a></li>
+							<li><a href="#">םלאב</a></li>
+							<li><a href="#">סולג</a></li>
+							<li><a href="#">םייתפש ןורפיע</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייניע</a></h4>
+						<ul>
+							<li><a href="#">רנילייא</a></li>
+							<li><a href="#">תובג</a></li>
+							<li><a href="#">הרקסמ</a></li>
+							<li><a href="#">םייניע ןורפיע</a></li>
+							<li><a href="#">תויללצ</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םיינרופיצ</a></h4>
+						<ul>
+							<li><a href="#">קל</a></li>
+							<li><a href="#">שביימ / ריסמ</a></li>
+							<li><a href="#">ןרופיצ חופיט</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="mega_item">
+					<img class="megaitem_img" src="./img/menu_lipstick.jpg" alt="lipstick">
+					<div class="item_block">
+						<h4><a href="#">םינפ</a></h4>
+						<ul>
+							<li><a href="#">רמיירפ</a></li>
+							<li><a href="#">פאקיימ</a></li>
+							<li><a href="#">רליסנוק</a></li>
+							<li><a href="#">הרדופ</a></li>
+							<li><a href="#">רוטנוקו רטילייה</a></li>
+							<li><a href="#">רזנורב</a></li>
+							<li><a href="#">קמוס</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייתפש</a></h4>
+						<ul>
+							<li><a href="#">םייתפש רמירפ</a></li>
+							<li><a href="#">ןותפש</a></li>
+							<li><a href="#">םלאב</a></li>
+							<li><a href="#">סולג</a></li>
+							<li><a href="#">םייתפש ןורפיע</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייניע</a></h4>
+						<ul>
+							<li><a href="#">רנילייא</a></li>
+							<li><a href="#">תובג</a></li>
+							<li><a href="#">הרקסמ</a></li>
+							<li><a href="#">םייניע ןורפיע</a></li>
+							<li><a href="#">תויללצ</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םיינרופיצ</a></h4>
+						<ul>
+							<li><a href="#">קל</a></li>
+							<li><a href="#">שביימ / ריסמ</a></li>
+							<li><a href="#">ןרופיצ חופיט</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="mega_item">
+					<img class="megaitem_img" src="./img/menu_lipstick.jpg" alt="lipstick">
+					<div class="item_block">
+						<h4><a href="#">םינפ</a></h4>
+						<ul>
+							<li><a href="#">רמיירפ</a></li>
+							<li><a href="#">פאקיימ</a></li>
+							<li><a href="#">רליסנוק</a></li>
+							<li><a href="#">הרדופ</a></li>
+							<li><a href="#">רוטנוקו רטילייה</a></li>
+							<li><a href="#">רזנורב</a></li>
+							<li><a href="#">קמוס</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייניע</a></h4>
+						<ul>
+							<li><a href="#">רנילייא</a></li>
+							<li><a href="#">תובג</a></li>
+							<li><a href="#">הרקסמ</a></li>
+							<li><a href="#">םייניע ןורפיע</a></li>
+							<li><a href="#">תויללצ</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םיינרופיצ</a></h4>
+						<ul>
+							<li><a href="#">קל</a></li>
+							<li><a href="#">שביימ / ריסמ</a></li>
+							<li><a href="#">ןרופיצ חופיט</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="mega_item">
+					<img class="megaitem_img" src="./img/menu_lipstick.jpg" alt="lipstick">
+					<div class="item_block">
+						<h4><a href="#">םינפ</a></h4>
+						<ul>
+							<li><a href="#">רמיירפ</a></li>
+							<li><a href="#">פאקיימ</a></li>
+							<li><a href="#">רליסנוק</a></li>
+							<li><a href="#">הרדופ</a></li>
+							<li><a href="#">רוטנוקו רטילייה</a></li>
+							<li><a href="#">רזנורב</a></li>
+							<li><a href="#">קמוס</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םינפ</a></h4>
+						<ul>
+							<li><a href="#">רמיירפ</a></li>
+							<li><a href="#">פאקיימ</a></li>
+							<li><a href="#">רליסנוק</a></li>
+							<li><a href="#">הרדופ</a></li>
+							<li><a href="#">רוטנוקו רטילייה</a></li>
+							<li><a href="#">רזנורב</a></li>
+							<li><a href="#">קמוס</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייתפש</a></h4>
+						<ul>
+							<li><a href="#">םייתפש רמירפ</a></li>
+							<li><a href="#">ןותפש</a></li>
+							<li><a href="#">םלאב</a></li>
+							<li><a href="#">סולג</a></li>
+							<li><a href="#">םייתפש ןורפיע</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייניע</a></h4>
+						<ul>
+							<li><a href="#">רנילייא</a></li>
+							<li><a href="#">תובג</a></li>
+							<li><a href="#">הרקסמ</a></li>
+							<li><a href="#">םייניע ןורפיע</a></li>
+							<li><a href="#">תויללצ</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םיינרופיצ</a></h4>
+						<ul>
+							<li><a href="#">קל</a></li>
+							<li><a href="#">שביימ / ריסמ</a></li>
+							<li><a href="#">ןרופיצ חופיט</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="mega_item">
+					<img class="megaitem_img" src="./img/menu_lipstick.jpg" alt="lipstick">
+					<div class="item_block">
+						<h4><a href="#">םינפ</a></h4>
+						<ul>
+							<li><a href="#">רמיירפ</a></li>
+							<li><a href="#">פאקיימ</a></li>
+							<li><a href="#">רליסנוק</a></li>
+							<li><a href="#">הרדופ</a></li>
+							<li><a href="#">רוטנוקו רטילייה</a></li>
+							<li><a href="#">רזנורב</a></li>
+							<li><a href="#">קמוס</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייתפש</a></h4>
+						<ul>
+							<li><a href="#">םייתפש רמירפ</a></li>
+							<li><a href="#">ןותפש</a></li>
+							<li><a href="#">םלאב</a></li>
+							<li><a href="#">סולג</a></li>
+							<li><a href="#">םייתפש ןורפיע</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייניע</a></h4>
+						<ul>
+							<li><a href="#">רנילייא</a></li>
+							<li><a href="#">תובג</a></li>
+							<li><a href="#">הרקסמ</a></li>
+							<li><a href="#">םייניע ןורפיע</a></li>
+							<li><a href="#">תויללצ</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םיינרופיצ</a></h4>
+						<ul>
+							<li><a href="#">קל</a></li>
+							<li><a href="#">שביימ / ריסמ</a></li>
+							<li><a href="#">ןרופיצ חופיט</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="mega_item">
+					<img class="megaitem_img" src="./img/menu_lipstick.jpg" alt="lipstick">
+					<div class="item_block">
+						<h4><a href="#">םינפ</a></h4>
+						<ul>
+							<li><a href="#">רמיירפ</a></li>
+							<li><a href="#">פאקיימ</a></li>
+							<li><a href="#">רליסנוק</a></li>
+							<li><a href="#">הרדופ</a></li>
+							<li><a href="#">רוטנוקו רטילייה</a></li>
+							<li><a href="#">רזנורב</a></li>
+							<li><a href="#">קמוס</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םייניע</a></h4>
+						<ul>
+							<li><a href="#">רנילייא</a></li>
+							<li><a href="#">תובג</a></li>
+							<li><a href="#">הרקסמ</a></li>
+							<li><a href="#">םייניע ןורפיע</a></li>
+							<li><a href="#">תויללצ</a></li>
+						</ul>
+					</div>
+					<div class="item_block">
+						<h4><a href="#">םיינרופיצ</a></h4>
+						<ul>
+							<li><a href="#">קל</a></li>
+							<li><a href="#">שביימ / ריסמ</a></li>
+							<li><a href="#">ןרופיצ חופיט</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<header id="mobile_header">
+		<div class="log_status">
+			<span class="name">!אבה ךורב</span>
+			<button class="loginout">המשרה / תורבחתה</button>
+		</div>
+		<div class="logo_wrapper">
+			<a href="./index.html" class="logo_mobile">
+				<svg width="94" height="21">
+					<use xlink:href="./img/icons.svg#logo_flormar"></use>
+				</svg>
+			</a>
+		</div>
+		<nav>
+			<ul class="main_links_mobile">
+				<li>
+					<a href="#">שדח</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">BEST SELLERS</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">רופיא</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">חופיט</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">זירוססקא</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">OUTLET</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">רשק רוצ</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+				<li>
+					<a href="#">FLORMAR תויונח</a>
+					<button class="expand_item">
+						<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+					</button>
+				</li>
+			</ul>
+			<div class="sub_links_mobile">
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">שדח</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+						<li><a href="#">חופיט</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">BEST SELLERS</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+						<li><a href="#">חופיט</a></li>
+						<li><a href="#">זירוססקא</a></li>
+						<li><a href="#">OUTLET</a></li>
+						<li><a href="#">זירוססקא</a></li>
+						<li><a href="#">OUTLET</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">רופיא</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">חופיט</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+						<li><a href="#">חופיט</a></li>
+						<li><a href="#">זירוססקא</a></li>
+						<li><a href="#">OUTLET</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">זירוססקא</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+						<li><a href="#">חופיט</a></li>
+						<li><a href="#">זירוססקא</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">OUTLET</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+						<li><a href="#">חופיט</a></li>
+						<li><a href="#">זירוססקא</a></li>
+						<li><a href="#">OUTLET</a></li>
+						<li><a href="#">חופיט</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">רשק רוצ</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+					</ul>
+				</div>
+				<div class="sub_links_block">
+					<h6>
+						<button class="back">
+							<svg width="8" height="15"><use xlink:href="./img/icons.svg#chevron_left"></use></svg>
+						</button>
+						<a href="#">FLORMAR תויונח</a>
+					</h6>
+					<ul>
+						<li><a href="#">שדח</a></li>
+						<li><a href="#">BEST SELLERS</a></li>
+						<li><a href="#">רופיא</a></li>
+						<li><a href="#">זירוססקא</a></li>
+						<li><a href="#">OUTLET</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="contacts_mobile">
+			<h6>ליצור קשר בבית</h6>
+			<ul>
+				<li><a href="#">
+					<svg width="17" height="21">
+						<use xlink:href="./img/icons.svg#mapmarker"></use>
+					</svg>
+					<span>Find Stores</span>
+				</a></li>
+				<li><a href="tel:1234567890">
+					<svg width="16" height="19">
+						<use xlink:href="./img/icons.svg#phone"></use>
+					</svg>
+					<span>1234567890</span>
+				</a></li>
+			</ul>
+		</div>
+	</header>
+
+	<!-- Content start -->
+	<section class="account_nav">
+		<div class="wrapper">
+			<h2>תונמזה</h2>
+			<h3>Check the status of your orders or see past orders</h3>
+			<nav>
+				<h4 class="account_nav_header">
+					<span>פרטי חשבון</span>
+					<svg width="30" height="15">
+						<use xlink:href="./img/icons.svg#chevron_left"></use>
+					</svg>
+				</h4>
+				<ul class="account_links">
+					<li><a href="#">פרטי חשבון</a></li>
+					<li><a class="current" href="#">הזמנות</a></li>
+					<li><a href="#">כתובות</a></li>
+					<li><a href="#">Whishlist</a></li>
+					<li><a href="#">תשלום</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<section class="account_content overview">
+		<div class="wrapper">
+
+
+
+		</div>
+	</section>
+	<!-- Content end -->
+
+	<footer id="main_footer">
+		<div class="wrapper">
+			<a href="./index.html" class="logo_pink">
+				<svg width="94" height="21">
+					<use xlink:href="./img/icons.svg#logo_flormar"></use>
+				</svg>
+			</a>
+			<nav>
+				<ul>
+					<li><a href="#">תובושתו תולאש</a></li>
+					<li><a href="#">רמרולפ תויונח</a></li>
+					<li><a href="#">ןונקת</a></li>
+					<li><a href="#">תויטרפ תוינידמ</a></li>
+					<li><a href="#">החוטב הינק</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">םיחולשמ תוינידמ</a></li>
+					<li><a href="#">WISHLIST</a></li>
+					<li><a href="#">גולב</a></li>
+					<li><a href="#">גולברשק רוצ</a></li>
+					<li><a href="#">תושיגנ תרהצה</a></li>
+				</ul>
+			</nav>
+			<div class="sbcr_block">
+				<p>Subscribe to our newsletters</p>
+				<div class="email_field">
+					<input type="email" placeholder="Your Email">
+					<button id="subscribe_to_newsletter">
+						<svg width="22" height="12"><use xlink:href="./img/icons.svg#arrow_left"></use></svg>
+					</button>
+				</div>
+			</div>
+			<ul class="scl_icons">
+				<li><a href="#">
+					<svg width="36" height="36"><use xlink:href="./img/icons.svg#int"></use></svg>
+				</a></li>
+				<li><a href="#">
+					<svg width="17" height="27"><use xlink:href="./img/icons.svg#fc"></use></svg>
+				</a></li>
+				<li><a href="#">
+					<svg width="31" height="31"><use xlink:href="./img/icons.svg#youtube"></use></svg>
+				</a></li>
+			</ul>
+			<div class="copyright">
+				Copyright ® All rights reserved 2021
+			</div>
+		</div>
+	</footer>
+
+	<div id="overlay"></div>
+
+	<!-- Libs -->
+	<script src="./js/jquery-3.5.1.min.js"></script>
+	<script src="./js/slick.min.js"></script>
+	<script src="./libs/aos.js"></script>
+
+	<!-- Custom scripts -->
+	<script src="./js/main.js"></script>
+</body>
+</html>

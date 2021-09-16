@@ -1216,4 +1216,47 @@ section.account_content
 				color: $text-secondary
 			&:disabled
 				opacity: .2
+	.account_item
+		display: block
+		max-width: 800px
+		font-size: 18px
+		padding: 1em 0
+		border-bottom: 1px solid $bg-secondary
+		transition: all .4s ease
+		&:hover
+			background: rgba($interactive-color-primary, .1)
+			h6
+				color: $interactive-color-primary
+		h6
+			font-size: 1.3em
+			font-weight: 600
+			transition: all .4s ease
+		p
+			margin-top: .2em
+			font-size: 1em
+			line-height: 1.2
+			color: rgba($text-primary, .57)
+	#logout
+		display: block
+		max-width: 223px
+		text-align: center
+		margin-top: 40px
+		border: 1px solid $text-primary
+		font-size: 14px
+		padding: 12px
+		text-transform: uppercase
+		&:hover
+			border-color: $interactive-color-primary
+			background: $interactive-color-primary
+			color: $text-secondary
+
+
+
+
+
+
+
+
+
+
 

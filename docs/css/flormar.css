@@ -907,6 +907,20 @@ section.account_content form button[type=submit]:not(:disabled):hover { border-c
 
 section.account_content form button[type=submit]:disabled { opacity: .2; }
 
+section.account_content .account_item { display: block; max-width: 800px; font-size: 18px; padding: 1em 0; border-bottom: 1px solid #000000; transition: all .4s ease; }
+
+section.account_content .account_item:hover { background: rgba(251, 0, 146, 0.1); }
+
+section.account_content .account_item:hover h6 { color: #fb0092; }
+
+section.account_content .account_item h6 { font-size: 1.3em; font-weight: 600; transition: all .4s ease; }
+
+section.account_content .account_item p { margin-top: .2em; font-size: 1em; line-height: 1.2; color: rgba(0, 0, 0, 0.57); }
+
+section.account_content #logout { display: block; max-width: 223px; text-align: center; margin-top: 40px; border: 1px solid #000000; font-size: 14px; padding: 12px; text-transform: uppercase; }
+
+section.account_content #logout:hover { border-color: #fb0092; background: #fb0092; color: #ffffff; }
+
 footer#main_footer { background-color: #000000; color: #ffffff; }
 
 footer#main_footer .wrapper { padding: 45px 0; display: flex; justify-content: space-between; align-items: center; }
@@ -1077,7 +1091,8 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
   section.account_nav nav { order: -1; }
   section.account_nav .account_nav_header { display: flex; }
   section.account_nav .account_links { transition: all .3s linear; margin-top: 0; max-height: 0; opacity: 0; visibility: hidden; }
-  section.account_nav h2 { margin-top: 35px; } }
+  section.account_nav h2 { margin-top: 35px; }
+  section.account_content .account_item { font-size: 15px; } }
 
 @media (max-width: 480px) { .wrapper { width: 90%; }
   .breacrumbs { padding: 8px 0; }
@@ -1139,7 +1154,8 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
   section.checkout .cart_inners #cart_info .cart_item .quantity .manage_quantity input { width: 2em; }
   section.checkout .cart_inners #cart_info .cart_item .price { width: max-content; text-align: center; font-size: 16px; }
   section.account_nav .account_links { flex-wrap: wrap; justify-content: center; }
-  section.account_nav .account_links > * { max-width: unset; } }
+  section.account_nav .account_links > * { max-width: unset; }
+  section.account_content #logout { max-width: unset; } }
 
 @media (max-width: 410px) { body { padding-top: 116px; }
   #main_header .wrapper { height: 80px; }
