@@ -229,6 +229,7 @@ section.cosmetics_types
 			transform: translate(-50%, -50%)
 			min-width: 101%
 			min-height: 101%
+			max-width: 105%
 		.card_name
 			position: relative
 			z-index: 10
@@ -248,6 +249,8 @@ section.cosmetics_types
 
 section.achievements
 	background-color: $bg-medial
+	&.search_achievements
+		margin-bottom: 0 !important
 	.wrapper
 		padding: 60px 0 45px
 	.cards
@@ -754,7 +757,7 @@ section.catalog_products
 				transform: translate(-50%, -50%)
 				min-width: 101%
 				min-height: 101%
-	#load_more
+	#load_more, #show_more
 		width: max-content
 		margin: 65px auto 0
 		display: flex
@@ -1249,10 +1252,277 @@ section.account_content
 			border-color: $interactive-color-primary
 			background: $interactive-color-primary
 			color: $text-secondary
+	.orders
+		display: flex
+		justify-content: space-between
+		font-size: 20px
+		gap: 6em
+		.period
+			width: max-content
+			padding-top: .7em
+			h4
+				font-size: 1em
+			.manage
+				margin-top: 1em
+				display: flex
+				flex-direction: column
+				gap: 1em
+				button
+					font-size: 0.95em
+					text-align: right
+					&:hover, &.active
+						color: $interactive-color-primary
+			.manage_mobile
+				display: none
+		.results
+			flex-grow: 1
+			table
+				width: 100%
+				font-size: .8em
+				border-bottom: 1px solid $bg-secondary
+			th, td
+				text-align: center
+				padding: .7em
+				&:last-of-type
+					width: 8em
+					padding-left: 0
+			td
+				.mobile
+					display: none
+				&:nth-of-type(1) .mobile
+					text-align: right
+					span
+						color: #939393
+				&:nth-of-type(4) .mobile
+					.status
+						display: block
+						&.success
+							color: lightgreen
+						&.failed
+							color: red
+			th
+				font-weight: normal
+				&:last-of-type
+					color: $tsp
+			tbody tr.main_info
+				transition: all .3s ease
+				border-top: 1px solid $bg-secondary
+			.status
+				font-weight: 600
+				&.success
+					color: lightgreen
+				&.failed
+					color: red
+			.details
+				.details_main
+					transition: all .4s ease
+					opacity: 0
+					visibility: hidden
+					max-height: 0
+					padding: 0
+				&.active
+					&:last-child > td
+						padding-bottom: 1em
+					.details_main
+						opacity: 1
+						visibility: visible
+						max-height: 50em
+						padding: 1.5em
+						&::before
+							max-height: 1em
+					+ .main_info
+						border: none
+				> td
+					padding: 0
+			.open_details
+				padding-left: 0
+				text-align: left
+				button
+					padding: .7em 1.4em
+					display: inline-flex
+					justify-content: center
+					align-items: center
+					gap: .8em
+					background: rgba($interactive-color-primary, .5)
+					color: $text-secondary
+					svg
+						fill: $text-secondary
+						transform: rotate(-90deg)
+					&:hover
+						background: $interactive-color-primary
+					&.active
+						background: $interactive-color-primary
+						svg
+							transform: rotate(90deg)
+			.details_main
+				border: 1px solid $bg-medial-2
+				position: relative
+				&::before
+					content: ''
+					position: absolute
+					z-index: 10
+					left: 0
+					top: 0
+					right: 0
+					width: 100%
+					height: 1em
+					background: linear-gradient(90deg, rgba(176,119,152,1) 0%, rgba(162,190,194,1) 21%, rgba(100,163,168,1) 50%, rgba(251,0,146,1) 100%)
+					opacity: .3
+					transition: all .3s ease
+					max-height: 0
+			.cart_item
+				display: flex
+				justify-content: space-between
+				align-items: flex-start
+				gap: 1em
+				padding: 1em 0
+				position: relative
+				transition: all .4s ease
+				&:not(:first-child)
+					border-top: 1px solid $bg-medial-2
+				> *
+					flex-shrink: 0
+					&:not(:first-child)
+						padding-top: 1em
+				.thumb
+					width: 6em
+					height: 8em
+					position: relative
+					&:hover img
+						transform: translate(-50%, -50%) scale(1.05)
+					img
+						position: absolute
+						left: 50%
+						top: 50%
+						transform: translate(-50%, -50%)
+						max-width: 100%
+						max-height: 100%
+						transition: all .3s ease
+				.product_name
+					flex-grow: 1
+					max-width: 45%
+					text-align: right
+					h3
+						line-height: 1.2
+						a:hover
+							color: $interactive-color-primary
+					.model
+						margin-top: 0.5em
+						display: flex
+						align-items: center
+						gap: .5em
+					.model_color
+						width: 1.4em
+						height: 1.4em
+						border-radius: 50%
+						background: var(--model-color)
+					.model_name, .volume
+						font-weight: 500
+						font-size: .8em
+						color: rgba($text-primary, .3)
+					.volume
+						margin-top: 0.5em
+						font-size: .9em
+						direction: ltr
+				.quantity p, .price
+					font-size:  inherit
+					line-height: inherit
+					font-weight: 500
+				.quantity
+					flex-grow: 1
+			.details_summary
+				padding-top: 1em
+				position: relative
+				display: flex
+				align-items: flex-start
+				justify-content: space-between
+				gap: 1em
+				line-height: 2
+				&:after
+					content: ''
+					position: absolute
+					z-index: 100
+					left: 0
+					top: 0
+					right: 0
+					width: 100%
+					height: 1px
+					background-color: $bg-medial-2
+				.total
+					text-align: right
+					font-weight: 500
+					> *
+						display: flex
+						align-items: center
+						gap: 1em
+					.total_of
+						width: 6em
+				.customer_info
+					text-align: right
 
 
+// Search Results
 
+section.search_results
+	&.no_results
+		padding: 130px 0 70px
+		.wrapper
+			display: flex
+			flex-direction: column
+			align-items: center
+		.face
+			fill: $interactive-color-primary
+		h3
+			margin-top: 30px
+			font-size: 36px
+		p
+			margin-top: 12px
+			font-size: 24px
+		.popular_requests
+			width: 100%
+			margin-top: 30px
+			display: flex
+			justify-content: center
+			align-items: center
+			gap: 14px
+			a
+				flex-shrink: 0
+				flex-grow: 1
+				text-align: center
+				white-space: nowrap
+				font-size: 16px
+				padding: 8px 16px
+				color: #c4c4c4
+				border: 1px solid #c4c4c4
+				&:hover
+					color: $interactive-color-primary
+					border-color: $interactive-color-primary
+	.found_amount
+		font-size: 16px
+		color: rgba($text-primary, .5)
+		margin-top: 32px
+		text-align: center
 
+// Single Post
+
+section.single_post
+	padding-bottom: 100px
+	font-size: 16px
+	.thumbnail
+		font-size: 0
+		box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.15)
+		img
+			width: 100%
+			height: auto
+			min-height: 170px
+	.wrapper
+		max-width: 1100px
+		padding-top: 60px
+	.page_title
+		margin-bottom: 50px
+		font-size: 36px !important
+	.post_content p:not(:first-child)
+		margin-top: 1.5em
 
 
 

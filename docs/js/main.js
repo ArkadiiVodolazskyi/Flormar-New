@@ -856,4 +856,32 @@ window.addEventListener('load', () => {
 		}, true);
 	})();
 
+	// Toggle order details
+	(function() {
+		const open_details = document.querySelectorAll('.results .open_details button');
+		const details = document.querySelectorAll('.results .details');
+
+		if (open_details.length && details.length) {
+
+			for (let i = 0; i < open_details.length; i++) {
+				open_details[i].addEventListener('click', () => {
+					if (open_details[i].classList.contains('active')) {
+						open_details[i].classList.remove('active');
+						details[i].classList.remove('active');
+					} else {
+						open_details.forEach(btn => {
+							btn.classList.remove('active');
+						});
+						details.forEach(detail => {
+							detail.classList.remove('active');
+						});
+						open_details[i].classList.add('active');
+						details[i].classList.add('active');
+					}
+				}, true);
+			}
+
+		}
+	})();
+
 }, true);

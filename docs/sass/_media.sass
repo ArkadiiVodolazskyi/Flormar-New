@@ -46,6 +46,8 @@
 	section.products .card
 		max-width: 250px
 		margin: 0 2px
+	section.search_results.no_results .popular_requests
+		flex-wrap: wrap
 
 @media (max-width: 1024px)
 	body
@@ -223,6 +225,16 @@
 			button[type="submit"]
 				font-size: 16px
 				padding: 14px
+	section.search_results.no_results
+		padding: 40px 0
+	section.single_post
+		.wrapper
+			padding-top: 40px
+		.page_title
+			margin-bottom: 30px
+	section.account_content .orders
+		font-size: 18px
+		gap: 3em
 
 @media (max-width: 768px)
 	footer#main_footer
@@ -346,6 +358,46 @@
 			margin-top: 35px
 	section.account_content .account_item
 		font-size: 15px
+	section.search_results.no_results
+		h3
+			margin-top: 10px
+		p
+			margin-top: 0
+		.popular_requests
+			margin-top: 20px
+	section.account_content .orders
+		flex-direction: column
+		.period
+			width: 100%
+			padding: 0
+			.manage, h4
+				display: none
+			.manage_mobile
+				display: block
+		.results
+			width: 100%
+			table
+				thead
+					display: none
+				tbody tr.main_info:first-child
+					border-top: none
+				td
+					padding: .3em
+					&:nth-child(2), &:nth-child(3), &:nth-child(5)
+						display: none
+					&:nth-child(1)
+						width: 60%
+					&:nth-child(4), &:nth-child(6)
+						width: 20%
+				td
+					.mobile
+						display: block
+						+ span
+							display: none
+			.cart_item .quantity
+				flex-grow: 0
+			.details.active .details_main
+				padding: .5em 1em
 
 @media (max-width: 480px)
 	.wrapper
@@ -521,6 +573,32 @@
 			max-width: unset
 	section.account_content #logout
 		max-width: unset
+	section.search_results.no_results .popular_requests a
+		flex-grow: 0
+		width: calc( 50% - 7px )
+		font-size: 14px
+		padding: 8px 0
+	section.single_post
+		padding-bottom: 70px
+		.wrapper
+			max-width: 85%
+		.page_title
+			font-size: 30px !important
+	section.account_content .orders
+		font-size: 16px
+		.results
+			.details_summary .total .total_of
+				width: 5em
+			.cart_item
+				.thumb
+					width: 5em
+				.product_name h3 a
+					text-overflow: ellipsis
+					overflow: hidden
+					display: -webkit-box
+					-webkit-line-clamp: 2
+					-webkit-box-orient: vertical
+
 
 @media (max-width: 410px)
 	body
@@ -545,4 +623,7 @@
 		.tags
 			top: 10px
 			left: 10px
-
+	section.account_content .orders .results .details_summary
+		flex-direction: column
+		> *
+			width: 100%
