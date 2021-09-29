@@ -884,4 +884,54 @@ window.addEventListener('load', () => {
 		}
 	})();
 
+	// ------------ FAQ ------------
+
+	(function() {
+
+		const faq_block = document.querySelector('.faq_block');
+
+		if (!faq_block) {
+			return;
+		}
+
+		const catBtns = faq_block.querySelectorAll('.categories button');
+		const catContents = faq_block.querySelectorAll('.contents .category');
+
+		// Toggle categories
+		for (let i = 0; i < catBtns.length; i++) {
+			catBtns[i].addEventListener('click', () => {
+
+				catContents.forEach(catContent => {
+					catContent.classList.remove('active');
+				});
+				setTimeout(() => {
+					catContents[i].classList.add('active');
+				}, 400);
+
+				catBtns.forEach(catBtn => {
+					catBtn.classList.remove('active');
+				});
+				catBtns[i].classList.add('active');
+
+			}, true);
+		}
+
+		// Toggle questions
+		for (let i = 0; i < catContents.length; i++) {
+			const faqs = catContents[i].querySelectorAll('.faqs .faq');
+			const questions = catContents[i].querySelectorAll('.faqs .faq .question');
+
+			for (let j = 0; j < questions.length; j++) {
+				questions[j].addEventListener('click', () => {
+					faqs.forEach(faq => {
+						faq.classList.remove('active');
+					});
+					faqs[j].classList.add('active');
+				}, true);
+			}
+
+		}
+
+	})();
+
 }, true);

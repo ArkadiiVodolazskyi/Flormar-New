@@ -1523,6 +1523,73 @@ section.single_post
 		font-size: 36px !important
 	.post_content p:not(:first-child)
 		margin-top: 1.5em
+	.faq_block
+		display: flex
+		gap: 5em
+		line-height: 1.6em
+		.categories
+			display: flex
+			flex-direction: column
+			align-items: start
+			font-size: 1.2em
+			font-weight: 500
+			gap: .8em
+			text-align: left
+			button
+				text-decoration: underline
+				text-decoration-color: $tsp
+				text-decoration-thickness: 2px
+				&:hover, &.active
+					text-decoration-color: $text-primary
+		.contents
+			.category
+				transition: all .4s ease
+				opacity: 0
+				visibility: hidden
+				max-height: 0
+				position: relative
+				z-index: 0
+				&.active
+					opacity: 1
+					visibility: visible
+					max-height: 2000px
+					z-index: 1
+			h3
+				font-size: 1.8em
+			.faqs
+				margin-top: 1em
+			.faq
+				&:not(:first-child)
+					margin-top: 1em
+				&.active
+					.question
+						svg
+							transform: rotate(-90deg)
+					.answer
+						margin-top: 1em
+						opacity: 1
+						visibility: visible
+						max-height: 2000px
+			.question
+				display: flex
+				align-items: center
+				gap: 1em
+				cursor: pointer
+				user-select: none
+				h4
+					transition: all .3s ease
+				svg
+					fill: $bg-medial-2
+				&:hover
+					h4
+						color: $interactive-color-primary
+					svg
+						fill: $interactive-color-primary
+			.answer
+				transition: all .3s ease
+				opacity: 0
+				visibility: hidden
+				max-height: 0
 
 
 
