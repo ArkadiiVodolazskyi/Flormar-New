@@ -48,6 +48,13 @@
 		margin: 0 2px
 	section.search_results.no_results .popular_requests
 		flex-wrap: wrap
+	section.single_post .shops_block .shop
+		padding: 1.5em
+		gap: 1em 1.5em
+		.contacts
+			width: calc(40% - .75em)
+		.info
+			width: calc(60% - .75em)
 
 @media (max-width: 1024px)
 	body
@@ -235,6 +242,13 @@
 	section.account_content .orders
 		font-size: 18px
 		gap: 3em
+	section.single_post .shops_block
+		flex-direction: column
+		align-items: center
+		gap: 1.5em
+		.shop
+			width: 100%
+			max-width: 30em
 
 @media (max-width: 768px)
 	footer#main_footer
@@ -605,6 +619,16 @@
 					display: -webkit-box
 					-webkit-line-clamp: 2
 					-webkit-box-orient: vertical
+	section.single_post .shops_block .shop
+		font-size: 14px
+		padding: 1em
+		gap: 1em
+		.contacts
+			width: calc(45% - .75em)
+		.info
+			width: calc(55% - .75em)
+	section.not_found
+		font-size: 10px
 
 @media (max-width: 410px)
 	body

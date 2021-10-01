@@ -18,6 +18,8 @@ html.discroll body { overflow: hidden; }
 
 body { width: 100%; height: 100%; position: relative; z-index: 1; padding-top: 105px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
 
+body.not_found { padding-top: 0 !important; background-image: url(../img/404_bg.jpg); background-position: center; background-size: cover; background-repeat: no-repeat; height: 100vh; width: 100vw; overflow: hidden; }
+
 section { position: relative; z-index: 5; max-width: 100vw; overflow: hidden; }
 
 li, span, a { display: inline-block; }
@@ -1111,6 +1113,38 @@ section.single_post .faq_block .contents .question:hover svg { fill: #fb0092; }
 
 section.single_post .faq_block .contents .answer { transition: all .3s ease; opacity: 0; visibility: hidden; max-height: 0; }
 
+section.single_post .shops_block { display: flex; flex-wrap: wrap; gap: 2em; }
+
+section.single_post .shops_block .shop { width: calc(50% - 1em); border: 1px solid rgba(0, 0, 0, 0.15); padding: 1.5em 3em; display: flex; flex-wrap: wrap; gap: 1.5em 3em; }
+
+section.single_post .shops_block .title { width: 100%; text-align: center; font-size: 1.2em; }
+
+section.single_post .shops_block .contacts { width: calc(40% - 1.5em); }
+
+section.single_post .shops_block .contacts a { display: inline-flex; align-items: center; gap: 1em; font-weight: 500; white-space: nowrap; }
+
+section.single_post .shops_block .contacts a:not(:first-child) { margin-top: 1em; }
+
+section.single_post .shops_block .contacts a[href]:hover { color: #fb0092; }
+
+section.single_post .shops_block .contacts a[href]:hover svg { fill: #fb0092; }
+
+section.single_post .shops_block .contacts a svg { fill: #000000; }
+
+section.single_post .shops_block .info { width: calc(60% - 1.5em); }
+
+section.not_found { width: 100%; height: 100%; background: none; font-family: "FuturaBkBt", sans-serif; font-size: 14px; }
+
+section.not_found .wrapper { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2em; text-align: center; max-width: 500px; }
+
+section.not_found h2 { font-size: 14em; }
+
+section.not_found p { font-size: 1.7em; }
+
+section.not_found .go_back { font-size: 1.7em; text-transform: uppercase; text-decoration: underline; text-decoration-thickness: 2px; text-decoration-offset: 3px; }
+
+section.not_found .go_back:hover { color: #ffffff; }
+
 footer#main_footer { background-color: #000000; color: #ffffff; }
 
 footer#main_footer .wrapper { padding: 45px 0; display: flex; justify-content: space-between; align-items: center; }
@@ -1174,7 +1208,10 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
 @media (max-width: 1280px) { section.banner_main .slider_nav { padding: 10px 0; }
   section.banner_main .slick-dots { margin-top: 6px; }
   section.products .card, section.related_products .card, section.catalog_products .card { max-width: 250px; margin: 0 2px; }
-  section.search_results.no_results .popular_requests { flex-wrap: wrap; } }
+  section.search_results.no_results .popular_requests { flex-wrap: wrap; }
+  section.single_post .shops_block .shop { padding: 1.5em; gap: 1em 1.5em; }
+  section.single_post .shops_block .shop .contacts { width: calc(40% - .75em); }
+  section.single_post .shops_block .shop .info { width: calc(60% - .75em); } }
 
 @media (max-width: 1024px) { body { padding-top: 141px; }
   .wrapper { width: 85%; }
@@ -1239,7 +1276,9 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
   section.search_results.no_results { padding: 40px 0; }
   section.single_post .wrapper { padding-top: 40px; }
   section.single_post .page_title { margin-bottom: 30px; }
-  section.account_content .orders { font-size: 18px; gap: 3em; } }
+  section.account_content .orders { font-size: 18px; gap: 3em; }
+  section.single_post .shops_block { flex-direction: column; align-items: center; gap: 1.5em; }
+  section.single_post .shops_block .shop { width: 100%; max-width: 30em; } }
 
 @media (max-width: 768px) { footer#main_footer .wrapper { flex-direction: column; padding: 48px 0 35px; gap: 20px; }
   footer#main_footer .logo_pink { order: 1; }
@@ -1378,7 +1417,11 @@ footer#main_footer .copyright { display: none; font-family: "Rounded Mplus 1c", 
   section.account_content .orders { font-size: 16px; }
   section.account_content .orders .results .details_summary .total .total_of { width: 5em; }
   section.account_content .orders .results .cart_item .thumb { width: 5em; }
-  section.account_content .orders .results .cart_item .product_name h3 a { text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; } }
+  section.account_content .orders .results .cart_item .product_name h3 a { text-overflow: ellipsis; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  section.single_post .shops_block .shop { font-size: 14px; padding: 1em; gap: 1em; }
+  section.single_post .shops_block .shop .contacts { width: calc(45% - .75em); }
+  section.single_post .shops_block .shop .info { width: calc(55% - .75em); }
+  section.not_found { font-size: 10px; } }
 
 @media (max-width: 410px) { body { padding-top: 116px; }
   #main_header .wrapper { height: 80px; }
