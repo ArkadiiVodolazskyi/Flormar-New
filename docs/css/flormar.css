@@ -2,6 +2,11 @@
   50% { transform: scale(1.3); }
   100% { transform: scale(1); } }
 
+@keyframes beat_fade { 0% { transform: scale(1); }
+  25% { transform: scale(0.8); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(0); } }
+
 /* __________________ Reset styles __________________ */
 *, *::before, *::after { margin: 0; padding: 0; border: 0; font-size: 100%; color: inherit; box-sizing: border-box; line-height: inherit; font-smooth: always; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
@@ -344,6 +349,58 @@ select:focus, select:hover { border-color: #fb0092; }
 #mobile_header .contacts_mobile ul li a:hover { color: #fb0092; }
 
 #mobile_header .contacts_mobile ul li a:hover svg { fill: #fb0092; }
+
+#main_header .manage_icons li.search { position: relative; }
+
+#main_header .manage_icons li.search #open_search_modal.hide { animation: beat_fade .8s ease 1; }
+
+#main_header .manage_icons li.search .search_box { font-size: 12px; padding: 0; width: 40em; background: #ffffff; position: absolute; left: 100%; top: 0; transform: translate(-3.5em, -2px); display: flex; flex-direction: column; transition: all .5s ease; opacity: 0; visibility: hidden; max-width: 0; }
+
+#main_header .manage_icons li.search .search_box.active { opacity: 1; visibility: visible; max-width: 40em; }
+
+#main_header .manage_icons li.search .search_box.active #close_search_modal svg { transform: rotate(90deg); }
+
+#main_header .manage_icons li.search .search_box #close_search_modal { position: absolute; left: 0; top: 50%; transform: translate(8px, -50%); padding: 5px; display: inline-flex; align-items: center; justify-content: center; transition: all .3s ease; }
+
+#main_header .manage_icons li.search .search_box #close_search_modal svg { fill: #c4c4c4; }
+
+#main_header .manage_icons li.search .search_box #close_search_modal:hover svg { fill: #fb0092; }
+
+#main_header .manage_icons li.search .search_box .input_box { width: 100%; position: relative; }
+
+#main_header .manage_icons li.search .search_box .input_box input { width: 100%; font-weight: normal; font-size: 1.25em; padding: .9em 1.5em; }
+
+#main_header .manage_icons li.search .search_box .results_box { width: 100%; position: absolute; z-index: 500; top: 0; left: 0; transform: translate(0, 3.9em); background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.15); border-top: none; padding: 1.5em; box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.2); transition: all .3s ease-in-out; opacity: 0; visibility: hidden; }
+
+#main_header .manage_icons li.search .search_box .results_box.active { opacity: 1; visibility: visible; }
+
+#main_header .manage_icons li.search .search_box .results_box .cards { display: flex; flex-wrap: wrap; margin: 5px -10px; }
+
+#main_header .manage_icons li.search .search_box .results_box .card { margin: 5px; width: calc( 100% / 2 - 10px); display: flex; align-items: center; }
+
+#main_header .manage_icons li.search .search_box .results_box .card .thumb { display: inline-flex; align-items: center; justify-content: center; }
+
+#main_header .manage_icons li.search .search_box .results_box .card .thumb img { width: auto; height: auto; max-width: 6em; max-height: 8em; transition: all .3s ease; }
+
+#main_header .manage_icons li.search .search_box .results_box .card .thumb:hover img { transform: scale(1.05); }
+
+#main_header .manage_icons li.search .search_box .results_box .card .info > *:not(:first-child) { margin-top: .3em; }
+
+#main_header .manage_icons li.search .search_box .results_box .card .info .name { line-height: 1.2; }
+
+#main_header .manage_icons li.search .search_box .results_box .card .info .name:hover { color: #fb0092; }
+
+#main_header .manage_icons li.search .search_box .results_box .card .info .price { display: inline-flex; justify-content: space-between; align-items: center; font-weight: 500; }
+
+#main_header .manage_icons li.search .search_box .results_box .card .info .price .current { font-size: 1.25em; }
+
+#main_header .manage_icons li.search .search_box .results_box .card .info .price .old { margin-right: 1em; font-size: 1.1em; color: #c4c4c4; text-decoration: line-through; }
+
+#main_header .manage_icons li.search .search_box .results_box .card .info .sku { color: #c4c4c4; }
+
+#main_header .manage_icons li.search .search_box .results_box .show_all_results { width: 100%; padding: 10px; text-align: center; border: 1px solid #000000; }
+
+#main_header .manage_icons li.search .search_box .results_box .show_all_results:hover { background: #fb0092; color: #ffffff; border-color: #fb0092; }
 
 section.banner_main { position: relative; height: 32.6vw; max-height: 810px; }
 
@@ -979,6 +1036,8 @@ section.account_content .orders .results .status.success { color: lightgreen; }
 
 section.account_content .orders .results .status.failed { color: red; }
 
+section.account_content .orders .results .status.processing { color: orange; }
+
 section.account_content .orders .results .details .details_main { transition: all .4s ease; opacity: 0; visibility: hidden; max-height: 0; padding: 0; }
 
 section.account_content .orders .results .details.active:last-child > td { padding-bottom: 1em; }
@@ -1029,11 +1088,11 @@ section.account_content .orders .results .cart_item .product_name h3 a:hover { c
 
 section.account_content .orders .results .cart_item .product_name .model { margin-top: 0.5em; display: flex; align-items: center; gap: .5em; }
 
-section.account_content .orders .results .cart_item .product_name .model_color { width: 1.4em; height: 1.4em; border-radius: 50%; background: var(--model-color); }
+section.account_content .orders .results .cart_item .product_name .model .color img { width: 1.4em; height: 1.4em; border-radius: 50%; background: var(--model-color); }
 
-section.account_content .orders .results .cart_item .product_name .model_name, section.account_content .orders .results .cart_item .product_name .volume { font-weight: 500; font-size: .8em; color: rgba(0, 0, 0, 0.3); }
+section.account_content .orders .results .cart_item .product_name .model .name, section.account_content .orders .results .cart_item .product_name .model .volume { font-weight: 500; font-size: .8em; color: rgba(0, 0, 0, 0.3); }
 
-section.account_content .orders .results .cart_item .product_name .volume { margin-top: 0.5em; font-size: .9em; direction: ltr; }
+section.account_content .orders .results .cart_item .product_name .model .volume { margin-top: 0.5em; font-size: .9em; direction: ltr; }
 
 section.account_content .orders .results .cart_item .quantity p, section.account_content .orders .results .cart_item .price { font-size: inherit; line-height: inherit; font-weight: 500; }
 

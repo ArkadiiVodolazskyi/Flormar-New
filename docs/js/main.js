@@ -939,7 +939,6 @@ window.addEventListener('load', () => {
 		const show_signup = document.getElementById('show_signup');
 		const show_signin = document.getElementById('show_signin');
 		const forms_tape = document.getElementById('forms_tape');
-		console.log(show_signup, show_signin, forms_tape);
 
 		if (!show_signup && !show_signin && !forms_tape) { return; }
 
@@ -956,6 +955,45 @@ window.addEventListener('load', () => {
 			setTimeout(() => {
 				forms_tape.classList.remove('show_signin');
 			}, 100);
+		}, true);
+	})();
+
+	// ------------ Search ------------
+	(function() {
+
+		// Toggle search bar
+
+		const search_box = document.querySelector('#main_header .manage_icons .search_box');
+		const search_box_open = document.querySelector('#main_header .manage_icons #open_search_modal');
+		const search_box_close = document.querySelector('#main_header .manage_icons #close_search_modal');
+
+		if ( !search_box || !search_box_open || !search_box_close ) { return; }
+
+		search_box_open.addEventListener('click', () => {
+			search_box_open.classList.add('hide');
+			setTimeout(() => {
+				search_box.classList.add('active');
+			}, 200);
+			setTimeout(() => {
+				search_box_open.classList.remove('hide');
+			}, 600);
+		}, true);
+		search_box_close.addEventListener('click', () => {
+			search_box.classList.remove('active');
+		}, true);
+
+		// Toggle results box
+
+		const results_box = document.querySelector('#main_header .manage_icons .results_box');
+		const search_input = document.querySelector('#main_header .manage_icons .input_box input');
+
+		if ( !results_box || !search_input ) { return; }
+
+		search_input.addEventListener('focus', () => {
+			results_box.classList.add('active');
+		}, true);
+		search_input.addEventListener('blur', () => {
+			results_box.classList.remove('active');
 		}, true);
 	})();
 
