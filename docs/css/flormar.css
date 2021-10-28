@@ -125,7 +125,7 @@ textarea { height: 15em; max-height: 15em; resize: none; }
 
 .input_field_animated.active label::before { transform: translate(-50%, -50%) scale(1); }
 
-.checkbox { display: block; font-size: 14px; padding-right: 2em; color: rgba(0, 0, 0, 0.8); cursor: pointer; transition: all .4s ease; }
+.checkbox { display: block; font-size: 14px; padding-right: 2.1em; color: rgba(0, 0, 0, 0.8); cursor: pointer; transition: all .4s ease; }
 
 .checkbox:hover span::before { background: rgba(251, 0, 146, 0.1); border-color: #fb0092; }
 
@@ -143,7 +143,9 @@ textarea { height: 15em; max-height: 15em; resize: none; }
 
 .checkbox span::after { content: ''; position: absolute; z-index: 6; right: -2em; top: 50%; -webkit-transform: translate(0, -50%); transform: translate(0, -50%); width: 1.4em; height: 1.4em; background: url(../img/ico_check.svg) no-repeat center; -webkit-transition: all .1s linear; transition: all .1s linear; opacity: 0; }
 
-select { width: 100%; max-width: 400px; padding: .5em 0; border-bottom: 1px solid #000000; }
+select { width: 100%; max-width: 400px; padding: .5em 0; border: 1px solid rgba(0, 0, 0, 0.15); cursor: pointer; border-radius: 2px; padding-right: 2.3em; padding: .8em 1em; font-size: 1em; transition: all .4s ease; background: #00000000; }
+
+select:focus, select:hover { border-color: #fb0092; }
 
 @font-face { font-family: 'FuturaBookC'; src: url("../fonts/Futura/FuturaDemiC.eot"); src: local("Futura Demi Cyrillic"), local("FuturaDemiC"), url("../fonts/Futura/FuturaDemiC.eot?#iefix") format("embedded-opentype"), url("../fonts/Futura/FuturaDemiC.woff") format("woff"), url("../fonts/Futura/FuturaDemiC.ttf") format("truetype"); font-weight: normal; font-style: normal; font-display: swap; }
 
@@ -1144,6 +1146,90 @@ section.not_found p { font-size: 1.7em; }
 section.not_found .go_back { font-size: 1.7em; text-transform: uppercase; text-decoration: underline; text-decoration-thickness: 2px; text-decoration-offset: 3px; }
 
 section.not_found .go_back:hover { color: #ffffff; }
+
+section.signin_signup { font-size: 20px; }
+
+section.signin_signup .wrapper { width: 88.5%; margin-left: 0; display: flex; align-items: flex-start; }
+
+section.signin_signup .image { width: 50vw; flex-shrink: 0; height: 60vw; max-height: 50em; overflow: hidden; }
+
+section.signin_signup .image img { width: 100%; height: auto; }
+
+section.signin_signup .sign_content { width: 100%; font-size: .75em; padding: 3em 0 3em 4em; overflow: hidden; }
+
+section.signin_signup .change_btns { display: flex; align-items: center; font-size: 1em; }
+
+section.signin_signup .change_btns button { flex: 1 0 auto; padding: 1em; text-transform: uppercase; font-weight: 500; border: 1px solid rgba(0, 0, 0, 0.15); }
+
+section.signin_signup .change_btns button:hover { background: rgba(251, 0, 146, 0.3); }
+
+section.signin_signup .change_btns button.active { border-color: #fb0092; background: #fb0092; color: #ffffff; }
+
+section.signin_signup .change_forms { margin-top: 2em; }
+
+section.signin_signup .change_forms .forms_tape { display: flex; align-items: flex-start; transition: all .3s ease; }
+
+section.signin_signup .change_forms .forms_tape.show_signin { transform: translateX(100%); }
+
+section.signin_signup .change_forms .forms_tape.show_signin form#form_signup { opacity: 0; visibility: hidden; }
+
+section.signin_signup .change_forms .forms_tape.show_signin form#form_signin { opacity: 1; visibility: visible; }
+
+section.signin_signup .change_forms .forms_tape > * { width: 100%; flex-shrink: 0; }
+
+section.signin_signup .change_forms form { display: flex; flex-wrap: wrap; justify-content: space-between; transition: all .3s ease; opacity: 0; visibility: hidden; }
+
+section.signin_signup .change_forms form > *:not(:first-child) { margin-top: 1em; }
+
+section.signin_signup .change_forms form#form_signup { opacity: 1; visibility: visible; }
+
+section.signin_signup .change_forms form label { width: 100%; display: block; }
+
+section.signin_signup .change_forms form label p { font-size: 1em; margin-bottom: .5em; padding-right: 0.1em; }
+
+section.signin_signup .change_forms form label[title="Required field"] p::after { content: '*'; margin-right: .2em; color: red; font-weight: bold; }
+
+section.signin_signup .change_forms form label input { padding: .7em 1em; }
+
+section.signin_signup .change_forms form label.select { width: calc(100% / 3 - 1em); }
+
+section.signin_signup .change_forms form button[type="submit"] { background: #000000; color: #ffffff; padding: 1em; width: 100%; }
+
+section.signin_signup .change_forms form button[type="submit"]:hover { background: #fb0092; }
+
+section.signin_signup .change_forms form .forgot_password { margin: .8em auto 0; font-size: .9em; color: #c4c4c4; text-decoration: underline; }
+
+section.signin_signup .change_forms form .forgot_password:hover { color: #fb0092; }
+
+section.signin_signup .change_forms form .login_or { width: 100%; }
+
+section.signin_signup .change_forms form .login_or .or { display: flex; align-items: center; flex: 0 1 auto; }
+
+section.signin_signup .change_forms form .login_or .or::before, section.signin_signup .change_forms form .login_or .or::after { content: ''; background: rgba(0, 0, 0, 0.15); height: 1px; width: 100%; flex: 1 1 auto; }
+
+section.signin_signup .change_forms form .login_or .or::before { margin-left: 1em; }
+
+section.signin_signup .change_forms form .login_or .or::after { margin-right: 1em; }
+
+section.signin_signup .change_forms form .login_or a { margin-top: 1em; padding: 1em; width: 100%; display: flex; align-items: center; justify-content: center; }
+
+section.signin_signup .change_forms form .login_or a svg { margin-right: .7em; }
+
+section.signin_signup .change_forms form .login_or.login_or_fc a { background: #daedf6; border: 1px solid #4baad2; }
+
+section.signin_signup .change_forms form .login_or.login_or_fc a span { color: #4baad2; font-weight: 500; }
+
+section.signin_signup .change_forms form .login_or.login_or_fc a svg { stroke: #4baad2; fill: #4baad2; }
+
+section.signin_signup .change_forms form .login_or.login_or_fc a:hover { background: #4baad2; }
+
+section.signin_signup .change_forms form .login_or.login_or_fc a:hover span { color: #ffffff; }
+
+section.signin_signup .change_forms form .login_or.login_or_fc a:hover svg { stroke: #ffffff; fill: #ffffff; }
+
+section.signin_signup .change_forms form .login_or.login_or_pass a { border: 1px solid #000000; }
+
+section.signin_signup .change_forms form .login_or.login_or_pass a:hover { background: #000000; color: #ffffff; }
 
 footer#main_footer { background-color: #000000; color: #ffffff; }
 

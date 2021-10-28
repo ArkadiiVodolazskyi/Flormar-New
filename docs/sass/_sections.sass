@@ -1313,6 +1313,8 @@ section.account_content
 					color: lightgreen
 				&.failed
 					color: red
+				&.processing
+					color: orange
 			.details
 				.details_main
 					transition: all .4s ease
@@ -1411,19 +1413,19 @@ section.account_content
 						display: flex
 						align-items: center
 						gap: .5em
-					.model_color
-						width: 1.4em
-						height: 1.4em
-						border-radius: 50%
-						background: var(--model-color)
-					.model_name, .volume
-						font-weight: 500
-						font-size: .8em
-						color: rgba($text-primary, .3)
-					.volume
-						margin-top: 0.5em
-						font-size: .9em
-						direction: ltr
+						.color img
+							width: 1.4em
+							height: 1.4em
+							border-radius: 50%
+							background: var(--model-color)
+						.name, .volume
+							font-weight: 500
+							font-size: .8em
+							color: rgba($text-primary, .3)
+						.volume
+							margin-top: 0.5em
+							font-size: .9em
+							direction: ltr
 				.quantity p, .price
 					font-size:  inherit
 					line-height: inherit
@@ -1654,7 +1656,149 @@ section.not_found
 		&:hover
 			color: $text-secondary
 
+// Sign In / Sign Up
 
-
+section.signin_signup
+	font-size: 20px
+	.wrapper
+		width: 88.5%
+		margin-left: 0
+		display: flex
+		align-items: flex-start
+	.image
+		width: 50vw
+		flex-shrink: 0
+		height: 60vw
+		max-height: 50em
+		overflow: hidden
+		img
+			width: 100%
+			height: auto
+	.sign_content
+		width: 100%
+		font-size: .75em
+		padding: 3em 0 3em 4em
+		overflow: hidden
+	.change_btns
+		display: flex
+		align-items: center
+		font-size: 1em
+		button
+			flex: 1 0 auto
+			padding: 1em
+			text-transform: uppercase
+			font-weight: 500
+			border: 1px solid $bg-medial-2
+			&:hover
+				background: rgba($interactive-color-primary, .3)
+			&.active
+				border-color: $interactive-color-primary
+				background: $interactive-color-primary
+				color: $text-secondary
+	.change_forms
+		margin-top: 2em
+		.forms_tape
+			display: flex
+			align-items: flex-start
+			transition: all .3s ease
+			&.show_signin
+				form#form_signup
+					opacity: 0
+					visibility: hidden
+				form#form_signin
+					opacity: 1
+					visibility: visible
+				transform: translateX(100%)
+			> *
+				width: 100%
+				flex-shrink: 0
+		form
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			transition: all .3s ease
+			opacity: 0
+			visibility: hidden
+			> *:not(:first-child)
+				margin-top: 1em
+			&#form_signup
+				opacity: 1
+				visibility: visible
+			label
+				width: 100%
+				display: block
+				p
+					font-size: 1em
+					margin-bottom: .5em
+					padding-right: 0.1em
+				&[title="Required field"] p::after
+					content: '*'
+					margin-right: .2em
+					color: red
+					font-weight: bold
+				input
+					padding: .7em 1em
+				&.select
+					width: calc(100% / 3 - 1em)
+			button[type="submit"]
+				background: $bg-secondary
+				color: $text-secondary
+				padding: 1em
+				width: 100%
+				&:hover
+					background: $interactive-color-primary
+			.forgot_password
+				margin: .8em auto 0
+				font-size: .9em
+				color: $bg-medial-3
+				text-decoration: underline
+				&:hover
+					color: $interactive-color-primary
+			.login_or
+				width: 100%
+				.or
+					display: flex
+					align-items: center
+					flex: 0 1 auto
+					&::before, &::after
+						content: ''
+						background: $bg-medial-2
+						height: 1px
+						width: 100%
+						flex: 1 1 auto
+					&::before
+						margin-left: 1em
+					&::after
+						margin-right: 1em
+				a
+					margin-top: 1em
+					padding: 1em
+					width: 100%
+					display: flex
+					align-items: center
+					justify-content: center
+					svg
+						margin-right: .7em
+				&.login_or_fc a
+					background: lighten($lblue, 35%)
+					border: 1px solid $lblue
+					span
+						color: $lblue
+						font-weight: 500
+					svg
+						stroke: $lblue
+						fill: $lblue
+					&:hover
+						background: $lblue
+						span
+							color: $text-secondary
+						svg
+							stroke: $text-secondary
+							fill: $text-secondary
+				&.login_or_pass a
+					border: 1px solid $text-primary
+					&:hover
+						background: $bg-secondary
+						color: $text-secondary
 
 

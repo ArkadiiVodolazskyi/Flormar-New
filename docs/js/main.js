@@ -934,4 +934,29 @@ window.addEventListener('load', () => {
 
 	})();
 
+	// ------------ Sign In / Sign Up ------------
+	(function() {
+		const show_signup = document.getElementById('show_signup');
+		const show_signin = document.getElementById('show_signin');
+		const forms_tape = document.getElementById('forms_tape');
+		console.log(show_signup, show_signin, forms_tape);
+
+		if (!show_signup && !show_signin && !forms_tape) { return; }
+
+		show_signin.addEventListener('click', () => {
+			show_signup.classList.remove('active');
+			show_signin.classList.add('active');
+			setTimeout(() => {
+				forms_tape.classList.add('show_signin');
+			}, 100);
+		}, true);
+		show_signup.addEventListener('click', () => {
+			show_signin.classList.remove('active');
+			show_signup.classList.add('active');
+			setTimeout(() => {
+				forms_tape.classList.remove('show_signin');
+			}, 100);
+		}, true);
+	})();
+
 }, true);
