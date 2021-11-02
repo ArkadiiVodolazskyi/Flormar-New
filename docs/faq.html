@@ -53,7 +53,7 @@
 					<button id="open_search_modal"><svg width="19" height="19">
 						<use xlink:href="./img/icons.svg#search"></use>
 					</svg></button>
-					<div class="search_box active">
+					<div id="search_box">
 						<div class="input_box">
 							<input id="search_input" type="text">
 							<button id="close_search_modal"><svg width="15" height="15">
@@ -74,7 +74,7 @@
 											<p class="current">₪25.00</p>
 											<p class="old">₪49.90</p>
 										</div>
-										<p class="sku">330-2222486</p>
+										<p class="sku">Caramel 003</p>
 									</div>
 								</div>
 								<div class="card">
@@ -89,7 +89,7 @@
 											<p class="current">₪25.00</p>
 											<p class="old">₪49.90</p>
 										</div>
-										<p class="sku">330-2222486</p>
+										<p class="sku">Caramel 003</p>
 									</div>
 								</div>
 								<div class="card">
@@ -104,7 +104,7 @@
 											<p class="current">₪25.00</p>
 											<p class="old">₪49.90</p>
 										</div>
-										<p class="sku">330-2222486</p>
+										<p class="sku">Caramel 003</p>
 									</div>
 								</div>
 								<div class="card">
@@ -119,7 +119,7 @@
 											<p class="current">₪25.00</p>
 											<p class="old">₪49.90</p>
 										</div>
-										<p class="sku">330-2222486</p>
+										<p class="sku">Caramel 003</p>
 									</div>
 								</div>
 							</div>
@@ -958,6 +958,68 @@
 	</footer>
 
 	<div id="overlay"></div>
+
+	<div id="search_box_mobile">
+		<div class="input_box">
+			<input id="search_input" type="text">
+			<button id="close_search_modal_mobile"><svg width="10" height="18">
+				<use xlink:href="./img/icons.svg#chevron_left"></use>
+			</svg></button>
+			<button id="clear_search_field_mobile"><svg width="12" height="12">
+				<use xlink:href="./img/icons.svg#cross"></use>
+			</svg></button>
+		</div>
+		<div class="results_box">
+			<div class="cards">
+				<div class="card">
+					<a class="thumb" href="#">
+						<img src="./img/product_1.png" alt="product thumb">
+					</a>
+					<div class="info">
+						<h4 class="name">
+							<a href="#">FLORMAR - METALLIC LIP CHARMER MATTE</a>
+						</h4>
+						<div class="price">
+							<p class="current">₪25.00</p>
+							<p class="old">₪49.90</p>
+						</div>
+						<p class="sku">Caramel 003</p>
+					</div>
+				</div>
+				<div class="card">
+					<a class="thumb" href="#">
+						<img src="./img/product_1.png" alt="product thumb">
+					</a>
+					<div class="info">
+						<h4 class="name">
+							<a href="#">FLORMAR - METALLIC LIP CHARMER MATTE</a>
+						</h4>
+						<div class="price">
+							<p class="current">₪25.00</p>
+							<p class="old">₪49.90</p>
+						</div>
+						<p class="sku">Caramel 003</p>
+					</div>
+				</div>
+				<div class="card">
+					<a class="thumb" href="#">
+						<img src="./img/product_1.png" alt="product thumb">
+					</a>
+					<div class="info">
+						<h4 class="name">
+							<a href="#">FLORMAR - METALLIC LIP CHARMER MATTE</a>
+						</h4>
+						<div class="price">
+							<p class="current">₪25.00</p>
+							<p class="old">₪49.90</p>
+						</div>
+						<p class="sku">Caramel 003</p>
+					</div>
+				</div>
+			</div>
+			<a class="show_all_results" href="#">SHOW ALL RESULTS</a>
+		</div>
+	</div>
 
 	<!-- Libs -->
 	<script src="./js/jquery-3.5.1.min.js"></script>
